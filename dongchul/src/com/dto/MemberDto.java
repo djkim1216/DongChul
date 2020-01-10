@@ -9,7 +9,8 @@ public class MemberDto {
 	public MemberDto(String chul, String dong) {
 		this.chul=chul;
 		this.dong=dong;
-		System.out.println("kkdgdsfh");
+		System.out.println("kkdgdasdsfh");
+		
 	}
 	
 
