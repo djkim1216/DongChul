@@ -11,10 +11,7 @@ var tripReviewMain = function(){
 		},
 		dataType : "html",
 		success : function(document){
-			$(document).each(function(i){
-				console.log($(document).eq(i));
-				$("#contents").append($(document).eq(i));
-			});
+			$("#contents").append($(document)[5]);
 		}
 	});
 };

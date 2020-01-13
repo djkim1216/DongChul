@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap')
+	;
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.list_view {
+	background-color: red;
+	width: 62%;
+	height: 512px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.list_view>div:nth-child(1) {
+	height: 48%;
+	margin-bottom: 2%;
+}
+
+.list_view>div:nth-child(2) {
+	height: 48%;
+	margin-top: 2%;
+}
+
+.view_item {
+	width: 22%;
+	height: 100%;
+	margin-right: 4%;
+	float: left;
+	background-size: 100% 100%;
+}
+
+.view_item:nth-child(4), .view_item:nth-child(8) {
+	margin-right: 0;
+}
+
+.view_content {
+	background-color: #FFFFFF95;
+	border-radius: 0% 0% 7% 7%;
+	height: 30%;
+	margin: 3.5% 3.5% 3.5% 3.5%;
+	top: 64%;
+	position: relative;
+}
+
+.view_title {
+	ffont-size: 13pt;
+    color: #454C4F;
+    font-weight: 600;
+    letter-spacing: 1pt;
+}
+
+.view_teamid {
+	font-size: 10pt;
+	color: #454C4F;
+	float: left;
+}
+
+.view_date {
+	float : right;
+	font-size: 10pt;
+	color: #454C4F;
+}
+
+.view_count{
+	clear: right;
+}
+hr {
+	border: 0.3px solid #C1C6C8
+}
