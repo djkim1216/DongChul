@@ -5,8 +5,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<style type="text/css">
+	
+		.body{
+			height:400px;
+		}
+	
+		.review{
+			border: 1px dotted black;
+			width:20%;
+			height:40%;
+			float:left;
+		}
+	
+	</style>
 </head>
 <body>
 
+		<div class="body">
+<%
+		for(int i=0; i<8; i++){
+%>
+			<div class="review"></div>
+<%
+	}
+%>
+		</div>
+	
 </body>
 </html>
