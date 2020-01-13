@@ -1,6 +1,7 @@
 package com.trip.controller.review;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.json.JSONParser;
+import org.apache.tomcat.util.json.JSONParserTokenManager;
+
 import com.trip.biz.review.TripReviewBiz;
 import com.trip.biz.review.TripReviewBizImpl;
 import com.trip.biz.review.TripReviewContentsBiz;
@@ -17,6 +21,7 @@ import com.trip.biz.review.TripReviewContentsBizImpl;
 import com.trip.biz.review.TripReviewViewBiz;
 import com.trip.biz.review.TripReviewViewBizImpl;
 import com.trip.dao.review.TripReviewViewDaoImpl;
+import com.trip.dto.review.TripReviewViewDto;
 
 /**
  * Servlet implementation class TripReviewServlet
@@ -25,7 +30,7 @@ import com.trip.dao.review.TripReviewViewDaoImpl;
  * TripReview + TripReviewContents
  * 
  */
-@WebServlet({"/tripReviewList","/TripReviewView"})
+@WebServlet({"/TripReviewList","/TripReviewView"})
 public class TripReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,11 +56,11 @@ public class TripReviewServlet extends HttpServlet {
 
 		String uri = request.getRequestURI();
 		
-		if(uri.endsWith("TripReviewView")) {
-			go(request,response,"TripReviewView.jsp");
-		} else if(uri.endsWith("tripReviewList")) {
+		if(uri.endsWith("TripReviewList")) {
+			go(request,response,"TripReviewList.jsp");
+		} else if(uri.endsWith("TripReviewView")) {
 			tripReviewList(request,response);
-			go(request,response,"tripReviewMainView.jsp");
+			go(request,response,"TripReviewView.jsp");
 		}
 	}
 
@@ -68,7 +73,8 @@ public class TripReviewServlet extends HttpServlet {
 		TripReviewViewBiz tripReviewViewBiz = new TripReviewViewBizImpl();
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
-		request.setAttribute("tripReviewView_List", tripReviewViewBiz.selectList(start, end));
+		List<TripReviewViewDto> list = tripReviewViewBiz.selectList(start, end);
+		request.setAttribute("tripReviewView_List", list);
 	}
 	
 }
