@@ -21,6 +21,7 @@ create table TRIPREVIEW (
 
 -- 내용 테스트
 INSERT INTO TRIPREVIEW VALUES(TRIPREVIEW_ID.NEXTVAL, 0, 'testTitle', sysdate, null, 0, 'N')
+INSERT INTO TRIPREVIEW VALUES(TRIPREVIEW_ID.NEXTVAL, 1, 'testTitle2', sysdate, null, 0, 'N')
 
 -- 여행 후기 내용
 
@@ -39,7 +40,23 @@ create table TRIPREVIEW_CONTENTS(
 	CONSTRAINTS TVC_TVNO_CONSTRANTS FOREIGN KEY(TVC_TVNO) REFERENCES TRIPREVIEW(TV_NO)
 );
 
+-- 여행 후기 메인 읽기
+
+create view TRIPREIVEW_MAIN_VIEW as
+select tv.tv_no, tv.TV_TEAMID, tv.tv_title, tv.tv_date, tv.tv_count, tvc.tvc_no, tvc.tvc_path, cr.cr_path
+from tripreview tv
+left outer join TRIPREVIEW_CONTENTS tvc on ( tv.tv_no = tvc.tvc_tvno )
+left outer join categoryreview_read cr on ( tvc.tvc_reviewid = cr.cr_no )
+
+-- 테스트 내용
+
 INSERT INTO TRIPREVIEW_CONTENTS VALUES(TRIPREVIEW_CONTENTS_ID.NEXTVAL, 1, 1, 1, NULL, '으아아악', NULL, SYSDATE, NULL)
+INSERT INTO TRIPREVIEW_CONTENTS VALUES(TRIPREVIEW_CONTENTS_ID.NEXTVAL, 1, 1, 1, NULL, '으아아악1', NULL, SYSDATE, NULL)
+INSERT INTO TRIPREVIEW_CONTENTS VALUES(TRIPREVIEW_CONTENTS_ID.NEXTVAL, 1, 1, 1, NULL, '으아아악2', NULL, SYSDATE, NULL)
+INSERT INTO TRIPREVIEW_CONTENTS VALUES(TRIPREVIEW_CONTENTS_ID.NEXTVAL, 1, 1, 1, NULL, '으아아악3', 'images/1/ddfsfsf', SYSDATE, NULL);
+INSERT INTO TRIPREVIEW_CONTENTS VALUES(TRIPREVIEW_CONTENTS_ID.NEXTVAL, 1, 1, 1, NULL, '으아아악4', 'images/1/ddfsfasdsf', SYSDATE, NULL);
 
 UPDATE TRIPREVIEW_CONTENTS SET TVC_PATH = 'images/TripReviewContents/1/bg.jpg' where tvc_no = 1
+
+select * from TRIPREIVEW_MAIN_VIEW;
 

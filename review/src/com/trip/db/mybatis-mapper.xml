@@ -41,4 +41,8 @@
 	DELETE FROM TRIPREVIEW_CONTENTS WHERE TVC_NO = #{tvc_tvno}
 	</delete>
 	
+<!--  tripReviewMainViewSQL -->
+	<select id="tripReviewMainView_List" resultType="tripReviewMainViewDto">
+	select * from TRIPREIVEW_MAIN_VIEW;
+	</select>
 </mapper>
