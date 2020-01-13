@@ -41,8 +41,10 @@
 	DELETE FROM TRIPREVIEW_CONTENTS WHERE TVC_NO = #{tvc_tvno}
 	</delete>
 	
-<!--  tripReviewMainViewSQL -->
-	<select id="tripReviewMainView_List" resultType="tripReviewMainViewDto">
-	select * from TRIPREIVEW_MAIN_VIEW;
+<!--  tripReviewViewSQL -->
+	<select id="tripReviewView_List" resultType="tripReviewViewDto" parameterType="hashMap">
+	select tv_no,tv_teamid, tv_title, tv_date, tv_count, tvc_no, tvc_path, cr_path, nvl2(tvc_path,null,nvl2(cr_path,null,'images/default.jpg')) default_path  from TRIPREIVEW_MAIN_VIEW where (tv_no, nvl(tvc_no,0)) in
+	(select tv_no, max(nvl(tvc_no,0)) from TRIPREIVEW_MAIN_VIEW where tvc_path is not null or cr_path is not null group by tv_no union 
+	select tv_no, max(nvl(tvc_no,0)) from TRIPREIVEW_MAIN_VIEW where tvc_path is null and cr_path is null and tv_no not in (select tv_no from TRIPREIVEW_MAIN_VIEW where tvc_path is not null or cr_path is not null group by tv_no) group by tv_no) and tv_no between #{start} and #{end} order by tv_no
 	</select>
 </mapper>
