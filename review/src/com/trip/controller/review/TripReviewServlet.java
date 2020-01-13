@@ -22,7 +22,7 @@ import com.trip.biz.review.TripReviewContentsBizImpl;
  * TripReview + TripReviewContents
  * 
  */
-@WebServlet({"/tripreview"})
+@WebServlet({"/tripReviewMain"})
 public class TripReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,8 +46,11 @@ public class TripReviewServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String uri = request.getRequestURI();
 		
-		
+		if(uri.endsWith("tripReviewMain")) {
+			
+		}
 	}
 
 }

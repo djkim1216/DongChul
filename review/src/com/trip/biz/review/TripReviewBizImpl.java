@@ -1,6 +1,7 @@
 package com.trip.biz.review;
 
 import java.util.List;
+import java.util.Map;
 
 import com.trip.dao.review.TripReivewDaoImpl;
 import com.trip.dao.review.TripReviewDao;
@@ -15,7 +16,7 @@ public class TripReviewBizImpl implements TripReviewBiz{
 
 		return tripReviewDao.selectAll();
 	}
-
+	
 	@Override
 	public TripReviewDto select(int tv_no) {
 		// TODO Auto-generated method stub
