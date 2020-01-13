@@ -27,28 +27,43 @@ public class TripReviewContentsDaoImpl extends SqlMapConfig implements TripRevie
 
 	@Override
 	public TripReviewContentsDto select(int tvc_no) {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = getSqlSessionFactory().openSession();
+		TripReviewContentsDto tripReviewContentsDto = session.selectOne(namespace+"tripReviewContents_Select");
+		session.close();
+		return tripReviewContentsDto;
 	}
 
 	@Override
 	public int insert(TripReviewContentsDto tripReviewContentsDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		SqlSession session = getSqlSessionFactory().openSession();
+		num = session.insert(namespace + "tripReviewContents_Insert", tripReviewContentsDto);
+		if(num >0) {
+			session.commit();
+		}
+		session.close();
+		return num;
 	}
 
 	@Override
 	public int modify(TripReviewContentsDto tripReviewContentsDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		SqlSession session = getSqlSessionFactory().openSession();
+		num = session.update(namespace + "tripReviewContents_Update", tripReviewContentsDto);
+		if(num >0) {
+			session.commit();
+		}
+		session.close();
+		return num;
 	}
 
 	@Override
 	public int delete(int tvc_no) {
-		// TODO Auto-generated method stub
-		return 0;
+		SqlSession session = getSqlSessionFactory().openSession();
+		num = session.delete(namespace + "tripReviewContents_Delete", tvc_no);
+		if(num >0) {
+			session.commit();
+		}
+		session.close();
+		return num;
 	}
-
-	
 	
 }

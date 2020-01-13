@@ -19,25 +19,25 @@ public class TripReviewContentsBizImpl implements TripReviewContentsBiz {
 	@Override
 	public TripReviewContentsDto select(int tvc_no) {
 		// TODO Auto-generated method stub
-		return null;
+		return tripReviewContentsDao.select(tvc_no);
 	}
 
 	@Override
 	public int insert(TripReviewContentsDto tripReviewContentsDto) {
 		// TODO Auto-generated method stub
-		return 0;
+		return tripReviewContentsDao.insert(tripReviewContentsDto);
 	}
 
 	@Override
 	public int modify(TripReviewContentsDto tripReviewContentsDto) {
 		// TODO Auto-generated method stub
-		return 0;
+		return tripReviewContentsDao.modify(tripReviewContentsDto);
 	}
 
 	@Override
 	public int delete(int tvc_no) {
 		// TODO Auto-generated method stub
-		return 0;
+		return tripReviewContentsDao.delete(tvc_no);
 	}
 
 	

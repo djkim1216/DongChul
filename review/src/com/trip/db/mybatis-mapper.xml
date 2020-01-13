@@ -28,5 +28,17 @@
 	<select id="tripReviewContents_List" resultType="tripReviewContentsDto" parameterType="hashMap">
 	SELECT * FROM TRIPREVIEW_CONTENTS WHERE TVC_TVNO = #{tvc_tvno} and TVC_DAY = #{tvc_day} ORDER BY TVC_DATE ASC
 	</select>
+	<select id="tripReviewContents_Select" resultType="tripReviewContentsDto" parameterType="int">
+	SELECT * FROM TRIPREVIEW_CONTENTS WHERE TVC_NO = #{tvc_no}
+	</select>
+	<insert id="tripReviewContents_Insert" parameterType="tripReviewContentsDto">
+	INSERT INTO TRIPREVIEW_CONTENTS VALUES(TRIPREVIEW_CONTENTS_ID.NEXTVAL, #{tvc_tvno}, #{tvc_day}, #{tvc_routeid}, #{tvc_reviewid}, #{tvc_contents}, #{tvc_path}, SYSDATE, NULL)
+	</insert>
+	<update id="tripReviewContents_Update" parameterType="tripReviewContentsDto">
+	UPDATE TRIPREVIEW_CONTENTS SET TVC_CONTENTS = #{tvc_contents} and TVC_MODIFYDATE = sysdate WHERE TVC_NO = #{tvc_tvno}
+	</update>
+	<delete id="tripReviewContents_Delete" parameterType="int">
+	DELETE FROM TRIPREVIEW_CONTENTS WHERE TVC_NO = #{tvc_tvno}
+	</delete>
 	
 </mapper>

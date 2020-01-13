@@ -8,14 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.trip.biz.review.TripReviewBiz;
 import com.trip.biz.review.TripReviewBizImpl;
+import com.trip.biz.review.TripReviewContentsBiz;
+import com.trip.biz.review.TripReviewContentsBizImpl;
 
 /**
  * Servlet implementation class TripReviewServlet
+ * 
+ * 
+ * TripReview + TripReviewContents
+ * 
  */
-@WebServlet({"/TripReviewServlet"})
+@WebServlet({"/tripreview"})
 public class TripReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,13 +46,7 @@ public class TripReviewServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=utf-8");
 		
-		TripReviewBiz tripReviewBiz = new TripReviewBizImpl();
-		request.setAttribute("tripReviewList", tripReviewBiz.selectAll());
-		RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
-		dispatch.forward(request, response);
 		
 	}
 
