@@ -45,4 +45,13 @@
 	<select id="tripReviewMainView_List" resultType="tripReviewMainViewDto">
 	select * from TRIPREIVEW_MAIN_VIEW;
 	</select>
+	
+<!-- userKeyword-->
+	<select id="" resultType="">
+		select count(*) from keyword
+		where id = #{} and word=#{}
+	</select>
+	<update id="" parameterType="">
+	
+	</update>
 </mapper>
