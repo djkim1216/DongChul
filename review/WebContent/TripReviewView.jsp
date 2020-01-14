@@ -33,32 +33,50 @@
 					<c:if test="${num.index == 0 }">
 						<div>
 					</c:if>
-					<div class="view_item" style="background-image : url('${path}');">
-						<div class="view_content">
-							<p><span class="view_title">${dto.tv_title}</span></p>
-							<hr/>
-							<p><span class="view_teamid">${dto.tv_teamid}</span><span class="view_date"><fmt:formatDate value="${dto.tv_date}" pattern="yyyy/MM/dd"/></span></p>
-							<p><span class="view_count"><span></span>${dto.tv_count}</span></p>
-						</div>
-					</div>
+					<a href=""><div class="view_item"
+							style="background-image : url('${path}');">
+							<div class="view_content">
+								<p>
+									<span class="view_title">${dto.tv_title}</span>
+								</p>
+								<hr />
+								<p>
+									<span class="view_teamid">${dto.tv_teamid}</span><span
+										class="view_date"><fmt:formatDate
+											value="${dto.tv_date}" pattern="yyyy/MM/dd" /></span>
+								</p>
+								<p>
+									<span class="view_count"><span></span>${dto.tv_count}</span>
+								</p>
+							</div>
+						</div></a>
 					<c:if test="${empty dto or num.index == 3}">
 	</div>
 	</c:if>
 	</c:when>
 	<c:otherwise>
-			<c:if test="${num.index == 4 }">
-				<div>
-			</c:if>
-			<div class="view_item" style="background-image : url('${path}');">
-						<div class="view_content">
-							<p><span class="view_title">${dto.tv_title}</span></p>
-							<hr/>
-							<p><span class="view_teamid">${dto.tv_teamid}</span><span class="view_date"><fmt:formatDate value="${dto.tv_date}" pattern="yyyy/MM/dd"/></span></p>
-							<p><span class="view_count"><span></span>${dto.tv_count}</span></p>
-						</div>
-					</div>
-			<c:if test="${empty dto or num.index == 7}">
-		</div>
+		<c:if test="${num.index == 4 }">
+			<div>
+		</c:if>
+		<a href=""><div class="view_item"
+				style="background-image : url('${path}');">
+				<div class="view_content">
+					<p>
+						<span class="view_title">${dto.tv_title}</span>
+					</p>
+					<hr />
+					<p>
+						<span class="view_teamid">${dto.tv_teamid}</span><span
+							class="view_date"><fmt:formatDate value="${dto.tv_date}"
+								pattern="yyyy/MM/dd" /></span>
+					</p>
+					<p>
+						<span class="view_count"><span></span>${dto.tv_count}</span>
+					</p>
+				</div>
+			</div></a>
+		<c:if test="${empty dto or num.index == 7}">
+			</div>
 		</c:if>
 	</c:otherwise>
 	</c:choose>

@@ -15,11 +15,12 @@ public class TripReviewViewDaoImpl extends SqlMapConfig implements TripReviewVie
 	private int num;
 	
 	@Override
-	public List<TripReviewViewDto> selectList(int start, int end) {
+	public List<TripReviewViewDto> selectList(String start, String end, String keyword) {
 		SqlSession session = getSqlSessionFactory().openSession();
-		Map<String, Integer> params = new HashMap<String, Integer>();
+		Map<String, String> params = new HashMap<String, String>();
 		params.put("start", start);
 		params.put("end", end);
+		params.put("keyword", keyword);
 		List<TripReviewViewDto> selectList = session.selectList(namespace+"tripReviewView_List",params);
 		session.close();
 		return selectList;

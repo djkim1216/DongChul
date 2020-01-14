@@ -5,5 +5,5 @@ import java.util.List;
 import com.trip.dto.review.TripReviewViewDto;
 
 public interface TripReviewViewBiz {
-	List<TripReviewViewDto> selectList(int start, int end);
+	List<TripReviewViewDto> selectList(String start, String end, String keyword);
 }

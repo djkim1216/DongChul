@@ -57,10 +57,12 @@ public class TripReviewServlet extends HttpServlet {
 		String uri = request.getRequestURI();
 		
 		if(uri.endsWith("TripReviewList")) {
+			if(request.getParameter("keyword") != null) {
+				request.setAttribute("keyword", request.getParameter("keyword"));
+			}
 			go(request,response,"TripReviewList.jsp");
 		} else if(uri.endsWith("TripReviewView")) {
-			tripReviewList(request,response);
-			go(request,response,"TripReviewView.jsp");
+			tripReviewView(request,response);
 		}
 	}
 
@@ -69,12 +71,20 @@ public class TripReviewServlet extends HttpServlet {
 		dispatch.forward(request, response);
 	}
 	
-	protected void tripReviewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void tripReviewView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TripReviewViewBiz tripReviewViewBiz = new TripReviewViewBizImpl();
-		int start = Integer.parseInt(request.getParameter("start"));
-		int end = Integer.parseInt(request.getParameter("end"));
-		List<TripReviewViewDto> list = tripReviewViewBiz.selectList(start, end);
-		request.setAttribute("tripReviewView_List", list);
+		String start = request.getParameter("start");
+		String end = request.getParameter("end");
+		String keyword = null;
+		if(request.getParameter("keyword") != null) {
+			keyword = request.getParameter("keyword");
+		}
+		List<TripReviewViewDto> list = tripReviewViewBiz.selectList(start, end, keyword);
+		if(list.size() != 0) {
+			request.setAttribute("tripReviewView_List", list);
+			go(request,response,"TripReviewView.jsp");
+		} else {
+			response.getWriter().append("null");
+		}
 	}
-	
 }
