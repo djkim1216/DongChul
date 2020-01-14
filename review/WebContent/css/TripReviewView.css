@@ -13,7 +13,7 @@
 .list_view {
 	background-color: red;
 	width: 62%;
-	height: 512px;
+	height: 625px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -33,7 +33,9 @@
 	height: 100%;
 	margin-right: 4%;
 	float: left;
+	border-radius: 7% 7% 7% 7%;
 	background-size: 100% 100%;
+	`
 }
 
 .view_item:nth-child(4), .view_item:nth-child(8) {
@@ -42,7 +44,7 @@
 
 .view_content {
 	background-color: #FFFFFF95;
-	border-radius: 0% 0% 7% 7%;
+	border-radius: 10px 10px 10px 10px;
 	height: 30%;
 	margin: 3.5% 3.5% 3.5% 3.5%;
 	top: 64%;
@@ -50,27 +52,56 @@
 }
 
 .view_title {
-	ffont-size: 13pt;
-    color: #454C4F;
-    font-weight: 600;
-    letter-spacing: 1pt;
+	font-size: 11.5pt;
+	color: #454C4F;
+	font-weight: 600;
+	letter-spacing: 1pt;
 }
 
 .view_teamid {
 	font-size: 10pt;
 	color: #454C4F;
 	float: left;
+	margin-bottom: 4px;
 }
 
 .view_date {
-	float : right;
+	float: right;
+	font-size: 10pt;
+	color: #454C4F;
+	margin-bottom: 4px;
+}
+
+.view_count {
+	float: right;
+	clear: left;
 	font-size: 10pt;
 	color: #454C4F;
 }
 
-.view_count{
-	clear: right;
-}
 hr {
-	border: 0.3px solid #C1C6C8
+	border: 0.5px solid #C1C6C8;
+	width: 90%;
+	margin-left: 5%;
+}
+
+p {
+	position: relative;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.view_count>span:nth-child(1) {
+	display: block;
+    background-image: url(../images/board_icon/comment_icon.png);
+    background-size: 100% 100%;
+    height: 9pt;
+    width: 10pt;
+    float: left;
+    margin-right: 8px;
+    position: relative;
+    top: 4px;
+    opacity: 85%;
 }
