@@ -56,7 +56,7 @@ var testFun = function(){
 <body>
 	<div class="testChk" onclick="testFun();">dd</div>
 	<div class="testView"></div>
-	sadfasdf
+	sadfasdf테스트트트트트트트
 	<section>
 		<article id="article_header">
 			<div class="nowLocation"><a href="TripReviewList"><span class="locationName">여행 후기</span></a></div>
