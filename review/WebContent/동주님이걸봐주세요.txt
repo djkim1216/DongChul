@@ -18,5 +18,14 @@ jhlhllljljlj
 
 수정 수정
 
+<<<<<<< HEAD
 
 다시 보낸다.
+=======
+덩주 컴퓨터
+
+ㄹㄹㄹ
+>>>>>>> branch 'master' of https://github.com/djkim1216/DongChul.git
+
+
+알아보자.
