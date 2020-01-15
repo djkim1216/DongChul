@@ -25,6 +25,7 @@
 		<div class="body">
 <%
 		for(int i=0; i<8; i++){
+			//동주 branch 테스트
 %>
 			<div class="review"></div>
 <%

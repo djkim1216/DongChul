@@ -47,7 +47,7 @@ public class TripReviewServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String uri = request.getRequestURI();
-		
+		System.out.println("서버");
 		if(uri.endsWith("tripReviewMain")) {
 			
 		}
