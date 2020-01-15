@@ -31,6 +31,7 @@
     float: right;
     height: inherit;
     width: 45%;
+	margin-right: -5px;
 }
 
 .searchBar{
@@ -56,10 +57,10 @@
 	color : #B3B6B7;
 }
 
-.searchIcon{
+.searchIcon {
 	float: right;
     margin-top: 12px;
-    margin-right: 2%;
+    margin-right: 1%;
     width: 2.5em;
     height: 2.5em;
     background-image: url(../images/board_icon/lowSearch_icon.jpg);
@@ -67,6 +68,42 @@
     border-radius: 5px;
     box-shadow: -1.5px 1.5px 3px 0px #18425e59;
 }
+
+.searchIcon:hover {
+	transition-duration: 0.5s;
+	background-image: url(../images/board_icon/lowSearch_icon_over.jpg);
+}
+
+.writeIcon {
+	float: right;
+    margin-top: 12px;
+    margin-right: 2%;
+    width: 2.5em;
+    height: 2.5em;
+    background-image: url(../images/board_icon/write_icon.jpg);
+    background-size: 100% 100%;
+    border-radius: 5px;
+    box-shadow: -1.5px 1.5px 3px 0px #18425e59;
+}
+
+.testChk {
+	font-size:20pt;
+}
+
+.testView {
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	position: relative;
+	left:0%;
+	transition: all 1s;
+}
+
+.writeIcon:hover {
+	transition-duration: 0.5s;
+	background-image: url(../images/board_icon/write_icon_over.jpg);
+}
+
 .locationName {
 	font-family: 'Do Hyeon', sans-serif;
     font-size: 2.2em;
@@ -93,6 +130,7 @@
 	float: left;
 	border-radius: 7% 7% 7% 7%;
 	background-size: 100% 100%;
+	position: relative;
 }
 
 div a:nth-child(4) .view_item {
@@ -100,25 +138,62 @@ div a:nth-child(4) .view_item {
 }
 
 .view_content {
-	background-color: #FFFFFF95;
 	border-radius: 10px 10px 10px 10px;
-	height: 30%;
-	margin: 3.5% 3.5% 3.5% 3.5%;
-	top: 64%;
-	position: relative;
+    height: 282px;
+    margin: 3.5% 3.5% 3.5% 3.5%;
+    top: 0%;
+    position: absolute;
+    width: 219.988px;
+}
+
+.view_back {
+	background-color: #ffffffcc;
+    border-radius: 10px 10px 10px 10px;
+    height: 90px;
+    width: 219.988px;
+    margin: 3.5% 3.5% 3.5% 3.5%;
+    top: 64%;
+    position: relative;
 }
 
 .view_title {
+	display : inline-block;
+	width : 100%;
 	font-size: 11.5pt;
 	color: #454C4F;
 	font-weight: 600;
+	white-space : nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
 }
 
+p {
+	position: relative;
+    padding-top: 6px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.view_content div p{
+	top:85%;
+}
+
+hr {
+	border: 0.5px solid #C1C6C8;
+	width: 90%;
+	margin-left: 5%;
+	position: relative;
+	top: 223.5px;
+}
+
+.view_content p:nth-child(3),.view_content p:nth-child(4){
+	top: 221px;
+	height: 19.200px;
+}
 .view_teamid {
 	font-size: 10pt;
 	color: #454C4F;
 	float: left;
-	margin-bottom: 4px;
 	letter-spacing: 0pt; 
 }
 
@@ -126,7 +201,6 @@ div a:nth-child(4) .view_item {
 	float: right;
 	font-size: 10pt;
 	color: #454C4F;
-	margin-bottom: 4px;
 	letter-spacing: 0pt; 
 }
 
@@ -138,29 +212,30 @@ div a:nth-child(4) .view_item {
 	letter-spacing: 0pt; 
 }
 
-.view_content:hover {
+.view_content div {
+	height: 223.5px;
+	width: 219.988px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.list_view div a:hover .view_item .view_back {
 	transition-duration: 1s;
-    background-color: #FFFFFF95;
-    border-radius: 10px 10px 10px 10px;
-    height: 95%;
-    margin: 3.5% 3.5% 3.5% 3.5%;
-    color : #FFFFFF;
+    height: 282px;
     top: 0;
 }
 
-
-hr {
-	border: 0.5px solid #C1C6C8;
-	width: 90%;
-	margin-left: 5%;
+.list_view div a:hover .view_item .view_content div p:nth-child(1){
+	transition-duration: 1s;
+	top:0%;
 }
 
-p {
-	position: relative;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-left: 8px;
-	margin-right: 8px;
+.list_view div a:hover .view_item .view_content div p:nth-child(1) span {
+	transition-duration: 1s;
+	font-size: 16pt;
+	white-space : normal;
+	overflow : auto;
+	text-overflow: inherit;
 }
 
 .view_count>span:nth-child(1) {

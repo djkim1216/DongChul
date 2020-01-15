@@ -25,6 +25,8 @@ insert into tripreview values (tripreview_id.nextval,20,'여행 44테스트20',s
 insert into tripreview values (tripreview_id.nextval,21,'여행 테스트21',sysdate,null,0,'N');
 insert into tripreview values (tripreview_id.nextval,22,'여행 테스트22',sysdate,null,0,'N');
 
+update tripreview set tv_title = '여행 테스트 11 길이 테스트 중입니다. 어떻게 될지는 저도 몰라요' where tv_no = 11;
+
 
 select * from tripreview order by tv_no;
 

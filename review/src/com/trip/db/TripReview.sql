@@ -20,7 +20,6 @@ create table TRIPREVIEW (
 );
 
 
-
 -- 여행 후기 내용
 
 CREATE SEQUENCE TRIPREVIEW_CONTENTS_ID;
