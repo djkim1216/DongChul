@@ -55,6 +55,7 @@ public class TripReviewServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String uri = request.getRequestURI();
+
 		
 		if(uri.endsWith("TripReviewList")) {
 			if(request.getParameter("keyword") != null) {
@@ -63,7 +64,8 @@ public class TripReviewServlet extends HttpServlet {
 			go(request,response,"TripReviewList.jsp");
 		} else if(uri.endsWith("TripReviewView")) {
 			tripReviewView(request,response);
-		}
+
+		
 	}
 
 	protected void go(HttpServletRequest request, HttpServletResponse response, String path) throws ServletException, IOException{

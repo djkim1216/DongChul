@@ -47,4 +47,13 @@
 	(select tv_no, max(nvl(tvc_no,0)) from TRIPREVIEW_MAIN_VIEW where tvc_path is not null or cr_path is not null group by tv_no union 
 	select tv_no, max(nvl(tvc_no,0)) from TRIPREVIEW_MAIN_VIEW where tvc_path is null and cr_path is null and tv_no not in (select tv_no from TRIPREVIEW_MAIN_VIEW where tvc_path is not null or cr_path is not null group by tv_no) group by tv_no) and tv_title like #{keyword} order by tv_no) where no between #{start} and #{end}
 	</select>
+	
+<!-- userKeyword-->
+	<select id="" resultType="">
+		select count(*) from keyword
+		where id = #{} and word=#{}
+	</select>
+	<update id="" parameterType="">
+	
+	</update>
 </mapper>
