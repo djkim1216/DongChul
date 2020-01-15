@@ -7,7 +7,7 @@
 <typeAliases>
 	<typeAlias type="com.trip.dto.review.TripReviewDto" alias="tripReviewDto"/>
 	<typeAlias type="com.trip.dto.review.TripReviewContentsDto" alias="tripReviewContentsDto"/>
-	<typeAlias type="com.trip.dto.review.TripReviewMainViewDto" alias="tripReviewMainViewDto"/>
+	<typeAlias type="com.trip.dto.review.TripReviewViewDto" alias="tripReviewViewDto"/>
 </typeAliases>
   <environments default="development">
     <environment id="development">

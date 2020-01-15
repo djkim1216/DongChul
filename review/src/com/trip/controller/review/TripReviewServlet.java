@@ -1,6 +1,7 @@
 package com.trip.controller.review;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.json.JSONParser;
+import org.apache.tomcat.util.json.JSONParserTokenManager;
+
 import com.trip.biz.review.TripReviewBiz;
 import com.trip.biz.review.TripReviewBizImpl;
 import com.trip.biz.review.TripReviewContentsBiz;
 import com.trip.biz.review.TripReviewContentsBizImpl;
+import com.trip.biz.review.TripReviewViewBiz;
+import com.trip.biz.review.TripReviewViewBizImpl;
+import com.trip.dao.review.TripReviewViewDaoImpl;
+import com.trip.dto.review.TripReviewViewDto;
 
 /**
  * Servlet implementation class TripReviewServlet
@@ -22,7 +30,7 @@ import com.trip.biz.review.TripReviewContentsBizImpl;
  * TripReview + TripReviewContents
  * 
  */
-@WebServlet({"/tripReviewMain"})
+@WebServlet({"/TripReviewList","/TripReviewView"})
 public class TripReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -47,10 +55,38 @@ public class TripReviewServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String uri = request.getRequestURI();
-		System.out.println("서버");
-		if(uri.endsWith("tripReviewMain")) {
-			
-		}
+
+		
+		if(uri.endsWith("TripReviewList")) {
+			if(request.getParameter("keyword") != null) {
+				request.setAttribute("keyword", request.getParameter("keyword"));
+			}
+			go(request,response,"TripReviewList.jsp");
+		} else if(uri.endsWith("TripReviewView")) {
+			tripReviewView(request,response);
+
+		
 	}
 
+	protected void go(HttpServletRequest request, HttpServletResponse response, String path) throws ServletException, IOException{
+		RequestDispatcher dispatch = request.getRequestDispatcher(path);
+		dispatch.forward(request, response);
+	}
+	
+	protected void tripReviewView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		TripReviewViewBiz tripReviewViewBiz = new TripReviewViewBizImpl();
+		String start = request.getParameter("start");
+		String end = request.getParameter("end");
+		String keyword = null;
+		if(request.getParameter("keyword") != null) {
+			keyword = request.getParameter("keyword");
+		}
+		List<TripReviewViewDto> list = tripReviewViewBiz.selectList(start, end, keyword);
+		if(list.size() != 0) {
+			request.setAttribute("tripReviewView_List", list);
+			go(request,response,"TripReviewView.jsp");
+		} else {
+			response.getWriter().append("null");
+		}
+	}
 }
