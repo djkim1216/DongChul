@@ -22,7 +22,7 @@ public class TripReviewContentsDaoImpl extends SqlMapConfig implements TripRevie
 		params.put("tvc_day", tvc_day);
 		List<TripReviewContentsDto> selectList = session.selectList(namespace+"tripReviewContents_List",params);
 		session.close();
-		return selectList;
+		return selectList; 
 	}
 
 	@Override

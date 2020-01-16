@@ -6,13 +6,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.menubar li ul {
-	display: none;
-}
+	.menubar li ul {
+		display: none;
+	}
 
-.menubar li:hover ul {
-	display: block;
-}
+	.menubar li:hover ul {
+		display: block;
+	}
+
+	.firstline{
+		position : relative;
+	}
+
+	
+	.secondline{
+		postion : relative;
+	}
 </style>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -62,10 +71,10 @@
 
 
 	<header>
-		<div>
-			<a><img alt="home" src="img/homepage.jpg"
-				style="width: 20px; height: 20px;"></a> <a href="mainview.jsp">돈
-				독</a>
+		<div class="firstline">
+		<div class="home">
+			<a><img alt="home" src="img/homepage.jpg" style="width: 20px; height: 20px;"></a> 
+			<a href="mainview.jsp">돈독</a>
 		</div>
 		<div class="menubar">
 			<ul>
@@ -88,18 +97,22 @@
 						<li><a href="PageMoveServlet?command=shareSchedule">일정공유</a></li>
 					</ul></li>
 			</ul>
-			<div>
+		</div>
+			<div class="search">
 				<input type="text" value="" name="search" placeholder="무엇을 찾으십니까?" />
+			
+				<a href="PageMoveServlet?command=search">
+					<img alt="search" src="img/search.jpg" style="width: 20px; height: 20px;">
+				</a> 
+				<a href="PageMoveServlet?command=loginform">로그인</a> 
+				<a href="PageMoveServlet?command=alarm">
+					<img alt="alarm" src="img/alarm.png" style="width: 20px; height: 20px;">
+				</a>
 			</div>
-			<a href="PageMoveServlet?command=search"><img alt="search"
-				src="img/search.jpg" style="width: 20px; height: 20px;"></a> <a
-				href="PageMoveServlet?command=loginform">로그인</a> <a
-				href="PageMoveServlet?command=alarm"><img alt="alarm"
-				src="img/alarm.png" style="width: 20px; height: 20px;"></a>
 		</div>
 		
 		<div>
-			<div>
+			<div class="secondline">
 				[ <input type="text" id="eventstartdate" />~ <input type="text"
 					id="eventenddate" />] <input type="text" id="addr1" />> <input
 					type="text" id="title" />

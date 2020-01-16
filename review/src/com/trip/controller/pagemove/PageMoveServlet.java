@@ -13,6 +13,13 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet({"/PageMoveServlet"})
 public class PageMoveServlet extends HttpServlet {
+	
+	
+	public PageMoveServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,6 +29,8 @@ public class PageMoveServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		System.out.println(request.getRequestURI());
 		
 		String command = request.getParameter("command");
 		System.out.println("<"+command+">");
@@ -80,6 +89,8 @@ public class PageMoveServlet extends HttpServlet {
 				response.sendRedirect("share_schedule.jsp");
 			}
 		}
+		System.out.println("dddd");
+		System.out.println(getServletContext().getRealPath("/"));
 	}
 
 }
