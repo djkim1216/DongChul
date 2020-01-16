@@ -17,50 +17,50 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	var eventObj;
 	var num = 1;
-	var eventCon = function(){
-		$.ajax({
-			type : 'post',
-			url : 'TripEvent.do',
-			dataType : 'json',
-			success : function(msg) {
-				eventObj = msg;
-				//$('#startdate').val(msg.response.body.items.item[0].eventstartdate);
-				//$('#enddate').val(msg.response.body.items.item[0].eventenddate);
-				//$('#addr').val(msg.response.body.items.item[0].addr1);
-				//$('#title').val(msg.response.body.items.item[0].title); 
-			},
-			err : function() {
-				alert("err");
-			}
+		$(function(){
+				var eventCon = function(){
+					$.ajax({
+					type : 'post',
+					url : 'TripEvent.do',
+					dataType : 'json',
+					success : function(msg) {
+						var eventObj = msg;
+						console.log(eventObj);
+						
+						var selectEvent = (function(i){
+							var eventstartdate = eventObj.response.body.items.item[i].eventstartdate;
+							$("#eventstartdate").val(eventstartdate);
+							var eventenddate = eventObj.response.body.items.item[i].eventenddate;
+							$("#eventenddate").val(eventenddate);
+							var title = eventObj.response.body.items.item[i].title;
+							$("#title").val(title);
+							var addr1 = eventObj.response.body.items.item[i].addr1;
+							$("#addr1").val(addr1);
+							
+							
+							
+						});
+						selectEvent(0);
+						setInterval(function(){
+							selectEvent(num);
+							num++;
+							
+							  
+						},3000);
+					}
+				});
+			}();
 		});
-	};
-	eventCon();
-	
-	var selectEvent = function(i){
-		var title = eventObj.response.body.items.item[i].title;
-		$("#title").val(title);
-		num++;
-	};
-	
-	selectEvent(num);
-	
-	
-	$(function(){
-		var area = $("input[name='searchEvent']");
-		area.keydown(function(key){
-			if(key.keyCode == 13){
-				selectEvent(area.val());
-			}
-		});
-	});
+
+		
+		
 </script>
 </head>
 <body>
-	
-	
-	
+
+
+
 	<header>
 		<div>
 			<a><img alt="home" src="img/homepage.jpg"
@@ -97,15 +97,12 @@
 				href="PageMoveServlet?command=alarm"><img alt="alarm"
 				src="img/alarm.png" style="width: 20px; height: 20px;"></a>
 		</div>
+		
 		<div>
-			<div></div>
-			<input type='text' name='searchEvent'>
 			<div>
-				[
-				<input type="text" id="startdate"/>~
-				<input type="text" id="enddate"/>]
-				<input type="text" id="addr" />>
-				<input type="text" id="title"/>
+				[ <input type="text" id="eventstartdate" />~ <input type="text"
+					id="eventenddate" />] <input type="text" id="addr1" />> <input
+					type="text" id="title" />
 			</div>
 		</div>
 	</header>
