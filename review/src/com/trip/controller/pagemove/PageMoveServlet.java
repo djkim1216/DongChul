@@ -13,6 +13,13 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet({"/PageMoveServlet"})
 public class PageMoveServlet extends HttpServlet {
+	
+	
+	public PageMoveServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,18 +30,26 @@ public class PageMoveServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		
+		
 		String command = request.getParameter("command");
+		
 		System.out.println("<"+command+">");
+		System.out.println("진한스 : "+request.getRequestURI());
 		
 		if(command.equals("search")) {
 			
 		} else if(command.equals("schedule")) {
+			
+			
 			HttpSession session = request.getSession();
+			
 			if(session.equals("")) {				//비회원일 경우
 				
 				//로그인alert, 로그인폼으로 이동
 			} else {								//회원일 경우
 				//일정관리 페이지 이동
+				System.out.println("서블릿 스케줄 입성");
 				response.sendRedirect("schedule_maintenance.jsp");
 			}
 		} else if(command.equals("scheduleCheck")) {
@@ -80,6 +95,8 @@ public class PageMoveServlet extends HttpServlet {
 				response.sendRedirect("share_schedule.jsp");
 			}
 		}
+		System.out.println("dddd");
+		System.out.println(getServletContext().getRealPath("/"));
 	}
 
 }

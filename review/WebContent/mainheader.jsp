@@ -6,66 +6,75 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.menubar li ul {
-	display: none;
-}
+	.menubar li ul {
+		display: none;
+	}
 
-.menubar li:hover ul {
-	display: block;
-}
+	.menubar li:hover ul {
+		display: block;
+	}
+
+	.firstline{
+		position : relative;
+	}
+
+	
+	.secondline{
+		postion : relative;
+	}
 </style>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	var eventObj;
 	var num = 1;
-	var eventCon = function(){
-		$.ajax({
-			type : 'post',
-			url : 'TripEvent.do',
-			dataType : 'json',
-			success : function(msg) {
-				eventObj = msg;
-				//$('#startdate').val(msg.response.body.items.item[0].eventstartdate);
-				//$('#enddate').val(msg.response.body.items.item[0].eventenddate);
-				//$('#addr').val(msg.response.body.items.item[0].addr1);
-				//$('#title').val(msg.response.body.items.item[0].title); 
-			},
-			err : function() {
-				alert("err");
-			}
+		$(function(){
+				var eventCon = function(){
+					$.ajax({
+					type : 'post',
+					url : 'TripEvent.do',
+					dataType : 'json',
+					success : function(msg) {
+						var eventObj = msg;
+						console.log(eventObj);
+						
+						var selectEvent = (function(i){
+							var eventstartdate = eventObj.response.body.items.item[i].eventstartdate;
+							$("#eventstartdate").val(eventstartdate);
+							var eventenddate = eventObj.response.body.items.item[i].eventenddate;
+							$("#eventenddate").val(eventenddate);
+							var title = eventObj.response.body.items.item[i].title;
+							$("#title").val(title);
+							var addr1 = eventObj.response.body.items.item[i].addr1;
+							$("#addr1").val(addr1);
+							
+							
+							
+						});
+						selectEvent(0);
+						setInterval(function(){
+							selectEvent(num);
+							num++;
+							
+							  
+						},3000);
+					}
+				});
+			}();
 		});
-	};
-	eventCon();
-	
-	var selectEvent = function(i){
-		var title = eventObj.response.body.items.item[i].title;
-		$("#title").val(title);
-		num++;
-	};
-	
-	selectEvent(num);
-	
-	
-	$(function(){
-		var area = $("input[name='searchEvent']");
-		area.keydown(function(key){
-			if(key.keyCode == 13){
-				selectEvent(area.val());
-			}
-		});
-	});
+
+		
+		
 </script>
 </head>
 <body>
-	
-	
-	
+
+
+
 	<header>
-		<div>
-			<a><img alt="home" src="img/homepage.jpg"
-				style="width: 20px; height: 20px;"></a> <a href="mainview.jsp">돈
-				독</a>
+		<div class="firstline">
+		<div class="home">
+			<a><img alt="home" src="img/homepage.jpg" style="width: 20px; height: 20px;"></a> 
+			<a href="mainview.jsp">돈독</a>
 		</div>
 		<div class="menubar">
 			<ul>
@@ -88,24 +97,25 @@
 						<li><a href="PageMoveServlet?command=shareSchedule">일정공유</a></li>
 					</ul></li>
 			</ul>
-			<div>
-				<input type="text" value="" name="search" placeholder="무엇을 찾으십니까?" />
-			</div>
-			<a href="PageMoveServlet?command=search"><img alt="search"
-				src="img/search.jpg" style="width: 20px; height: 20px;"></a> <a
-				href="PageMoveServlet?command=loginform">로그인</a> <a
-				href="PageMoveServlet?command=alarm"><img alt="alarm"
-				src="img/alarm.png" style="width: 20px; height: 20px;"></a>
 		</div>
+			<div class="search">
+				<input type="text" value="" name="search" placeholder="무엇을 찾으십니까?" />
+			
+				<a href="PageMoveServlet?command=search">
+					<img alt="search" src="img/search.jpg" style="width: 20px; height: 20px;">
+				</a> 
+				<a href="PageMoveServlet?command=loginform">로그인</a> 
+				<a href="PageMoveServlet?command=alarm">
+					<img alt="alarm" src="img/alarm.png" style="width: 20px; height: 20px;">
+				</a>
+			</div>
+		</div>
+		
 		<div>
-			<div></div>
-			<input type='text' name='searchEvent'>
-			<div>
-				[
-				<input type="text" id="startdate"/>~
-				<input type="text" id="enddate"/>]
-				<input type="text" id="addr" />>
-				<input type="text" id="title"/>
+			<div class="secondline">
+				[ <input type="text" id="eventstartdate" />~ <input type="text"
+					id="eventenddate" />] <input type="text" id="addr1" />> <input
+					type="text" id="title" />
 			</div>
 		</div>
 	</header>
