@@ -11,7 +11,9 @@ public class MemberLoginDaoImpl extends SqlMapConfig implements MemberLoginDao{
 	
 	public MemberLoginDto getList(MemberLoginDto dto) {
 		SqlSession sql = getSqlSessionFactory().openSession();
+		System.out.println(dto);
 		MemberLoginDto result = sql.selectOne(namespace+"memberList", dto);
+		//System.out.println("dao : " + dto.getM_pass());
 		sql.close();
 		return result;
 	}

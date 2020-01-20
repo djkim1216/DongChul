@@ -30,14 +30,19 @@ public class MemberLoginServlet extends HttpServlet {
 		System.out.println("ddd");
 		try {
 			MemberLoginDto dto = new MemberLoginDto();
-			dto.setM_id(String.valueOf(request.getParameter("userId")));
-			dto.setM_pass(String.valueOf(request.getParameter("userPw")));
+			dto.setM_id(String.valueOf(request.getParameter("myid")));
+			dto.setM_pass(String.valueOf(request.getParameter("mypw")));
 //			dto.setM_email(String.valueOf(request.getParameter("email")));
-			dto.setM_email(String.valueOf(request.getParameter("djkim1216@naver.com")));
+			dto.setM_email(String.valueOf(request.getParameter("email")));
 			dto.setPlatform(String.valueOf(request.getParameter("platform")));
+			
+			System.out.println(dto.getPlatform());
+			System.out.println(dto.getM_id()+dto.getM_pass());
 			
 			MemberLoginDto result = new MemberLoginDto();
 			result = memberLoginDao.getList(dto);
+			System.out.println("result: "+result);
+			
 			if(result == null) {
 				response.setContentType("text/html; charset=utf-8");
 				response.getWriter().append("<script>alert('로그인에 실패했습니다.');" +"window.location.href='/page?page=login';</script>");
@@ -57,6 +62,7 @@ public class MemberLoginServlet extends HttpServlet {
 			//2. redirect
 			//response.sendRedirect("result.jsp");
 		} catch (Exception e) {
+			System.out.println("ERROR SERVLET");
 			e.printStackTrace();
 		}
 	}

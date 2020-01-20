@@ -16,13 +16,13 @@
 					, M_FLAG
 					, M_GRADE 
 		  FROM
-		  			MEMBER
-		 <if test="platform eq 'dondok'">
+		  			MYMEMBER
+		 <if test="#{platform eq 'dondok'}">
 		  WHERE
 		  			M_ID = #{m_id}
 		  	 AND M_PASS = #{m_pass}
 		 </if>
-		 <if test="platform eq 'kakao'">
+		 <if test="#{platform eq 'kakao'}">
 		  WHERE
 		  			M_EMAIL = #{m_email}
 		 </if>

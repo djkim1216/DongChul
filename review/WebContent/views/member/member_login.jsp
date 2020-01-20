@@ -62,7 +62,7 @@
 <!-- <form id="loginForm" action="/memberLogin"> -->
 <form id="loginForm" method="post">
 	<input id="id" type="text" name="myid" required="required" title="n" placeholder="ID"></br>
- 	<input id="pass" class="searchBar" type="password" placeholder="PW"></br>
+ 	<input id="pass" class="searchBar" type="password" placeholder="PW" name="mypw"></br>
 
 	<input id="email" type="hidden" name="email" value=""></br>
 	<input id="plaform" type="hidden" name="platform" value="dondok"></br>

@@ -1,5 +1,4 @@
-<%@page import="com.trip.dto.search.SearchDto"%>
-<%@page import="com.trip.dto.login.MemberDto"%>
+<%@page import="com.trip.member.dto.MemberLoginDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -265,8 +264,7 @@
 		
 </script>
 
-	<%MemberDto dto = (MemberDto)session.getAttribute("dto"); %>
-	<%SearchDto sdto = (SearchDto)session.getAttribute("sdto"); %>
+	<%MemberLoginDto result = (MemberLoginDto)session.getAttribute("result"); %>
 	
 </head>
 <body>
@@ -274,9 +272,6 @@
 
 
 	<header>
-		<form action="PageMoveServlet" method="post">
-		<input type="hidden" name="command" value="searchinsert"/>
-		<input type="hidden" name="myid" value="<%=dto.getMyid() %>"/>
 		
 		<div class="firstline">
 			<div class="firstparagraph1">
@@ -323,14 +318,13 @@
 			</div>                             
 			<div class="firstparagraph3">
 				<div id="searchbtn">
-					<input type="submit" value="검색"/>
-<%-- 					<a title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;"></a>  --%>
+ 					<a title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;"></a>
 				</div>
 				<div class="login">
 					<span class="linebar"> | </span>
 						<div class="loginimg"></div>
 						<div class="innerlogin">
-							<a><%=dto.getMyname()%></a> 
+							<a><%=result.getM_nick()%></a> 
 						</div>
 					<span class="linebar"> | </span>
 				</div>
@@ -340,7 +334,6 @@
 				</div>
 			</div>
 		</div>
-		</form>
 		
 		<div class="secondline">
 			
@@ -350,7 +343,7 @@
 				</div>]  
 				<div class="second" id="text_bar">|</div> 
 				<div class="second" id="addr1" /></div>> 
-				<div class="second" id="title" /></div>
+				<div class="second" id="title" /></div> 
 			</div>
 		</div>
 	</header>
