@@ -1,3 +1,5 @@
+<%@page import="com.trip.dto.search.SearchDto"%>
+<%@page import="com.trip.dto.login.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	
+	
 
 	a { text-decoration:none } 
 
@@ -36,18 +40,21 @@
 
 	.firstline{
 		position:relative;
+		padding :0;
 		padding-bottom:5px;
 		height: 40px;
-		width:100%;
-		margin : 0;
+		width:1250px;
+		margin : 5px;
+		margin : 10px;
 	}
 	
 	.secondline{
 		position:relative;
 		padding-top:5px;
+		padding: 0;
 		height:30px;
 		margin : 5px;
-		width:100%;
+		width:1250px;
 		background-color: lightskyblue;
 	}
 	.inline{
@@ -55,16 +62,17 @@
 	}
 	.firstcen {
 		display:inline-block;
-		width:60%;
+		width:57%;
+		float:left;
 		height:100%;
-		text-align:center;
+		text-align:left;
 		border-color: gray;
    	 	border: solid;
    	 	border-radius: 5px;
 	}
 	
 	#secondcenter {
-		width:60%;
+		width:57%;
 		height:80%;
 		background-color: white;
 		text-align:left;
@@ -80,6 +88,7 @@
 	
 	#search {
 		 width:90%;
+		 height:90%;
  		 margin : 0;
  		 border:none;
  		 font-size: medium;
@@ -92,14 +101,19 @@
 		border-radius:50%;
 		border-color: aqua;
 		border: solid;
-		margin-left:20%;
+		margin-left:16%;
+		margin-right:5%;
+		float:left;
 	}
 	
+	
 	#home{
-		width:40px;
 		height:100%;
-		font-size:medium;
+		font-size:x-large;
 		font-weight: bold;
+		float: left;
+		margin-top: 5px;
+		margin-left: 10px;
 	}
 	
 	.second{
@@ -116,27 +130,78 @@
 		display: inline-block;
 	}
 	.firstparagraph3{
-		float:right;
-		width:19%;
+		padding:0;
+		margin:0;
+		float:left;
+		width:20%;
 		height:100%;
 		display: inline-block;
 	}
 	
-
+	
 	
 	#title{
 		font-weight: bold;
 	}
 	
+	#searchbtn{
+		margin-left:7px;
+		float:left;
+		display:inline-block;
+	}
+	
+	#alarmbtn{
+		float:left;
+		display:inline-block;
+	}
+	
 	.login{
+		width:65%;
+		height:40px;
+		float:left;
+		display:inline-block;
+	}
+	.loginimg{
+		width:30px;
+		height:30px;
+		border-radius:50%;
+		border:solid;
+		float:left;
+		margin-top:3px;
+		margin-left:15px;
+	}
+	
+	.innerlogin{
+		margin-left:10px;
+		text-align:left;
+		width:45%;
+		height:40px;
+		margin-top:9px;
 		float:left;
 		display:inline-block;
 	}
 	
 	.linebar{
 		font-size:30px;
-		padding-left:0.3%
+		float:left;
+		padding-left:2px;
+		padding-right:2px;
 	}
+	
+	.minibar {
+		font-size:20px;
+		float:left;
+		padding-right:5px;
+		padding-top:3px;
+	}
+	
+	.whatbtn{
+		float:left;
+	}
+	
+	
+	
+	
 	
 </style>
 <script type="text/javascript"
@@ -199,12 +264,20 @@
 		
 		
 </script>
+
+	<%MemberDto dto = (MemberDto)session.getAttribute("dto"); %>
+	<%SearchDto sdto = (SearchDto)session.getAttribute("sdto"); %>
+	
 </head>
 <body>
 
 
 
 	<header>
+		<form action="PageMoveServlet" method="post">
+		<input type="hidden" name="command" value="searchinsert"/>
+		<input type="hidden" name="myid" value="<%=dto.getMyid() %>"/>
+		
 		<div class="firstline">
 			<div class="firstparagraph1">
 				<div class="inline" id="homeimg">
@@ -240,20 +313,34 @@
 			</div>
 			<span class="linebar">  |</span>
 			<div class="firstcen">
-				<a ><img alt="what" src="img/mainheader/what.png" style="width: 30px; height: 30px;">
-				</a>
-				<span>|</span>
-				<input id = search type="text" value="" name="search" placeholder="무엇을 찾으십니까?" />
+				<div class="whatbtn">
+					<a >
+						<img alt="what" src="img/mainheader/what.png" style="width: 40px; height: 40px;">
+					</a>
+				</div>
+				<span class="minibar">|</span>
+				<input id = search type="text" name="search" placeholder="무엇을 찾으십니까?" />
 			</div>                             
 			<div class="firstparagraph3">
-				<a href="PageMoveServlet?command=search" title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;">
-				</a> 
-					<span class="linebar"> | </span><a href="page?page=login" >로 그 인</a> <span class="linebar"> | </span>
-				<a href="PageMoveServlet?command=alarm" title="알림"><img alt="alarm" src="img/mainheader/alarm.png" style="width: 40px; height: 40px;">
-				</a>
+				<div id="searchbtn">
+					<input type="submit" value="검색"/>
+<%-- 					<a title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;"></a>  --%>
+				</div>
+				<div class="login">
+					<span class="linebar"> | </span>
+						<div class="loginimg"></div>
+						<div class="innerlogin">
+							<a><%=dto.getMyname()%></a> 
+						</div>
+					<span class="linebar"> | </span>
+				</div>
+				<div id="alarmbtn">
+					<a href="PageMoveServlet?command=alarm" title="알림"><img alt="alarm" src="img/mainheader/alarm.png" style="width: 40px; height: 40px;">
+					</a>
+				</div>
 			</div>
 		</div>
-		
+		</form>
 		
 		<div class="secondline">
 			
