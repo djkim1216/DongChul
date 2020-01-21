@@ -43,7 +43,6 @@
 	}
 	
 	function submit(){
-		alert("dd");
 		$("#loginForm").attr("action", "memberLogin");
 		$("#loginForm").submit();
 	}

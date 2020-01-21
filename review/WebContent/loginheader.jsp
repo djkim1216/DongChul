@@ -206,6 +206,13 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+
+	function submit(){
+		
+	}
+	
+	
+
 	var num = 1;
 		$(function(){
 				var eventCon = function(){
@@ -264,7 +271,7 @@
 		
 </script>
 
-	<%MemberLoginDto result = (MemberLoginDto)session.getAttribute("result"); %>
+	<%MemberLoginDto user = (MemberLoginDto)session.getAttribute("user"); %>
 	
 </head>
 <body>
@@ -272,7 +279,10 @@
 
 
 	<header>
+		<form id="searchForm" method="post">
+			
 		
+		</form>
 		<div class="firstline">
 			<div class="firstparagraph1">
 				<div class="inline" id="homeimg">
@@ -324,7 +334,7 @@
 					<span class="linebar"> | </span>
 						<div class="loginimg"></div>
 						<div class="innerlogin">
-							<a><%=result.getM_nick()%></a> 
+							<a><%=user.getM_nick()%></a> 
 						</div>
 					<span class="linebar"> | </span>
 				</div>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.trip.member.dao.MemberLoginDao;
 import com.trip.member.dao.MemberLoginDaoImpl;
@@ -27,27 +28,25 @@ public class MemberLoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("ddd");
 		try {
+			HttpSession session;
 			MemberLoginDto dto = new MemberLoginDto();
+			session = request.getSession();
 			dto.setM_id(String.valueOf(request.getParameter("myid")));
 			dto.setM_pass(String.valueOf(request.getParameter("mypw")));
 //			dto.setM_email(String.valueOf(request.getParameter("email")));
 			dto.setM_email(String.valueOf(request.getParameter("email")));
 			dto.setPlatform(String.valueOf(request.getParameter("platform")));
 			
-			System.out.println(dto.getPlatform());
-			System.out.println(dto.getM_id()+dto.getM_pass());
 			
-			MemberLoginDto result = new MemberLoginDto();
-			result = memberLoginDao.getList(dto);
-			System.out.println("result: "+result);
+			MemberLoginDto user = new MemberLoginDto();
+			user = memberLoginDao.getList(dto);
 			
-			if(result == null) {
+			if(user == null) {
 				response.setContentType("text/html; charset=utf-8");
 				response.getWriter().append("<script>alert('로그인에 실패했습니다.');" +"window.location.href='/page?page=login';</script>");
 			}else {
-				request.setAttribute("result", result);
+				session.setAttribute("user", user);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("loginheader.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -72,7 +71,6 @@ public class MemberLoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("ddd");
 		doGet(request, response);
 	}
 
