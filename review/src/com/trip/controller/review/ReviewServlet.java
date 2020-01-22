@@ -68,7 +68,7 @@ public class ReviewServlet extends HttpServlet {
 		String start = request.getParameter("start");
 		String end = request.getParameter("end");
 		String keyword = null;
-		if(request.getParameter("keyword") != null || !(request.getParameter("keyword").equals(""))) {
+		if(request.getParameter("keyword") != null) {
 			keyword = request.getParameter("keyword");
 		}
 		List<TripReviewViewDto> list = tripReviewViewBiz.selectList(start, end, keyword);
