@@ -5,10 +5,10 @@ var start = 1;
 var end = 8;
 var pageEndChk = true;
 
-var tripReviewView = function() {
+var reviewView = function() {
 	if(pageEndChk){
 		$.ajax({
-			url : "TripReviewView",
+			url : arguments[3],
 			method : "post",
 			data : {
 				"start" : arguments[0] ? arguments[0] : 1,

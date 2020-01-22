@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class TripReviewContentsDto {
 
-	String tvc_contents, tvc_path;
+	String tvc_contents, tvc_path, tvc_delflag;
 	int tvc_no, tvc_day, tvc_tvno, tvc_reviewid, tvc_routeid ;
 	Date tvc_date, tvc_modifydate;
 	
@@ -13,27 +13,29 @@ public class TripReviewContentsDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TripReviewContentsDto(String tvc_contents, String tvc_path, int tvc_no, int tvc_day, int tvc_tvno,
-			int tvc_reviewid, int tvc_routeid, Date tvc_date, Date tvc_modifydate) {
-		super();
-		this.tvc_contents = tvc_contents;
-		this.tvc_path = tvc_path;
-		this.tvc_no = tvc_no;
-		this.tvc_day = tvc_day;
-		this.tvc_tvno = tvc_tvno;
-		this.tvc_reviewid = tvc_reviewid;
-		this.tvc_routeid = tvc_routeid;
-		this.tvc_date = tvc_date;
-		this.tvc_modifydate = tvc_modifydate;
-	}
 
+	
 	@Override
 	public String toString() {
-		return "TripReviewContentsDto [tvc_contents=" + tvc_contents + ", tvc_path=" + tvc_path + ", tvc_no=" + tvc_no
-				+ ", tvc_day=" + tvc_day + ", tvc_tvno=" + tvc_tvno + ", tvc_reviewid=" + tvc_reviewid
-				+ ", tvc_routeid=" + tvc_routeid + ", tvc_date=" + tvc_date + ", tvc_modifydate=" + tvc_modifydate
-				+ "]";
+		return "TripReviewContentsDto [tvc_contents=" + tvc_contents + ", tvc_path=" + tvc_path + ", tvc_delflag="
+				+ tvc_delflag + ", tvc_no=" + tvc_no + ", tvc_day=" + tvc_day + ", tvc_tvno=" + tvc_tvno
+				+ ", tvc_reviewid=" + tvc_reviewid + ", tvc_routeid=" + tvc_routeid + ", tvc_date=" + tvc_date
+				+ ", tvc_modifydate=" + tvc_modifydate + "]";
 	}
+
+
+
+	public String getTvc_delflag() {
+		return tvc_delflag;
+	}
+
+
+
+	public void setTvc_delflag(String tvc_delflag) {
+		this.tvc_delflag = tvc_delflag;
+	}
+
+
 
 	public String getTvc_contents() {
 		return tvc_contents;
