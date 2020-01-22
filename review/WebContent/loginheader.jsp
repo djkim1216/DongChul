@@ -6,212 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	
-	
 
-	a { text-decoration:none } 
+<link rel="stylesheet" type="text/css" href="css/loginheader.css">
 
-	ul, li { list-style:none; margin: 0; padding:0; }
-	
-	#menubar {
-		float:right;
-	}
-
-	#menubar ul > li{
-		position:relative;
-	}
-	
-	#menubar li ul {
-		display: none;
-		width:80px;
-	}
-	
-	#menubar ul>li ul>li{
-		postion:relative;
-		width:80px;
-		padding:5px 10px;
-	}
-
-	#menubar li:hover ul {
-		display: block;
-	}
-
-	.firstline{
-		position:relative;
-		padding :0;
-		padding-bottom:5px;
-		height: 40px;
-		width:1250px;
-		margin : 5px;
-		margin : 10px;
-	}
-	
-	.secondline{
-		position:relative;
-		padding-top:5px;
-		padding: 0;
-		height:30px;
-		margin : 5px;
-		width:1250px;
-		background-color: lightskyblue;
-	}
-	.inline{
-		display:inline-block;
-	}
-	.firstcen {
-		display:inline-block;
-		width:57%;
-		float:left;
-		height:100%;
-		text-align:left;
-		border-color: gray;
-   	 	border: solid;
-   	 	border-radius: 5px;
-	}
-	
-	#secondcenter {
-		width:57%;
-		height:80%;
-		background-color: white;
-		text-align:left;
-		margin-left:19%;
-		border-radius: 5px;
-	}
-	
-	#text_bar{
-		display: inline-block;
-		width:1px;
-		margin : 2px;
-	}
-	
-	#search {
-		 width:90%;
-		 height:90%;
- 		 margin : 0;
- 		 border:none;
- 		 font-size: medium;
- 		 
-	}
-	
-	#homeimg{
-		width:40px;
-		height:100%;
-		border-radius:50%;
-		border-color: aqua;
-		border: solid;
-		margin-left:16%;
-		margin-right:5%;
-		float:left;
-	}
-	
-	
-	#home{
-		height:100%;
-		font-size:x-large;
-		font-weight: bold;
-		float: left;
-		margin-top: 5px;
-		margin-left: 10px;
-	}
-	
-	.second{
-		display: inline-block;
-		margin : 2px;
-		font-size:small;
-		text-align:left;
-		
-	}
-	.firstparagraph1{
-		float:left;
-		width:18%;
-		height:100%;
-		display: inline-block;
-	}
-	.firstparagraph3{
-		padding:0;
-		margin:0;
-		float:left;
-		width:20%;
-		height:100%;
-		display: inline-block;
-	}
-	
-	
-	
-	#title{
-		font-weight: bold;
-	}
-	
-	#searchbtn{
-		margin-left:7px;
-		float:left;
-		display:inline-block;
-	}
-	
-	#alarmbtn{
-		float:left;
-		display:inline-block;
-	}
-	
-	.login{
-		width:65%;
-		height:40px;
-		float:left;
-		display:inline-block;
-	}
-	.loginimg{
-		width:30px;
-		height:30px;
-		border-radius:50%;
-		border:solid;
-		float:left;
-		margin-top:3px;
-		margin-left:15px;
-	}
-	
-	.innerlogin{
-		margin-left:10px;
-		text-align:left;
-		width:45%;
-		height:40px;
-		margin-top:9px;
-		float:left;
-		display:inline-block;
-	}
-	
-	.linebar{
-		font-size:30px;
-		float:left;
-		padding-left:2px;
-		padding-right:2px;
-	}
-	
-	.minibar {
-		font-size:20px;
-		float:left;
-		padding-right:5px;
-		padding-top:3px;
-	}
-	
-	.whatbtn{
-		float:left;
-	}
-	
-	
-	
-	
-	
-</style>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
 	function submit(){
-		
+		$("#searchForm").attr("action", "UserSearchServlet");
+		$("#searchForm").submit();
 	}
 	
+	$(".innerlogin").click(function() {
+		
+		  //ul li 구현
+	});
 	
+// 		$(function(){
+// 			$.ajax({
+// 				url:"memberLogin",
+// 				dataType:"json",
+// 				success:function(msg){
+// 					$("#loginId").html(
+// 						msg.usernick
+// 					);
+// 				},
+// 				error:function(){
+// 					alert("통신 실패!");
+// 				}
+// 			})
+// 		})
 
 	var num = 1;
 		$(function(){
@@ -280,9 +105,8 @@
 
 	<header>
 		<form id="searchForm" method="post">
-			
+			<input  type="hidden" name="myid" value="<%=user.getM_id()%>"/>
 		
-		</form>
 		<div class="firstline">
 			<div class="firstparagraph1">
 				<div class="inline" id="homeimg">
@@ -293,7 +117,7 @@
 				</div>
 				<div class="inline" id="menubar">
 					<ul>
-						<li><a><img alt="menu" src="img/mainheader/menubar.jpg"
+						<li id="menubarimg"><a><img alt="menu" src="img/mainheader/menubar.jpg"
 								style="width: 40px; height: 40px;"></a>
 							<ul>
 								<li><a href="PageMoveServlet?command=schedule">일정관리</a>
@@ -324,17 +148,29 @@
 					</a>
 				</div>
 				<span class="minibar">|</span>
-				<input id = search type="text" name="search" placeholder="무엇을 찾으십니까?" />
+				<input id = "search" type="text" name="search" placeholder="무엇을 찾으십니까?" />
 			</div>                             
 			<div class="firstparagraph3">
 				<div id="searchbtn">
- 					<a title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;"></a>
+ 					<a class="img-button" onclick="submit();" title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;">
+ 					</a>
 				</div>
 				<div class="login">
 					<span class="linebar"> | </span>
 						<div class="loginimg"></div>
 						<div class="innerlogin">
-							<a><%=user.getM_nick()%></a> 
+							<ul>
+								<li class="idmenu">
+									<a href="#"> <%=user.getM_nick() %> </a> 
+										<ul class="hide">
+											<li><a href="#">개인 정보 수정</a></li>
+											<li><a >작성 글 조회</a></li>
+											<li><a>등록 스크랩 조회</a></li>
+											<li><a>알림 조회</a></li>
+											<li><a>로그아웃</a></li>
+										</ul>
+								</li>
+							</ul>
 						</div>
 					<span class="linebar"> | </span>
 				</div>
@@ -344,6 +180,7 @@
 				</div>
 			</div>
 		</div>
+		</form>
 		
 		<div class="secondline">
 			
@@ -356,6 +193,7 @@
 				<div class="second" id="title" /></div> 
 			</div>
 		</div>
+		
 	</header>
 
 </body>

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.trip.dto.search.SearchDto;
 
 
 @WebServlet({"/PageMoveServlet"})
@@ -50,21 +49,6 @@ public class PageMoveServlet extends HttpServlet {
 			
 		} else if(command.equals("loginform")) {
 			response.sendRedirect("views/member/member_login.jsp");
-			
-		} else if(command.equals("searchinsert")) {
-			session = request.getSession();
-			
-			String search = request.getParameter("search");
-			String myid =request.getParameter("myid");
-			SearchDto sdto = new SearchDto();
-			session.setAttribute("sdto", sdto);
-			sdto.setMyid(myid);
-			sdto.setSearch(search);
-			
-			System.out.println("search = "+ sdto.getSearch());
-			System.out.println("ID = "+ sdto.getMyid());
-			
-			
 			
 		} else if(command.equals("schedule")) {
 			

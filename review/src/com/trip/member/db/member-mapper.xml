@@ -24,4 +24,18 @@
 		  WHERE M_EMAIL = #{m_email}
 		 </if>
 	</select>
+	
+	<insert id="searchInsert" parameterType="hashMap">
+	INSERT INTO KEYSEARCH VALUES(#{myid}, #{search})
+	</insert>
+	
+	
+	
 </mapper>
+
+
+
+
+
+
+

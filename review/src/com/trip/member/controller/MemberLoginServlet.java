@@ -14,6 +14,8 @@ import com.trip.member.dao.MemberLoginDao;
 import com.trip.member.dao.MemberLoginDaoImpl;
 import com.trip.member.dto.MemberLoginDto;
 
+import net.sf.json.JSONObject;
+
 /**
  * Servlet implementation class MemberLoginServlet
  */
@@ -47,6 +49,10 @@ public class MemberLoginServlet extends HttpServlet {
 				response.getWriter().append("<script>alert('로그인에 실패했습니다.');" +"window.location.href='/page?page=login';</script>");
 			}else {
 				session.setAttribute("user", user);
+				
+//				JSONObject obj = new JSONObject();
+//				obj.put("usernick", user.getM_nick());
+				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("loginheader.jsp");
 				dispatcher.forward(request, response);
 			}
