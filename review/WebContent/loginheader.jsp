@@ -124,7 +124,7 @@
 									<ul>
 										<li><a href="PageMoveServlet?command=scheduleCheck">일정조회</a></li>
 										<li><a href="PageMoveServlet?command=scheduleView">일정보기</a></li>
-										<li><a href="PageMoveServlet?command=scheduleRegister">일정등록</a></li>
+										<li><a href="TeamMemberController?command=createTeam">일정등록</a></li>
 									</ul>
 								</li>
 								<li><a href="PageMoveServlet?command=review">여행후기</a>
@@ -161,13 +161,13 @@
 						<div class="innerlogin">
 							<ul>
 								<li class="idmenu">
-									<a href="#"> <%=user.getM_nick() %> </a> 
+									<a> <%=user.getM_nick() %> </a> 
 										<ul class="hide">
 											<li><a href="#">개인 정보 수정</a></li>
 											<li><a >작성 글 조회</a></li>
 											<li><a>등록 스크랩 조회</a></li>
 											<li><a>알림 조회</a></li>
-											<li><a>로그아웃</a></li>
+											<li><a href="memberLogin?command=logout">로그아웃</a></li>
 										</ul>
 								</li>
 							</ul>
@@ -195,6 +195,8 @@
 		</div>
 		
 	</header>
+
+
 
 </body>
 </html>

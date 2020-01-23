@@ -29,9 +29,12 @@ public class MemberLoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = null;
+		String command = request.getParameter("command");
+				
+		
 		
 		try {
-			HttpSession session;
 			MemberLoginDto dto = new MemberLoginDto();
 			session = request.getSession();
 			dto.setM_id(String.valueOf(request.getParameter("myid")));
@@ -69,6 +72,10 @@ public class MemberLoginServlet extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println("ERROR SERVLET");
 			e.printStackTrace();
+		}
+		if(command.equals("logout")) {
+			session.invalidate();
+			response.sendRedirect("mainheader.jsp");
 		}
 	}
 

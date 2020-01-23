@@ -165,14 +165,22 @@
 		margin-left:15px;
 	}
 	
-	.innerlogin{
+	.usernotlogin{
 		margin-left:10px;
 		text-align:left;
 		width:45%;
 		height:40px;
 		margin-top:9px;
 		float:left;
-		display:inline-block;
+	}
+	
+	.userlogin{
+		margin-left:10px;
+		text-align:left;
+		width:45%;
+		height:40px;
+		margin-top:9px;
+		float:left;
 	}
 	
 	.linebar{
