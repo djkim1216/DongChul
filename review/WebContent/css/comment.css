@@ -53,12 +53,21 @@ p.commentValMiddle {
     font-weight: 100;
     padding-top: 8px;
     padding-bottom: 8px;
+    margin-left: 2.5%;
+    width: 95%;
     word-break:break-all;
     clear: both;
 }
 
 .commentValue > p > span {
 	height: inherit;
+}
+
+span.level {
+	float: left;
+    letter-spacing: -5px;
+    margin-right: 10px;
+    color: #b7b7b7;
 }
 
 span.commentId {
@@ -71,6 +80,8 @@ span.commentDate {
     font-size: 10pt;
     font-weight: 100;
     vertical-align: middle;
+    position:absolute;
+    left: 81%;
     float: right;
 }
 
@@ -228,6 +239,11 @@ button.commentSummit {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 600;
     letter-spacing: 0.4pt
+}
+
+button.commentSummit:hover {
+	background-color : #57BEEC;
+	color : #fff;
 }
 
 p.commentCount {

@@ -4,6 +4,13 @@
 var key;
 var category
 
+var notResult = `
+	<div class = "NotResult">
+		<p class = "NotResultText">키워드 관련된 검색 결과가 없습니다.</p>
+		<a href="#" onclick="return resultClose();" class="resultClose">닫기</a>
+	</div>
+`;
+
 var resultClose = ()=>{
 	if($('div.NotResult')){
 		$('div.NotResult').remove();
@@ -18,6 +25,7 @@ var searchFun = function (){
 	category = $('input[name=category]').val();
 	console.log(key);
 	console.log(category);
+	if(key){
 	$.ajax({
 		url : "kakaoPlaceList",
 		dataType : "json",
@@ -200,16 +208,13 @@ var searchFun = function (){
 			}
 			$('.pageGroup').css("visibility","visible");
 		} else {
-			var notResult = `
-				<div class = "NotResult">
-					<p class = "NotResultText">키워드 관련된 검색 결과가 없습니다.</p>
-					<a href="#" onclick="return resultClose();" class="resultClose">닫기</a>
-				</div>
-			`;
 			$("#searchBox").append(notResult)
 		}
 		}
 	});
+	} else {
+		$("#searchBox").append(notResult)
+	}
 	return false;
 };
 

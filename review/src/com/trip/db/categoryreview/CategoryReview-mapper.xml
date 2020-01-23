@@ -44,7 +44,7 @@
 	<insert id="commentInsert" parameterType="categoryCommentDto">
 	insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, #{rv_crno},
 	
-	<if test="rv_pno == 0"> null, </if> <if test="rv_pno != 0"> #{rv_pno} </if>
+	<if test="rv_pno == 0"> null, </if> <if test="rv_pno != 0"> #{rv_pno}, </if>
 	
 	#{rv_id}, #{rv_content}, sysdate, 'N')
 	</insert>

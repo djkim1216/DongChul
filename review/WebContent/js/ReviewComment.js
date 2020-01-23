@@ -55,6 +55,7 @@ $(function(){
 				$('div.commentPage').before(data);
 				if(chk){
 					$('div.commentList').css("display","block");
+					$('div.commentPage').css("display","block");
 				}
 				
 				console.log(page);
@@ -108,7 +109,7 @@ $(function(){
 				"selectComment" : selectComment,
 				"rv_content" : arguments[1],
 				"rv_crno" : rv_crno,
-				"rv_no" : arguments[0]
+				"rv_no" : arguments[0],
 			},
 			success : function(data){
 				var data = Number(data);
@@ -129,8 +130,65 @@ $(function(){
 	};
 
 
-	var commentPlus = function(){
+	var commentWrite = function(val){
 		
+		var commentValue = val;
+		var rv_crno = $('input[name=rv_crno]').val();
+		var selectComment = $('input[name=selectComment]').val();
+		var al_id = $('span.id').html();
+		var rv_pno = arguments[1];
+		var commentIndex = arguments[2];
+		
+		console.log(rv_pno, commentValue, rv_crno, selectComment);
+		
+		$.ajax({
+			
+			url : "CommentWrite",
+			data : {
+				"rv_crno" : rv_crno,
+				"rv_pno" : rv_pno,
+				"selectComment" : selectComment,
+				"rv_content" : commentValue,
+				"al_id" : al_id
+			},
+			dataType : "text",
+			method : "post",
+			success : function(data){
+				var data = Number(data);
+				
+				maxComment = data;
+				var btnCount= maxComment%8 == 0? Math.floor(maxComment/8) : Math.floor(maxComment/8+1);
+				
+				if(!rv_pno){
+					
+					commentLoad(rv_crno,selectComment,btnCount);
+					
+					console.log("[InsertBtnCount] : "+btnCount);
+
+					$(".commentWrite").focus();
+					
+					$(".commentBtn > p > span:nth-child(3)").eq(0).html(maxComment);
+					
+					
+				} else {
+					
+					var nowPage = $('span.num').eq(2).html();
+					
+					if(commentIndex !=7){
+						commentLoad(rv_crno,selectComment,nowPage);
+						$('div.commentValue').eq(commentIndex).focus();
+					} else {
+						nowPage = Number(nowPage)+1;
+						commentReLoad(rv_crno,selectComment,nowPage);
+					}
+					
+					
+					
+					$(".commentBtn > p > span:nth-child(3)").eq(0).html(maxComment);
+				
+				}
+			}
+		});
 	};
 	
 	
@@ -290,46 +348,11 @@ $(function(){
 	}
 	
 	
-	// 페이지 처음 로딩
-	
-	commentCountLoad(rv_crno,selectComment);
-	
-	commentLoad(rv_crno, selectComment);
-	
-	console.log("[maxValue]" + maxComment);
-	
-	
-	
-	// 스크롤링
-	
-	$("div.commentBtn").on("click",function(){
-		$("div.commentList").slideToggle();
-		$("div.commentPage").slideToggle();
-		var btn = $(".commentBtn > p > span:nth-last-child(1)").css("border-bottom");
-		var px = btn.split(" ")[0];
-		console.log(px);
-		if(px === "12px"){
-			$(".commentBtn > p > span:nth-last-child(1)").css({
-				"transition-duration": "0.3s",
-		    	"border-bottom": "0px solid #bbb",
-		    	"border-top": "12px solid #bbb"
-			});
-		} else {
-			$(".commentBtn > p > span:nth-last-child(1)").css({
-				"transition-duration": "0.3s",
-		    	"border-bottom": "12px solid #bbb",
-		    	"border-top": "0px solid #bbb"
-			});
-		}
-	});
-	
-	// CommenttextCount
 	function commentContextFun(textarea){
 		textarea.on("keyup",function(){
 			var value = $(this).val();
 			var length = value.length;
 			var countSpan = $(this).parent('div.commentTextArea').next('p.commentCount').children('span');
-			console.log(countSpan);
 			countSpan.html(length);
 			if(length > 1500){
 				countSpan.css({
@@ -345,47 +368,9 @@ $(function(){
 		});
 	}
 	
-	// 페이지 첫 렌더링 시 부여
-	commentContextFun($('textarea.commentContext'));
 	
-	// commentWrite
 	
-	$('button.commentSummit:nth-last-child(1)').on("click",function(){
-		
-		var commentValue = $('textarea.commentContext').val();
-		var rv_crno = $('input[name=rv_crno]').val();
-		var selectComment = $('input[name=selectComment]').val();
-		
-		console.log(commentValue, rv_crno, selectComment);
-		
-		$.ajax({
-			
-			url : "CommentWrite",
-			data : {
-				"rv_crno" : rv_crno,
-				"selectComment" : selectComment,
-				"rv_content" : commentValue
-			},
-			dataType : "text",
-			method : "post",
-			success : function(data){
-				var data = Number(data);
-				
-				maxComment = data;
-					
-				var btnCount= maxComment%8 == 0? Math.floor(maxComment/8) : Math.floor(maxComment/8+1);
-					
-				console.log("[InsertBtnCount] : "+btnCount);
-					
-				commentLoad(rv_crno,selectComment,btnCount);
-				$(".commentBtn > p > span:nth-child(3)").eq(0).html(maxComment);
-				$(".commentWrite").focus();
-			
-			}
-			
-		});
-		
-	});
+	// commentBox 삭제
 	
 	function commentBoxRemove(){
 		
@@ -406,11 +391,14 @@ $(function(){
 		
 	}
 	
+	// comment버튼 작동
+	
 	function commentBtnOn(){
 		
 		$('a.commentPlus').on("click",function(){
 			
 			var rv_no = $(this).parent('p.commentValFoot').children('input[name=rv_no]').val();
+			var commentIndex = $(this).parent('p.commentValFoot').children('input[name=commentIndex]').val();
 			
 			if($(this).html() === "답글"){
 			
@@ -437,6 +425,14 @@ $(function(){
 				
 				// count 기능 탑재
 				commentContextFun($('textarea.commentPlusContext'));
+				
+				// 글작성 기능
+				$('button.commentPlusSummit').on("click",function(){
+					var val = $(this).prev().val();
+					var rv_pno = Number(rv_no);
+					console.log(rv_pno);
+					commentWrite(val,rv_pno,commentIndex);
+				});
 				
 				$(this).html("취소");
 				
@@ -497,6 +493,51 @@ $(function(){
 	
 	
 	
+	
+	// 페이지 첫 렌더링 시 부여
+	commentContextFun($('textarea.commentContext'));
+	
+	// commentWrite
+	
+	$('button.commentSummit:nth-last-child(1)').on("click",function(){
+		if($('p.commentMyId').html()){
+			var val = $(this).prev().val();
+			commentWrite(val);
+			$(this).prev().val("");
+		}
+	});
+	
+	// 페이지 처음 로딩
+	
+	commentCountLoad(rv_crno,selectComment);
+	
+	commentLoad(rv_crno, selectComment);
+	
+	console.log("[maxValue]" + maxComment);
+	
+	// 스크롤링
+	
+	$("div.commentBtn").on("click",function(){
+		if(maxComment != 0){
+			$("div.commentList").slideToggle();
+			$("div.commentPage").slideToggle();
+			var btn = $(".commentBtn > p > span:nth-last-child(1)").css("border-bottom");
+			var px = btn.split(" ")[0];
+			if(px === "12px"){
+				$(".commentBtn > p > span:nth-last-child(1)").css({
+					"transition-duration": "0.3s",
+		    		"border-bottom": "0px solid #bbb",
+		    		"border-top": "12px solid #bbb"
+				});
+			} else {
+				$(".commentBtn > p > span:nth-last-child(1)").css({
+					"transition-duration": "0.3s",
+		    		"border-bottom": "12px solid #bbb",
+		    		"border-top": "0px solid #bbb"
+				});
+			}
+		}
+	});
 	
 });
 	

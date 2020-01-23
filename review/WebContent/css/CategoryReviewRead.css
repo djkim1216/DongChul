@@ -50,13 +50,11 @@ a {
     margin-right: 8px;
 }
 
-.wishAdd {
-    display: inline-block;
-    background: #fff;
+.wishBtn  {
+	display: inline-block;
     border: 0.4px solid #bbb;
     border-radius: 3px;
     font-size: 15pt;
-    color: #bbb;
     padding-left: 7px;
     padding-right: 7px;
     padding-top: 3px;
@@ -67,10 +65,26 @@ a {
     bottom : 4px;
 }
 
+.wishAdd {
+	background-color: #fff;
+    color: #bbb;
+}
+
 .wishAdd:hover {
 	background-color: #ece257;
 	color : #fff;
 }
+
+.wishDel {
+	background-color: #ece257;
+	color : #fff;
+}
+
+.wishDel:hover {
+	background-color: #fff;
+    color: #bbb;
+}
+
 
 article.contents {
     width: 887.458px;
@@ -106,11 +120,11 @@ span.date {
     font-size: 12pt;
     font-weight: 300;
 }
-p > span:nth-child(3){
+p.head > span:nth-child(3){
 	left: 86%;
 	font-weight: 600;
 }
-p > span:nth-child(3), p > span:nth-child(4) {
+p.head > span:nth-child(3), p > span:nth-child(4) {
     position: absolute;
 }
 
@@ -167,10 +181,6 @@ span.location {
 	background-color: #57BEEC;
 }
 
-.commentBtn > p > span {
-    margin: 0;
-}
-
 .commentBtn > p > img {
     display: inline-block;
     width: 15px;
@@ -186,16 +196,11 @@ span.location {
 
 .commentBtn > p > span:nth-child(3) {
     position: relative;
-    left: 15px;
+    left: 10px;
     color: #3383C4;
 }
 
 .commentBtn > p:hover > span {
-	transition-duration: 0.3s;
-	color : #fff;
-}
-
-.commentBtn > p:hover > span:nth-child(3) {
 	transition-duration: 0.3s;
 	color : #fff;
 }

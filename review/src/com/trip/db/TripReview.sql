@@ -97,139 +97,6 @@ select rownum no, level, rv.* from categoryreviewcomment rv where rv_delflag = '
 
 select * from (select rownum no, level, CONNECT_BY_ISLEAF , rv.* from categoryreviewcomment rv where rv_delflag = 'N' and rv_crno = 91 start with rv_pno is null connect by prior rv_no = rv_pno) where no between 1 + (8*(1-1)) and 1 * 8
 
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트5', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트6', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트7', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트8', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트9', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트10', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 2, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 2, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 3, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 15, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 16, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 18, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 19, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 20, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, null, 'user1', '댓글 테스트2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-1', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-2', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-3', sysdate, 'N');
-insert into categoryreviewcomment values (categoryreviewcomment_id.nextval, 91, 1, 'user1', '댓글 테스트1-4', sysdate, 'N');
-
-
-
 select * from (select rownum no, level,rv.* from categoryreviewcomment rv where rv_delflag = 'N' start with rv_pno is null connect by prior rv_no = rv_pno) where no between 1 and 8 ;
 
 
@@ -258,12 +125,12 @@ create table alarmCategory (
 );
 
 create table alarm (	
-	al_no number primary key, -- 알림 번호
-	al_id varchar2(250) not null, -- 유저 아이디
-	al_rno number , -- 알람과 연관된 게시글 번호
-	al_cate number  not null, -- 알람 카테고리 번호
-	al_aflag varchar2(5)  not null, -- 알람 확인 여부
-	al_date date, -- 날짜
+	al_no number primary key,
+	al_id varchar2(250) not null,
+	al_rno number ,
+	al_cate number  not null,
+	al_aflag varchar2(5)  not null,
+	al_date date,
 	CONSTRAINTS al_aflag_chk CHECK(al_aflag in ('Y', 'N')),
 	CONSTRAINTS al_cate_fk foreign key(al_cate) references alarmCategory(alc_cate)
 );
@@ -291,7 +158,27 @@ insert into alarmCategory values (3, '여행 후기 댓글');
 drop view alarmList;
 create view alarmList as select * from alarm al join alarmCategory alc on(al.al_cate = alc.alc_cate); 
 
-select * from alarmList; -- 뷰 조회
+-- 뷰 조회
+select * from alarmList; 
+
+
+-- 스크랩 테이블
+
+-- 0 이면 후기
+-- 1 이면 리뷰
+
+drop table favorite;
+
+create sequence favorite_seq;
+create table favorite (
+	f_no number primary key,
+	f_id varchar2(250) not null,
+	f_pno number not null,
+	f_cate number not null,
+	f_date date not null
+);
+
+insert into favorite values (favorite_seq.nextval, 'user1', 91, 1, sysdate);
 
 
 -- 여행 후기 메인 읽기

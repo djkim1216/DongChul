@@ -2,7 +2,39 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.trip.db.categoryreview.CategoryReview-mapper">
-
+<mapper namespace="com.trip.db.otherBoard.OtherBoard-mapper">
+	<!-- AlarmSQL -->
+	<select id="alarmlist" parameterType="string" resultType="alarmDto">
+		select * from alarmlist where al_id = #{al_id}
+	</select>
+	<delete id="alarmdelete" parameterType="int">
+		delete from alarm where al_no = #{al_no}
+	</delete>
+	<update id="alarmchange" parameterType="int">
+		update alarm set al_aflag = 'Y' where al_no = #{al_no}
+	</update>
+	
+	<insert id="alarminsert" parameterType="alarmDto">
+		insert into alarm values (alarm_seq.nextval, #{al_id}, #{al_rno}, #{al_cate},'N',sysdate)	
+	</insert>
+	
+	<!-- FavoriteSQL -->
+	
+	<select id="favoriteList" parameterType="string" resultType="favoriteDto">
+		select * from favorite where f_id = #{f_id}
+	</select>
+	
+	<select id="favoriteCheck" parameterType="hashMap" resultType="int">
+		select count(*) from favorite where f_id = #{f_id} and f_pno = #{f_pno}
+	</select>
+	
+	<insert id="favoriteInsert" parameterType="favoriteDto">
+		insert into favorite values(favorite_seq.nextval,#{f_id},#{f_pno},#{f_cate},sysdate)
+	</insert>
+	
+	<delete id="favoriteDelete" parameterType="hashMap">
+		delete from favorite where f_id = #{f_id} and f_pno = #{f_pno}
+	</delete>
+	
 </mapper>
 

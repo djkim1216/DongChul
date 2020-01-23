@@ -26,7 +26,7 @@
 	<!-- 코멘트용 정보 -->
 	<input name = "selectComment" type="hidden" value="category"/>
 	<input name = "rv_crno" type="hidden" value="${dto.cr_no}"/>
-	<input name = "user" type="hidden" value="${user}"/>
+	<input name = "user" type="hidden" value="${user.m_id}"/>
 	
 	<section class="projectSection">
 		<article id="article_header">
@@ -38,10 +38,18 @@
 					<c:set var="location" value="RestaurantReviewList"></c:set>
 				</c:if>
 				<c:if test="${dto.cr_category eq '숙소'}">
-					<c:set var="location" value="RoomsReviewView"></c:set>
+					<c:set var="location" value="RoomsReviewList"></c:set>
 				</c:if>
 				<a href="${location}">${dto.cr_category} 리뷰</a> <span></span>
-				<span class="locationName">${dto.cr_title}</span> <a class="wishAdd">★</a>
+				<span class="locationName">${dto.cr_title}</span>
+				<c:if test="${not empty favoriteCheck}">
+					<c:if test="${favoriteCheck eq 1}">
+						<a href="#" class="wishBtn wishDel" onclick="return favoriteDelete(1);">★</a>
+					</c:if>
+					<c:if test="${favoriteCheck ne 1}">
+						<a href="#" class="wishBtn wishAdd" onclick="return favoriteInsert(1);">★</a>
+					</c:if>
+				</c:if>
 			</div>
 		</article>
 		<article class="contents">
@@ -53,7 +61,7 @@
 				</p>
 				<p class="head">
 					<img src="./images/board_icon/location_icon.png"
-						class="locationIcon" /> <span class="location">${dto.cr_placeid}</span>
+						class="locationIcon" /> <span class="location"></span>
 				</p>
 			</div>
 			<div class="contents_body">${dto.cr_contents}</div>
@@ -97,9 +105,16 @@
 				<div class="commentWrite">
 					<div>
 						<div class="commentWriteBac">
-							<p class="commentMyId">${user}</p>
+							<p class="commentMyId">${user.m_id}</p>
 							<div class="commentTextArea">
-								<textarea class="commentContext"></textarea>
+								<c:choose>
+									<c:when test="${empty user}">
+										<textarea class="commentContext" placeholder="해당 가능은 로그인이 있어야 사용 가능 합니다." readonly="readonly"></textarea>
+									</c:when>
+									<c:otherwise>
+										<textarea class="commentContext"></textarea>
+									</c:otherwise>
+								</c:choose>
 								<button class="commentSummit">등록</button>
 							</div>
 							<p class="commentCount"><span>0</span>/1500</p>
