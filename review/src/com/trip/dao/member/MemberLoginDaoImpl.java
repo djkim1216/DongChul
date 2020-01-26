@@ -7,13 +7,19 @@ import com.trip.dto.member.MemberLoginDto;
 
 public class MemberLoginDaoImpl extends SqlMapConfig implements MemberLoginDao{
 
+	SqlSession sql = getSqlSessionFactory().openSession();
 	private String namespace = "memberMapper.";
 	
+	@Override
 	public MemberLoginDto getList(MemberLoginDto dto) {
-		SqlSession sql = getSqlSessionFactory().openSession();
-		System.out.println(dto);
 		MemberLoginDto result = sql.selectOne(namespace+"memberList", dto);
-		//System.out.println("dao : " + dto.getM_pass());
+		sql.close();
+		return result;
+	}
+
+	@Override
+	public int joinMember(MemberLoginDto dto) {
+		int result = sql.insert(namespace+"memberInsert", dto);
 		sql.close();
 		return result;
 	}

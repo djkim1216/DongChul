@@ -5,7 +5,7 @@
 <configuration>
 <properties resource="com/trip/db/db.properties"></properties>
 <typeAliases>
-	<typeAlias type="com.trip.member.dto.MemberLoginDto" alias="memberLoginDto"/>
+	<typeAlias type="ccom.trip.dto.member.MemberLoginDto" alias="memberLoginDto"/>
 	<typeAlias type="com.trip.search.dto.SearchDto" alias="searchDto"/>
 </typeAliases>
   <environments default="development">

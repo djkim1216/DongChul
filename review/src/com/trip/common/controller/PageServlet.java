@@ -28,7 +28,7 @@ public class PageServlet extends HttpServlet {
 					break;
 					
 				case "join" :
-					returnUrl = "views/member/member_join.jsp";
+					returnUrl = "views/member/member_login.jsp";
 					break;
 					
 				case "findIdPw" :

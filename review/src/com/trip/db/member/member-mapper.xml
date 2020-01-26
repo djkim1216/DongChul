@@ -17,16 +17,41 @@
 					, M_GRADE 
 		  FROM
 		  			MYMEMBER
-		 <if test="platform eq 'dondok'">
-		  WHERE m_id = #{m_id} AND m_pass = #{m_pass}
+		 WHERE 1 = 1
+		 <if test="m_platform eq 'dondok'">
+		  	 AND
+		  			M_ID = #{m_id}
+		  	 AND
+		  	 		M_PASS = #{m_pass}
 		 </if>
-		 <if test="platform eq 'kakao'">
-		  WHERE M_EMAIL = #{m_email}
+		 <if test="m_platform eq 'kakao'">
+		  	 AND
+		  			M_EMAIL = #{m_email}
 		 </if>
 	</select>
 	
 	<insert id="searchInsert" parameterType="hashMap">
-	INSERT INTO KEYSEARCH VALUES(#{myid}, #{search})
+		INSERT INTO KEYSEARCH VALUES(#{myid}, #{search})
+	</insert>
+	
+	<insert id="memberInsert" parameterType="memberLoginDto">
+		INSERT INTO
+							MYMEMBER 
+		VALUES
+					(
+						#{m_id},
+						#{m_nick},
+						#{m_pass},
+						#{m_name},
+						#{m_email},
+						#{m_phone},
+						#{m_flag},
+						#{m_grade},
+						#{m_platform},
+						#{m_filepath},
+						#{m_addr1},
+						#{m_addr2}
+					)
 	</insert>
 	
 	

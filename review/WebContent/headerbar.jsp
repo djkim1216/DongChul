@@ -19,29 +19,26 @@
 	
 <script type="text/javascript">
 
-// 	function submit(){
-// 		$("#searchForm").attr("action", "UserSearchServlet");
-// 		$("#searchForm").submit();
-// 	}
+	function submit(){
+		$("#searchForm").attr("action", "UserSearchServlet");
+		$("#searchForm").submit();
+	}
 
-	function gotologinForm(){
-		$.ajax({
-			type:'post',
-			url : 'loginForm',
-			dataType : 'html',
-			data : $("#loginForm").serialize(),
-			success : function(data){
-				
-				$('#loginFormBox').remove();
-				$('#loginBak').remove();
-				$("header").after(data);
-				$('#usernotlogin').hide();
-				$('#userlogin').show();
-				$('#loginIdbar').text(data.m_nick);
-				console.log("닉네임은"+data.m_nick);
-			}
-		});
-		return false;
+	function goToLoginForm(){
+		var url = "page?page=login"; //로그인 페이지 샘플 (보통은 /서블릿 액션명 을 넣는다)
+		var popupName = "login"; //popup에 고유한 이름을 부여한다. 이름이 같은 팝업이 열릴때는 브라우저가 인식해서 중복팝업이 발생 시키지 않게 한다.
+		var popupSetting = "width=500, height=700, menubar=no, status=no, toolbar=no"; //팝업이 열리는 시점에 세팅을 하는 곳
+		window.open(url, popupName, popupSetting);
+	}
+	
+	//로그인 화면에서 유저정보 return
+	function fnLoginSuccess(data){
+		$('#loginFormBox').remove();
+		$('#loginBak').remove();
+		$("header").after(data);
+		$('#usernotlogin').hide();
+		$('#userlogin').show();
+		$('#loginIdbar').text(data.m_nick);
 	}
 	
 	function logout(){
@@ -50,6 +47,9 @@
 			url : 'logout',
 			dataType : 'json',
 			success : function(data){
+				if(!data.result){
+					return alert("로그인에 실패했습니다.");
+				}
 				alert("로그아웃 되었습니다.");
 				$('#userlogin').hide();
 				$('#usernotlogin').show();
@@ -178,7 +178,7 @@
 				<div class="login">
 					<span class="linebar"> | </span>
 						<div class="loginimg"></div>
-						<div id="usernotlogin"  style="width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;"><a href="#" onclick = "return gotologinForm()">로 그 인</a></div>
+						<div id="usernotlogin"  style="width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;"><a href="#" onclick = "goToLoginForm();">로 그 인</a></div>
 						<div id="userlogin" style="display : none; width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;">
 							<ul>
 								<li class="idmenu">
