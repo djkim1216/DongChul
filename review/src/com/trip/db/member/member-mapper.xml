@@ -7,26 +7,34 @@
 	<select id="memberList" parameterType="memberLoginDto" resultType="memberLoginDto">
 		<!-- 로그인 -->
 				SELECT
-					  M_ID
-					, M_NICK
-					, M_PASS
-					, M_NAME
-					, M_EMAIL
-					, M_PHONE 
-					, M_FLAG
-					, M_GRADE 
+							M_ID,
+							M_NICK,
+							M_PASS,
+							M_NAME,
+							M_EMAIL,
+							M_PHONE,
+							M_FLAG,
+							M_GRADE,
+							M_PLATFORM,
+							M_FILEPATH,
+							M_ADDR1,
+							M_ADDR2
 		  FROM
 		  			MYMEMBER
-		 WHERE 1 = 1
+		 WHERE M_FLAG = 'Y'
 		 <if test="m_platform eq 'dondok'">
 		  	 AND
 		  			M_ID = #{m_id}
 		  	 AND
 		  	 		M_PASS = #{m_pass}
+		  	 AND
+		  			M_PLATFORM = 'dondok'
 		 </if>
-		 <if test="m_platform eq 'kakao'">
+		 <if test="m_platform neq 'dondok'">
 		  	 AND
 		  			M_EMAIL = #{m_email}
+		  	 AND
+		  			M_PLATFORM = #{m_platform}
 		 </if>
 	</select>
 	
@@ -36,7 +44,21 @@
 	
 	<insert id="memberInsert" parameterType="memberLoginDto">
 		INSERT INTO
-							MYMEMBER 
+							MYMEMBER(
+												M_ID,
+												M_NICK,
+												M_PASS,
+												M_NAME,
+												M_EMAIL,
+												M_PHONE,
+												M_FLAG,
+												M_GRADE,
+												M_PLATFORM,
+												M_FILEPATH,
+												M_ADDR1,
+												M_ADDR2
+											) 
+							
 		VALUES
 					(
 						#{m_id},
@@ -54,7 +76,26 @@
 					)
 	</insert>
 	
-	
+	<select id="dupCheck" parameterType="hashMap" resultType="hashMap">
+		<!-- 중복체크 -->
+		SELECT
+					  COUNT(M_ID) COUNT
+		  FROM
+		  			MYMEMBER
+		 WHERE 1 = 1
+		 <if test="param eq 'id'">
+		  	 AND
+		  			M_ID = #{paramValue}
+		 </if>
+		 <if test="param eq 'nick'">
+		  	 AND
+		  			M_NICK = #{paramValue}
+		 </if>
+		 <if test="param eq 'email'">
+		  	 AND
+		  			M_EMAIL = #{paramValue}
+		 </if>
+	</select>
 	
 </mapper>
 

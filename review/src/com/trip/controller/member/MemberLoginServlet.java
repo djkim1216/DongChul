@@ -44,7 +44,12 @@ public class MemberLoginServlet extends HttpServlet {
 			dto.setM_platform(String.valueOf(request.getParameter("platform")));
 			
 			//Member DB 통신
-			MemberLoginDto user = memberLoginDao.getList(dto);
+			MemberLoginDto user;
+			if(request.getParameter("myId") == null && request.getParameter("myPw") == null && request.getParameter("email") == null) {
+				user = new MemberLoginDto();
+			}else {
+				user = memberLoginDao.getList(dto);
+			}
 			
 			//결과값 처리
 			Map<String, Object> resMap = new HashMap<String, Object>();

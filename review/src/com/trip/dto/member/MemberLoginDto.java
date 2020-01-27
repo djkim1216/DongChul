@@ -1,5 +1,7 @@
 package com.trip.dto.member;
 
+import com.trip.util.Sha256Util;
+
 public class MemberLoginDto {
 	private String m_id;
 	private String m_nick;
@@ -30,7 +32,8 @@ public class MemberLoginDto {
 		return m_pass;
 	}
 	public void setM_pass(String m_pass) {
-		this.m_pass = m_pass;
+		//sha256으로 hash 암호화 후 저장
+		this.m_pass = Sha256Util.encSha256(m_pass);
 	}
 	public String getM_name() {
 		return m_name;
