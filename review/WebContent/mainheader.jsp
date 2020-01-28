@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/loginheader.css">
+
 <link rel="stylesheet" type="text/css" href="css/loginForm.css">
 
 <script type="text/javascript"
@@ -26,6 +27,7 @@
 		var popupSetting = "width=500, height=700, menubar=no, status=no, toolbar=no"; //팝업이 열리는 시점에 세팅을 하는 곳
 		window.open(url, popupName, popupSetting);
 	}
+
 
 
 

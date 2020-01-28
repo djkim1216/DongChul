@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -52,4 +53,5 @@ function init(){
 		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
 	</form>
 </body>
+
 </html>

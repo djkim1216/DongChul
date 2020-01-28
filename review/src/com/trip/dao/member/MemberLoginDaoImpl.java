@@ -1,3 +1,4 @@
+
 package com.trip.dao.member;
 
 import java.util.Map;
@@ -32,3 +33,4 @@ public class MemberLoginDaoImpl extends SqlMapConfig implements MemberLoginDao{
 		return result;
 	}
 }
+

@@ -1,3 +1,4 @@
+
 package com.trip.common.controller;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -33,5 +34,6 @@ public class Log4JInitServlet extends HttpServlet {
 		}     
 	
 	}
+
 
 }
