@@ -10,5 +10,6 @@ public interface AlarmDao {
 	int viewChange(int al_no);
 	int delete(int al_no);
 	int insert(AlarmDto dto);
+	int alarmCount(String al_id); 
 	
 }

@@ -11,7 +11,7 @@ import com.trip.dto.otherBoard.FavoriteDto;
 
 public class FavoriteDaoImpl extends OtherBoardSqlMapConfig implements FavoriteDao {
 
-	String namespace = "com.trip.db.otherBoard.OtherBoard-mapper.";
+	String namespace = "com.trip.db.otherBoard.otherBoard-mapper.";
 	
 	
 	

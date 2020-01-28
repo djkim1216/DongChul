@@ -198,21 +198,17 @@
 		height: 40px;
 	}
 	
-		.idmenu{
+	.idmenu{
 		position:absolute;
 	}
 	
-	.idmenu .hide{
-		width:200px;
-		position:relative;
-		float:right;
-		z-index: 99;
-		/*display:none;*/
+	#alarmbtn{
+		float: left;
+  		display: inline-block;
 	}
+	
+	
 
-	.idmenu:hover ul{
-		display:block;
-	}
 	
 	
 	

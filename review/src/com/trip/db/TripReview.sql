@@ -111,9 +111,8 @@ create view categoryreview_read as select CR_NO, CR_ID, CR_TITLE, CR_CONTENTS, C
 
 
 -- 알람 테이블
-
-drop table alarmCategory;
 drop table alarm;
+drop table alarmCategory;
 drop sequence alarm_seq;
 
 create sequence alarm_seq;
@@ -135,22 +134,27 @@ create table alarm (
 	CONSTRAINTS al_cate_fk foreign key(al_cate) references alarmCategory(alc_cate)
 );
 
-
--- 알람 리스트 테스트
-
-insert into alarm values (alarm_seq.nextval,'user1',91,2,'N',sysdate);
-
-
 -- 알림 카테고리 (필요한거 추가해서 사용)
 -- 0 | 시스템 ( 점검같은거 )
 -- 1 | 이벤트
 -- 2 | 카테고리 리뷰 댓글
 -- 3 | 여행  후기 댓글
 
-insert into alarmCategory values (0, '시스템');
-insert into alarmCategory values (1, '이벤트');
-insert into alarmCategory values (2, '카테고리 리뷰 댓글');
-insert into alarmCategory values (3, '여행 후기 댓글');
+insert into alarmCategory values (0, '시스템'); --시스템 메세지가 있습니다.
+insert into alarmCategory values (1, '이벤트'); --새로운 이벤트가 있습니다.
+insert into alarmCategory values (2, '카테고리 리뷰 댓글'); --작성하신 리뷰에 댓글이 달렸습니다.
+insert into alarmCategory values (3, '여행 후기 댓글'); --작성하신 여행 후기에 댓글이 달렸습니다.
+
+-- 알람 리스트 테스트
+
+insert into alarm values (alarm_seq.nextval,'user1',91,2,'N',sysdate);
+
+insert into alarm values (alarm_seq.nextval,'djkim12160',92,1,'N',sysdate);
+insert into alarm values (alarm_seq.nextval,'djkim12160',92,2,'N',sysdate);
+insert into alarm values (alarm_seq.nextval,'djkim12160',92,3,'N',sysdate);
+insert into alarm values (alarm_seq.nextval,'djkim12160',92,0,'N',sysdate);
+DELETE FROM alarm WHERE al_id = 'djkim12160';
+
 
 
 -- 알람 리스트 뷰 테이블
@@ -161,7 +165,7 @@ create view alarmList as select * from alarm al join alarmCategory alc on(al.al_
 -- 뷰 조회
 select * from alarmList; 
 
-
+select COUNT(al_id) from alarmlist where al_id = 'KIM' and al_aflag='N' group by al_id;
 -- 스크랩 테이블
 
 -- 0 이면 후기
