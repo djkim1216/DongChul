@@ -6,12 +6,12 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.trip.db.SqlMapConfig;
+import com.trip.db.review.TripReviewSqlMapConfig;
 import com.trip.dto.review.TripReviewContentsDto;
 
-public class TripReviewContentsDaoImpl extends SqlMapConfig implements TripReviewContentsDao{
+public class TripReviewContentsDaoImpl extends TripReviewSqlMapConfig implements TripReviewContentsDao{
 
-	private String namespace = "com.trip.db.mybatis-mapper.";
+	private String namespace = "com.trip.db.review.TripReview-mapper.";
 	private int num;
 	
 	@Override
@@ -22,7 +22,7 @@ public class TripReviewContentsDaoImpl extends SqlMapConfig implements TripRevie
 		params.put("tvc_day", tvc_day);
 		List<TripReviewContentsDto> selectList = session.selectList(namespace+"tripReviewContents_List",params);
 		session.close();
-		return selectList; 
+		return selectList;
 	}
 
 	@Override

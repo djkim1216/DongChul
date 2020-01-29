@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,7 +54,12 @@ public class TripEvent extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
         response.setContentType("text/html; charset=utf-8");
         
-        URL url = new URL("http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?ServiceKey=b1Ir0EWgotMKPp6adqfK4zOLPVG%2BXZf92q8%2FvYpydZ0Uw0DayW5Sl8VpR73jB4juYtG4SX%2BN3WDLwoXgjzTaeQ%3D%3D&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&eventStartDate=20200101&_type=json");
+        SimpleDateFormat format = new SimpleDateFormat( "yyyyMMdd" );
+        String current = format.format(System.currentTimeMillis());
+        
+        System.out.println(current);
+        
+        URL url = new URL("http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?ServiceKey=b1Ir0EWgotMKPp6adqfK4zOLPVG%2BXZf92q8%2FvYpydZ0Uw0DayW5Sl8VpR73jB4juYtG4SX%2BN3WDLwoXgjzTaeQ%3D%3D&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&eventStartDate="+current+"&_type=json");
      
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         InputStream in = con.getInputStream();
