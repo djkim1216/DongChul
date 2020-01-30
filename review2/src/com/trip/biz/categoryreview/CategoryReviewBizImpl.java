@@ -137,6 +137,12 @@ public class CategoryReviewBizImpl implements CategoryReviewBiz{
 		return dao.count(cr_no);
 	}
 
+	@Override
+	public List<CategoryReviewDto> selectMyReview(String cr_id, String cr_placeid) {
+		// TODO Auto-generated method stub
+		return dao.selectMyReview(cr_id, cr_placeid);
+	}
+
 
 
 	

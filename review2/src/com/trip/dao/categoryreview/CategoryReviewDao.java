@@ -13,4 +13,5 @@ public interface CategoryReviewDao {
 	int delete(int cr_no);
 	int update(CategoryReviewDto dto);
 	int count(int cr_no);
+	List<CategoryReviewDto> selectMyReview(String cr_id, String cr_placeid);
 }

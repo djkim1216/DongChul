@@ -33,7 +33,7 @@
 					<c:if test="${num.index == 0 }">
 						<div>
 					</c:if>
-					<a href=""><div class="view_item"
+					<a href="TripReviewRead?tv_no=${dto.tv_no}"><div class="view_item"
 							style="background-image : url('${path}');">
 							<div class="view_back"></div>
 							<div class="view_content">
@@ -59,7 +59,7 @@
 		<c:if test="${num.index == 4 }">
 			<div>
 		</c:if>
-		<a href=""><div class="view_item"
+		<a href="TripReviewRead?tv_no=${dto.tv_no}"><div class="view_item"
 				style="background-image : url('${path}');">
 				<div class="view_back"></div>
 				<div class="view_content">

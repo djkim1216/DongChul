@@ -39,6 +39,14 @@ create table TRIPREVIEW_CONTENTS(
 	CONSTRAINTS TVC_TVNO_CONSTRANTS FOREIGN KEY(TVC_TVNO) REFERENCES TRIPREVIEW(TV_NO)
 );
 
+alter table TRIPREVIEW_CONTENTS add (tvc_userid varchar2(250));
+
+
+SELECT tvc_no, tvc_tvno, tvc_day, tvc_routeid, tvc_reviewid,
+nvl2(tvc_reviewid, (select CR_CONTENTS from CATEGORYREVIEW where CR_NO = tvc_reviewid), tvc_contents) tvc_contents,
+nvl2(tvc_reviewid, (select CR_TITLE from CATEGORYREVIEW where CR_NO = tvc_reviewid),(
+case when DBMS_LOB.GETLENGTH(tvc_contents) <= 13 then DBMS_LOB.SUBSTR(tvc_contents,13,1) else DBMS_LOB.SUBSTR(tvc_contents,13,1) || '...' end)) tvc_title
+FROM TRIPREVIEW_CONTENTS WHERE TVC_TVNO = 1 and TVC_ROUTEID = 3 and TVC_DAY = 1 ORDER BY TVC_DATE ASC
 
 -- 카테고리별 리뷰
 
@@ -72,7 +80,29 @@ create table CATEGORYREVIEW (
 );
 
 
--- 댓글 기능
+-- 여행 후기 댓글 기능
+
+drop sequence tripreviewcomment_id;
+drop table tripreviewcomment;
+
+create sequence tripreviewcomment_id;
+
+create table tripreviewcomment (
+
+rv_no number primary key,
+rv_crno number not null,
+rv_pno number,
+rv_id varchar2(250) not null,
+rv_content clob not null,
+rv_date date not null,
+rv_delflag varchar2(5) not null,
+CONSTRAINTS rv_delflag_chk1 CHECK(rv_delflag in ('Y', 'N')),
+CONSTRAINTS rv_crno_fk1 FOREIGN KEY(rv_crno) REFERENCES TRIPREVIEW(tv_no)
+
+);
+
+
+-- 리뷰 댓글 기능
 
 drop sequence categoryreviewcomment_id;
 drop table categoryreviewcomment;
@@ -111,8 +141,9 @@ create view categoryreview_read as select CR_NO, CR_ID, CR_TITLE, CR_CONTENTS, C
 
 
 -- 알람 테이블
-drop table alarm;
+
 drop table alarmCategory;
+drop table alarm;
 drop sequence alarm_seq;
 
 create sequence alarm_seq;
@@ -134,27 +165,22 @@ create table alarm (
 	CONSTRAINTS al_cate_fk foreign key(al_cate) references alarmCategory(alc_cate)
 );
 
+
+-- 알람 리스트 테스트
+
+insert into alarm values (alarm_seq.nextval,'user1',91,2,'N',sysdate);
+
+
 -- 알림 카테고리 (필요한거 추가해서 사용)
 -- 0 | 시스템 ( 점검같은거 )
 -- 1 | 이벤트
 -- 2 | 카테고리 리뷰 댓글
 -- 3 | 여행  후기 댓글
 
-insert into alarmCategory values (0, '시스템'); --시스템 메세지가 있습니다.
-insert into alarmCategory values (1, '이벤트'); --새로운 이벤트가 있습니다.
-insert into alarmCategory values (2, '카테고리 리뷰 댓글'); --작성하신 리뷰에 댓글이 달렸습니다.
-insert into alarmCategory values (3, '여행 후기 댓글'); --작성하신 여행 후기에 댓글이 달렸습니다.
-
--- 알람 리스트 테스트
-
-insert into alarm values (alarm_seq.nextval,'user1',91,2,'N',sysdate);
-
-insert into alarm values (alarm_seq.nextval,'djkim12160',92,1,'N',sysdate);
-insert into alarm values (alarm_seq.nextval,'djkim12160',92,2,'N',sysdate);
-insert into alarm values (alarm_seq.nextval,'djkim12160',92,3,'N',sysdate);
-insert into alarm values (alarm_seq.nextval,'djkim12160',92,0,'N',sysdate);
-DELETE FROM alarm WHERE al_id = 'djkim12160';
-
+insert into alarmCategory values (0, '시스템');
+insert into alarmCategory values (1, '이벤트');
+insert into alarmCategory values (2, '카테고리 리뷰 댓글');
+insert into alarmCategory values (3, '여행 후기 댓글');
 
 
 -- 알람 리스트 뷰 테이블
@@ -165,7 +191,7 @@ create view alarmList as select * from alarm al join alarmCategory alc on(al.al_
 -- 뷰 조회
 select * from alarmList; 
 
-select COUNT(al_id) from alarmlist where al_id = 'KIM' and al_aflag='N' group by al_id;
+
 -- 스크랩 테이블
 
 -- 0 이면 후기
@@ -184,6 +210,54 @@ create table favorite (
 
 insert into favorite values (favorite_seq.nextval, 'user1', 91, 1, sysdate);
 
+
+
+
+--팀멤버 테이블
+--팀ID, 개인ID, 입금여부, 진행단계
+DROP TABLE TEAMMEMBER;
+CREATE TABLE TEAMMEMBER(
+TM_TID NUMBER NOT NULL,
+TM_UID VARCHAR2(20) NOT NULL,
+TM_DEPFLAG VARCHAR2(2),--입금 여부
+TM_STAGE NUMBER NOT NULL,--진행 단계
+	CONSTRAINT TEAMMEMBER_PK PRIMARY KEY(TM_TID,TM_UID),
+	CONSTRAINT TEAMMEMBER_CHK_ENABLED CHECK(TM_DEPFLAG IN ('Y', 'N'))
+);
+select * FROM TEAMMEMBER;
+delete from TEAMMEMBER where TM_UID='test1';
+--팀 테이블
+DROP SEQUENCE TEAMSEQ;
+CREATE SEQUENCE TEAMSEQ;
+DROP TABLE TEAM;
+--팀ID, 팀이름(제목), 리더ID, 일차, 여행시작, 여행종료, (목표)종료날짜(YYYYMMDD), 진행단계, 일정완료여부
+CREATE TABLE TEAM(
+T_ID NUMBER,
+T_NAME VARCHAR2(200),
+T_LEADERID VARCHAR2(200),
+T_DAYS VARCHAR2(200),
+T_STARTDATE date,
+T_ENDDATE date,
+T_STAGE VARCHAR2(200),
+T_DEADLINE VARCHAR2(200),
+T_FLAG VARCHAR2(2),
+	CONSTRAINT TEAM_PK PRIMARY KEY(T_ID),
+	CONSTRAINT TEAM_CHK_ENABLED CHECK(T_FLAG IN ('Y', 'N'))
+);
+
+SELECT * FROM TEAM;
+
+-- 경로 확정 테이블 [ seq | 팀 ID | 경로 ID | 일자 ]
+drop sequence routeselect_seq;
+create sequence routeselect_seq;
+drop table routeselect;
+create table routeselect (
+rs_no number primary key,
+rs_tno number not null,
+rs_route varchar2(1000) not null,
+rs_accdate varchar2(100) not null,
+constraint rs_tno_fk foreign key(rs_tno) references team(t_id)
+);
 
 -- 여행 후기 메인 읽기
 

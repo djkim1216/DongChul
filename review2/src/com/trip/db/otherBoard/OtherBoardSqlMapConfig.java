@@ -13,7 +13,7 @@ public class OtherBoardSqlMapConfig {
 	
 	public SqlSessionFactory getSqlSessionFactory() {
 		
-		String resource = "com/trip/db/otherBoard/otherBoard-config.xml";
+		String resource = "com/trip/db/otherBoard/OtherBoard-config.xml";
 		
 		try {
 			Reader reader = Resources.getResourceAsReader(resource);
