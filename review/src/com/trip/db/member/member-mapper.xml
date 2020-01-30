@@ -1,0 +1,109 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+<!-- member SQL -->
+	<select id="memberList" parameterType="memberLoginDto" resultType="memberLoginDto">
+		<!-- 로그인 -->
+				SELECT
+							M_ID,
+							M_NICK,
+							M_PASS,
+							M_NAME,
+							M_EMAIL,
+							M_PHONE,
+							M_FLAG,
+							M_GRADE,
+							M_PLATFORM,
+							M_FILEPATH,
+							M_ADDR1,
+							M_ADDR2
+		  FROM
+		  			MYMEMBER
+		 WHERE M_FLAG = 'Y'
+		 <if test="m_platform eq 'dondok'">
+		  	 AND
+		  			M_ID = #{m_id}
+		  	 AND
+		  	 		M_PASS = #{m_pass}
+		  	 AND
+		  			M_PLATFORM = 'dondok'
+		 </if>
+		 <if test="m_platform neq 'dondok'">
+		  	 AND
+		  			M_EMAIL = #{m_email}
+		  	 AND
+		  			M_PLATFORM = #{m_platform}
+		 </if>
+	</select>
+	
+	<insert id="searchInsert" parameterType="hashMap">
+		INSERT INTO KEYSEARCH VALUES(#{myid}, #{search})
+	</insert>
+	
+	<insert id="memberInsert" parameterType="memberLoginDto">
+		INSERT INTO
+							MYMEMBER(
+												M_ID,
+												M_NICK,
+												M_PASS,
+												M_NAME,
+												M_EMAIL,
+												M_PHONE,
+												M_FLAG,
+												M_GRADE,
+												M_PLATFORM,
+												M_FILEPATH,
+												M_ADDR1,
+												M_ADDR2
+											) 
+							
+		VALUES
+					(
+						#{m_id},
+						#{m_nick},
+						#{m_pass},
+						#{m_name},
+						#{m_email},
+						#{m_phone},
+						#{m_flag},
+						#{m_grade},
+						#{m_platform},
+						#{m_filepath},
+						#{m_addr1},
+						#{m_addr2}
+					)
+	</insert>
+	
+	<select id="dupCheck" parameterType="hashMap" resultType="hashMap">
+		<!-- 중복체크 -->
+		SELECT
+					  COUNT(M_ID) COUNT
+		  FROM
+		  			MYMEMBER
+		 WHERE 1 = 1
+		 <if test="param eq 'id'">
+		  	 AND
+		  			M_ID = #{paramValue}
+		 </if>
+		 <if test="param eq 'nick'">
+		  	 AND
+		  			M_NICK = #{paramValue}
+		 </if>
+		 <if test="param eq 'email'">
+		  	 AND
+		  			M_EMAIL = #{paramValue}
+		 </if>
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
