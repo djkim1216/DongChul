@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <article id="searchBox">
 	<div class="box">
-		<div class="closeBtn" onclick="closeBox();"></div>
+		<div class="closeBtn"></div>
 		<div class="Bar">
 			<input
 				type="text" name="searchKey" placeholder="${category}를 검색해주세요." />

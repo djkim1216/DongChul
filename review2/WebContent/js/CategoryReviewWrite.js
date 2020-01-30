@@ -4,6 +4,36 @@
 	$(document).ready(
 			function() {
 
+				var searchPlace = function() {
+					var category = arguments[0];
+					$.ajax({
+						url : "ReviewCateSearchList",
+						data : {
+							"category" : category
+						},
+						dataType : "html",
+						success : (data)=>{
+							var background = `<div class='backgroundBlack'></div>`;
+							$('body').append(background);
+							/*
+							$(".backgroundBlack").on("click", ()=>{
+								
+								$(".backgroundBlack").remove();
+								$("article#searchBox").remove();
+								
+							});
+							*/
+							$('div.backgroundBlack').after(data);
+							
+							$('div.closeBtn').on('click', ()=>{
+								$("div.backgroundBlack").remove();
+								$("article#searchBox").remove();
+							});
+						}
+					});
+					return false;
+				};
+				
 				var tmpDelete = function() {
 					$.ajax({
 						url : "CateTmpDelete",
@@ -80,7 +110,8 @@
 										onMediaDelete : function(target) {
 											tmpImagesDeleteFunc(target[0].src);
 										}
-									}
+									},
+									dialogsInBody: true
 								});
 				
 				$(".placeP > span:nth-child(3), a.searchIcon").hover(()=>{
@@ -115,25 +146,3 @@
 
 	
 	
-	var searchPlace = function() {
-		var category = arguments[0];
-		$.ajax({
-			url : "ReviewCateSearchList",
-			data : {
-				"category" : category
-			},
-			dataType : "html",
-			success : (data)=>{
-				var background = `<div class='backgroundBlack'></div>`;
-				$('body').append(background);
-				$(".backgroundBlack").on("click", ()=>{
-					
-					$(".backgroundBlack").remove();
-					$("article#searchBox").remove();
-					
-				});
-				$('#writeSection').after(data);
-			}
-		});
-		return false;
-	};

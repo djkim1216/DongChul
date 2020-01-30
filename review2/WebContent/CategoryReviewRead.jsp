@@ -21,6 +21,13 @@
 	placeNameSelect('${dto.cr_placeid}');
 </script>
 
+<!-- 헤드 삽입 -->
+<style type="text/css">
+@import
+url("css/bodyPosition.css");
+</style>
+<script type="text/javascript" src="js/haederLoad.js"></script>	
+
 </head>
 <body>
 	<!-- 코멘트용 정보 -->

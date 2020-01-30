@@ -3,27 +3,28 @@ delete from TRIPREVIEW;
 -- team dummy
 
 
-insert into team values (2, '팀짜기 테스트', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (3, '팀짜기 테스트', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (4, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (5, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (6, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (7, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (8, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (9, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (10, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (11, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (12, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (13, '팀짜기 테스트', 'user2','1','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (14, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (15, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (16, '팀짜기 테스트', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (17, '팀짜기 테스트', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (18, '팀짜기 테스트', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (19, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (20, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (21, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
-insert into team values (22, '팀짜기 테스트22', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트1', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트2', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트3', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트4', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트5', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트6', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트7', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트8', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트9', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트10', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트11', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트12', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트13', 'user2','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트14', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트15', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트16', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트17', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트18', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트19', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트20', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트21', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트22', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
 
 
 insert into team values (TEAMSEQ.nextval, '팀짜기 테스트23', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
@@ -32,21 +33,12 @@ insert into team values (TEAMSEQ.nextval, '팀짜기 테스트25', 'user1','2','
 
 -- teamMember Dummy
 
--- 1
 insert into TEAMMEMBER values (1,'user1','Y','5');
 insert into TEAMMEMBER values (1,'user2','Y','5');
 insert into TEAMMEMBER values (1,'user3','Y','5');
 insert into TEAMMEMBER values (1,'user4','Y','5');
 insert into TEAMMEMBER values (1,'user5','Y','5');
 
--- 2
-
-insert into TEAMMEMBER values (2,'user1','Y','5');
-insert into TEAMMEMBER values (2,'user2','Y','5');
-insert into TEAMMEMBER values (2,'user3','Y','5');
-
-
--- 3
 
 insert into TEAMMEMBER values (2,'user1','Y','5');
 insert into TEAMMEMBER values (2,'user2','Y','5');
@@ -146,22 +138,7 @@ select team.* from team inner join teammember on(t_id = tm_tid) where tm_uid = '
 -- routeSelect Dummy
 
 
-insert into routeselect values (routeselect_seq.nextval,23,'54766301|1510306575|1606863280|24268429|1211891466','1');
-insert into routeselect values (routeselect_seq.nextval,23,'1072331783|7990409|18097006|26621895','2');
-insert into routeselect values (routeselect_seq.nextval,23,'7952590|27478622|8008145|8016468|1211891466','3');
 
-
-
-insert into routeselect values (routeselect_seq.nextval,24,'54766301|1510306575|1606863280|24268429|1211891466','1');
-insert into routeselect values (routeselect_seq.nextval,24,'1072331783|7990409|18097006|26621895','2');
-insert into routeselect values (routeselect_seq.nextval,24,'7952590|27478622|8008145|8016468|1211891466','3');
-insert into routeselect values (routeselect_seq.nextval,24,'84882413|10928789|1295735325|24268429|27318033','4');
-
-insert into routeselect values (routeselect_seq.nextval,25,'7952590|27478622|8008145|8016468|1211891466','1');
-insert into routeselect values (routeselect_seq.nextval,25,'84882413|10928789|1295735325|24268429|27318033','2');
-
-
--- 1
 insert into routeselect values (routeselect_seq.nextval,1,'54766301|1510306575|1606863280|24268429|1211891466','1');
 insert into routeselect values (routeselect_seq.nextval,1,'1072331783|7990409|18097006|26621895','2');
 insert into routeselect values (routeselect_seq.nextval,1,'7952590|27478622|8008145|8016468|1211891466','3');
@@ -169,7 +146,6 @@ insert into routeselect values (routeselect_seq.nextval,1,'84882413|10928789|129
 insert into routeselect values (routeselect_seq.nextval,1,'2013733837|16507806|1962682808','5');
 insert into routeselect values (routeselect_seq.nextval,1,'2013733837|16507806|1962682808','6');
 
--- update team set T_DAYS = 6 where t_id = 1;
 
 
 insert into routeselect values (routeselect_seq.nextval,2,'54766301|1510306575|1606863280|24268429|1211891466','1');
@@ -236,13 +212,26 @@ insert into routeselect values (routeselect_seq.nextval,21,'54766301|1510306575|
 insert into routeselect values (routeselect_seq.nextval,21,'1072331783|7990409|18097006|26621895','2');
 insert into routeselect values (routeselect_seq.nextval,21,'7952590|27478622|8008145|8016468|1211891466','3');
 
-
--- 22
 insert into routeselect values (routeselect_seq.nextval,22,'54766301|1510306575|1606863280|24268429|1211891466','1');
 insert into routeselect values (routeselect_seq.nextval,22,'1072331783|7990409|18097006|26621895','2');
 insert into routeselect values (routeselect_seq.nextval,22,'7952590|27478622|8008145|8016468|1211891466','3');
 insert into routeselect values (routeselect_seq.nextval,22,'84882413|10928789|1295735325|24268429|27318033','4');
 insert into routeselect values (routeselect_seq.nextval,22,'2013733837|16507806|1962682808','5');
+
+insert into routeselect values (routeselect_seq.nextval,23,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,23,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,23,'7952590|27478622|8008145|8016468|1211891466','3');
+
+
+insert into routeselect values (routeselect_seq.nextval,24,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,24,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,24,'7952590|27478622|8008145|8016468|1211891466','3');
+insert into routeselect values (routeselect_seq.nextval,24,'84882413|10928789|1295735325|24268429|27318033','4');
+
+insert into routeselect values (routeselect_seq.nextval,25,'7952590|27478622|8008145|8016468|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,25,'84882413|10928789|1295735325|24268429|27318033','2');
+
+
 
 -- 여행 후기 뷰 정보 더미 데이터
 
@@ -277,218 +266,218 @@ select * from tripreview order by tv_no;
 
 -- 여행 후기 내용 더미 데이터 [ no | 여행 후기 뷰 index | 일자  | 경로 순서 | categoryreview 참조 | 메모 | 파일 첨부  | 날짜 | 수정날짜 ]
 -- 여행 후기 1 con  
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,1,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 1','images/trip_review/1/3.jpg|images/trip_review/1/4.jpg','N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 2','images/trip_review/2/1.jpg|images/trip_review/2/2.jpg','N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,2,null,'여행후기 1 / 1일차 / 2번 경로  / 메모 3','images/trip_review/3/0.jpg','N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,1,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 1','images/trip_review/1/3.jpg|images/trip_review/1/4.jpg','N',sysdate,null,'user1');
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 2','images/trip_review/2/1.jpg|images/trip_review/2/2.jpg','N',sysdate,null,'user1');
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,2,null,'여행후기 1 / 1일차 / 2번 경로  / 메모 3','images/trip_review/3/0.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,3,1,'여행후기 1 / 1일차 / 3번 경로  / 메모4_리뷰1',null,'N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,4,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,1,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,4,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null,'user1');
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,1,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null,'user1');
 
 -- 여행 후기 2 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,2,1,1,null,'여행후기 2 / 1일차 / 1번 경로  / 메모 6',
-'images/trip_review/6/0.jpg','N',sysdate,null);
+'images/trip_review/6/0.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,2,2,1,null,'여행후기 2 / 2일차 / 1번 경로  / 메모 7',
-'images/trip_review/7/1.jpg','N',sysdate,null);
+'images/trip_review/7/1.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,2,3,1,null,'여행후기 2 / 3일차 / 1번 경로  / 메모 8',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 3 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,3,1,1,null,'여행후기 3 / 1일차 / 1번 경로  / 메모 9',
-'images/trip_review/9/2.jpg|images/trip_review/9/3.jpg','N',sysdate,null);
+'images/trip_review/9/2.jpg|images/trip_review/9/3.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,3,2,1,null,'여행후기 3 / 2일차 / 1번 경로  / 메모 10',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,3,2,2,null,'여행후기 3 / 2일차 / 2번 경로  / 메모 11',
-'images/trip_review/11/8.jpg|images/trip_review/11/9.jpg','N',sysdate,null);
+'images/trip_review/11/8.jpg|images/trip_review/11/9.jpg','N',sysdate,null,'user1');
 
 -- 여행 후기 4 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,4,1,1,null,'여행후기 4 / 1일차 / 1번 경로  / 메모 12',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,4,1,2,null,'여행후기 4 / 1일차 / 2번 경로  / 메모 13',
-'images/trip_review/13/IMG_8430.jpg|images/trip_review/13/IMG_8433.jpg','N',sysdate,null);
+'images/trip_review/13/IMG_8430.jpg|images/trip_review/13/IMG_8433.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,4,1,3,null,'여행후기 4 / 1일차 / 3번 경로  / 메모 14',
-'images/trip_review/14/12.jpg|images/trip_review/14/13.jpg','N',sysdate,null);
+'images/trip_review/14/12.jpg|images/trip_review/14/13.jpg','N',sysdate,null,'user1');
 
 -- 여행 후기 5 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,1,1,null,'여행후기 5 / 1일차 / 1번 경로  / 메모 15',
-'images/trip_review/15/야옹이.jpg','N',sysdate,null);
+'images/trip_review/15/야옹이.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,1,1,2,'여행후기 5 / 1일차 / 1번 경로  / 메모 16_리뷰2',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,2,1,3,'여행후기 5 / 2일차 / 1번 경로  / 메모 17_리뷰3',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,2,2,null,'여행후기 5 / 2일차 / 2번 경로  / 메모 18',
-'images/trip_review/18/10.jpg|images/trip_review/18/11.jpg','N',sysdate,null);
+'images/trip_review/18/10.jpg|images/trip_review/18/11.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,2,3,4,'여행후기 5 / 2일차 / 3번 경로  / 메모 19_리뷰4',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,3,1,5,'여행후기 5 / 3일차 / 1번 경로  / 메모 20_리뷰5',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,3,1,6,'여행후기 5 / 3일차 / 1번 경로  / 메모 21_리뷰6',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,3,2,7,'여행후기 5 / 3일차 / 2번 경로  / 메모 22_리뷰7',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 6 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,6,1,1,8,'여행후기 6 / 1일차 / 1번 경로  / 메모 23_리뷰8',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,6,1,2,9,'여행후기 6 / 1일차 / 2번 경로  / 메모 24_리뷰9',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,6,1,3,10,'여행후기 6 / 1일차 / 3번 경로  / 메모 25_리뷰10',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 
 -- 여행 후기 6 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,1,1,11,'여행후기 7 / 1일차 / 1번 경로  / 메모 26_리뷰11',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,1,2,null,'여행후기 7 / 1일차 / 2번 경로  / 메모 27',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,1,3,10,'여행후기 7 / 1일차 / 3번 경로  / 메모 28_리뷰12',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,2,1,null,'여행후기 7 / 2일차 / 1번 경로  / 메모 29',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,2,2,null,'여행후기 7 / 2일차 / 2번 경로  / 메모 30',
-'images/trip_review/30/5.jpg','N',sysdate,null);
+'images/trip_review/30/5.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,2,3,13,'여행후기 7 / 2일차 / 3번 경로  / 메모 31_리뷰13',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,3,1,14,'여행후기 7 / 3일차 / 1번 경로  / 메모 32_리뷰14',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,3,2,15,'여행후기 7 / 3일차 / 2번 경로  / 메모 33_리뷰15',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,7,3,3,16,'여행후기 7 / 3일차 / 3번 경로  / 메모 34_리뷰16',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 8 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,8,1,1,17,'여행후기 8 / 1일차 / 1번 경로  / 메모 35_리뷰17',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,8,1,2,18,'여행후기 8 / 1일차 / 2번 경로  / 메모 36_리뷰18',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,8,1,3,19,'여행후기 8 / 1일차 / 3번 경로  / 메모 37_리뷰19',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 9 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,9,1,1,null,'여행후기 9 / 1일차 / 1번 경로  / 메모 38',
-'images/trip_review/38/3.jpg','N',sysdate,null);
+'images/trip_review/38/3.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,9,1,1,null,'여행후기 9 / 1일차 / 1번 경로  / 메모 39',
-'images/trip_review/39/2.jpg','N',sysdate,null);
+'images/trip_review/39/2.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,9,1,1,null,'여행후기 9 / 1일차 / 1번 경로  / 메모 40',
-'images/trip_review/40/5.jpg','N',sysdate,null);
+'images/trip_review/40/5.jpg','N',sysdate,null,'user1');
 
 -- 여행 후기 10 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,10,1,1,null,'여행후기 10 / 1일차 / 1번 경로  / 메모 41',
-'images/trip_review/41/20160312_114935.jpg','N',sysdate,null);
+'images/trip_review/41/20160312_114935.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,10,3,3,null,'여행후기 10 / 3일차 / 3번 경로  / 메모 42',
-'images/trip_review/42/20160311_100158.jpg|images/trip_review/42/20160311_100408.jpg','N',sysdate,null);
+'images/trip_review/42/20160311_100158.jpg|images/trip_review/42/20160311_100408.jpg','N',sysdate,null,'user1');
 
 
 -- 여행 후기 11 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,11,1,1,20,'여행후기 11 / 1일차 / 1번 경로  / 메모 43_리뷰20',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 
 -- 여행 후기 12 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,12,1,21,null,'여행후기 12 / 1일차 / 2번 경로  / 메모 44_리뷰21',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 
 -- 여행 후기 13 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,1,1,null,'여행후기 13 / 1일차 / 1번 경로  / 메모 45',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,1,1,null,'여행후기 13 / 1일차 / 1번 경로  / 메모 46',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,1,2,22,'여행후기 13 / 1일차 / 2번 경로  / 메모 47_리뷰22',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,1,2,23,'여행후기 13 / 1일차 / 2번 경로  / 메모 48_리뷰23',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,1,3,24,'여행후기 13 / 1일차 / 3번 경로  / 메모 49_리뷰24',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,2,3,25,'여행후기 13 / 2일차 / 3번 경로  / 메모 50_리뷰25',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,2,3,null,'여행후기 13 / 2일차 / 3번 경로  / 메모 51',
 'images/trip_review/51/20150723_124518.jpg|images/trip_review/51/20150723_125116.jpg','N',sysdate,null);
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,3,1,26,'여행후기 13 / 3일차 / 1번 경로  / 메모 52_리뷰26',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,3,2,27,'여행후기 13 / 3일차 / 2번 경로  / 메모 53_리뷰27',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,13,3,2,28,'여행후기 13 / 3일차 / 2번 경로  / 메모 54_리뷰28',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 14 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,14,1,1,29,'여행후기 14 / 1일차 / 1번 경로  / 메모 55_리뷰29',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,14,1,2,30,'여행후기 14 / 1일차 / 2번 경로  / 메모 56_리뷰30',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,14,1,3,31,'여행후기 14 / 1일차 / 3번 경로  / 메모 57_리뷰31',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 
 -- 여행 후기 15 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,15,2,1,null,'여행후기 15 / 2일차 / 1번 경로  / 메모 58',
-'images/trip_review/58/20150723_125311.jpg','N',sysdate,null);
+'images/trip_review/58/20150723_125311.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,15,2,1,null,'여행후기 15 / 2일차 / 1번 경로  / 메모 59',
-'images/trip_review/59/20150723_125332.jpg','N',sysdate,null);
+'images/trip_review/59/20150723_125332.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,15,2,3,null,'여행후기 15 / 2일차 / 3번 경로  / 메모 60',
-'images/trip_review/60/20150723_125409.jpg','N',sysdate,null);
+'images/trip_review/60/20150723_125409.jpg','N',sysdate,null,'user1');
 
 
 -- 여행 후기 16 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,16,1,1,32,'여행후기 16 / 1일차 / 1번 경로  / 메모 61_리뷰32',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 17 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,17,1,1,null,'여행후기 17 / 1일차 / 1번 경로  / 메모 62',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,17,2,2,33,'여행후기 17 / 2일차 / 2번 경로  / 메모 63_리뷰33',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,17,2,3,34,'여행후기 17 / 2일차 / 3번 경로  / 메모 64_리뷰34',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 18 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,18,1,1,null,'여행후기 18 / 1일차 / 1번 경로  / 메모 65',
-'images/trip_review/65/20150523_023627.jpg','N',sysdate,null);
+'images/trip_review/65/20150523_023627.jpg','N',sysdate,null,'user1');
 
 -- 여행 후기 19 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,19,1,1,null,'여행후기 19 / 1일차 / 1번 경로  / 메모 66',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,19,1,1,null,'여행후기 19 / 1일차 / 1번 경로  / 메모 67',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,19,1,2,null,'여행후기 19 / 1일차 / 2번 경로  / 메모 68',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 20 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,20,1,1,35,'여행후기 20 / 1일차 / 1번 경로  / 메모 69_리뷰35',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 21 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,1,1,36,'여행후기 21 / 1일차 / 1번 경로  / 메모 70_리뷰36',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,1,1,null,'여행후기 21 / 1일차 / 1번 경로  / 메모 71',
-'images/trip_review/71/20150607_182508.jpg|images/trip_review/71/20150607_224054.jpg','N',sysdate,null);
+'images/trip_review/71/20150607_182508.jpg|images/trip_review/71/20150607_224054.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,1,1,null,'여행후기 21 / 1일차 / 1번 경로  / 메모 72',
-'images/trip_review/72/20150610_031715.jpg|images/trip_review/72/20150612_121045.jpg|images/trip_review/72/20150613_212024.jpg','N',sysdate,null);
+'images/trip_review/72/20150610_031715.jpg|images/trip_review/72/20150612_121045.jpg|images/trip_review/72/20150613_212024.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,1,1,37,'여행후기 21 / 1일차 / 2번 경로  / 메모 73_리뷰37',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,1,2,38,'여행후기 21 / 1일차 / 2번 경로  / 메모 74_리뷰38',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,2,3,39,'여행후기 21 / 2일차 / 3번 경로  / 메모 75_리뷰39',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,2,1,null,'여행후기 21 / 2일차 / 1번 경로  / 메모 76',
-'images/trip_review/76/20160412_134929.jpg','N',sysdate,null);
+'images/trip_review/76/20160412_134929.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,4,2,null,'여행후기 21 / 4일차 / 2번 경로  / 메모 77',
-'images/trip_review/77/20160311_100152.jpg','N',sysdate,null);
+'images/trip_review/77/20160311_100152.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,4,3,40,'여행후기 21 / 4일차 / 3번 경로  / 메모 78_리뷰40',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,4,1,null,'여행후기 21 / 4일차 / 1번 경로  / 메모 79',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,3,2,41,'여행후기 21 / 3일차 / 2번 경로  / 메모 80_리뷰41',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,21,2,3,42,'여행후기 21 / 2일차 / 3번 경로  / 메모 81_리뷰42',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 -- 여행 후기 22 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,22,1,1,null,'여행후기 22 / 5일차 / 1번 경로  / 메모 82',
-'images/trip_review/82/20160311_100152.jpg|images/trip_review/82/20150725_173212.jpg','N',sysdate,null);
+'images/trip_review/82/20160311_100152.jpg|images/trip_review/82/20150725_173212.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,22,1,2,null,'여행후기 22 / 5일차 / 2번 경로  / 메모 83',
-'images/trip_review/83/20150723_140604.jpg','N',sysdate,null);
+'images/trip_review/83/20150723_140604.jpg','N',sysdate,null,'user1');
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,22,1,3,null,'여행후기 22 / 5일차 / 3번 경로  / 메모 84',
-null,'N',sysdate,null);
+null,'N',sysdate,null,'user1');
 
 
 select * from TRIPREVIEW_CONTENTS order by tvc_no;

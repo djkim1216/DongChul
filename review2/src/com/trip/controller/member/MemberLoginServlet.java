@@ -64,6 +64,7 @@ public class MemberLoginServlet extends HttpServlet {
 				
 				session.setAttribute("user", user);
 				int alarmCount = alarmDao.alarmCount(user.getM_id());
+				System.out.println(alarmCount);
 				session.setAttribute("alarmCount", alarmCount);
 				resMap.put("resultCode", true);
 				resMap.put("user", user);

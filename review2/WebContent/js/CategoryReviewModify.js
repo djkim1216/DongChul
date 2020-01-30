@@ -4,6 +4,52 @@
 	$(document).ready(
 			function() {
 
+				var placeNameSelect = function() {
+					var placeName;
+					$.ajax({
+						url : "metaDateCrawling",
+						data : {
+							url : "https://place.map.kakao.com/" + arguments[0],
+							selector : "meta[property=og:title]"
+						},
+						dataType : "text",
+						method:"post",
+						success : (data) => {
+							$('p.placeP > span:nth-child(3) > span').html(data);
+						}
+					});
+				};
+				
+				var searchPlace = function() {
+					var category = arguments[0];
+					$.ajax({
+						url : "ReviewCateSearchList",
+						data : {
+							"category" : category
+						},
+						dataType : "html",
+						success : (data)=>{
+							var background = `<div class='backgroundBlack'></div>`;
+							$('body').append(background);
+							/*
+							$(".backgroundBlack").on("click", ()=>{
+								
+								$(".backgroundBlack").remove();
+								$("article#searchBox").remove();
+								
+							});
+							*/
+							$('div.backgroundBlack').after(data);
+							
+							$('div.closeBtn').on('click', ()=>{
+								$("div.backgroundBlack").remove();
+								$("article#searchBox").remove();
+							});
+						}
+					});
+					return false;
+				};
+				
 				var tmpDelete = function() {
 					$.ajax({
 						url : "CateTmpDelete",
@@ -94,7 +140,8 @@
 											$('input[name=cr_path]').val(cr_path);
 											
 										}
-									}
+									},
+									dialogsInBody: true
 								});
 				
 				$(".placeP > span:nth-child(3), a.searchIcon").hover(()=>{
@@ -128,41 +175,3 @@
 			});
 
 	
-	var placeNameSelect = function() {
-		var placeName;
-		$.ajax({
-			url : "metaDateCrawling",
-			data : {
-				url : "https://place.map.kakao.com/" + arguments[0],
-				selector : "meta[property=og:title]"
-			},
-			dataType : "text",
-			method:"post",
-			success : (data) => {
-				$('p.placeP > span:nth-child(3) > span').html(data);
-			}
-		});
-	};
-	
-	var searchPlace = function() {
-		var category = arguments[0];
-		$.ajax({
-			url : "ReviewCateSearchList",
-			data : {
-				"category" : category
-			},
-			dataType : "html",
-			success : (data)=>{
-				var background = `<div class='backgroundBlack'></div>`;
-				$('body').append(background);
-				$(".backgroundBlack").on("click", ()=>{
-					
-					$(".backgroundBlack").remove();
-					$("article#searchBox").remove();
-					
-				});
-				$('#writeSection').after(data);
-			}
-		});
-		return false;
-	};

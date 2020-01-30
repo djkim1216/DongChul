@@ -9,7 +9,7 @@ import com.trip.dto.otherBoard.AlarmDto;
 
 public class AlarmDaoImpl extends OtherBoardSqlMapConfig implements AlarmDao{
 
-	String namespace = "com.trip.db.otherBoard.otherBoard-mapper.";
+	String namespace = "com.trip.db.otherBoard.OtherBoard-mapper.";
 	
 	@Override
 	public List<AlarmDto> selectList(String al_id) {

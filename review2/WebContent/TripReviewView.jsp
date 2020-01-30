@@ -42,7 +42,7 @@
 								</p></div>
 								<hr/>
 								<p>
-									<span class="view_teamid">${dto.tv_teamid}</span><span
+									<span class="view_teamid">${dto.tv_tname}</span><span
 										class="view_date"><fmt:formatDate
 											value="${dto.tv_date}" pattern="yyyy/MM/dd" /></span>
 								</p>
@@ -68,7 +68,7 @@
 					</p></div>
 					<hr />
 					<p>
-						<span class="view_teamid">${dto.tv_teamid}</span><span
+						<span class="view_teamid">${dto.tv_tname}</span><span
 							class="view_date"><fmt:formatDate value="${dto.tv_date}"
 								pattern="yyyy/MM/dd" /></span>
 					</p>

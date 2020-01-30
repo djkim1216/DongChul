@@ -517,26 +517,7 @@
    <div class="g-recaptcha" data-sitekey="6Lcx99EUAAAAADM8yS6PteMU1ubh5MIRkpplKUUg"></div>
    
    <button id="join" type="button" onclick="fnSubmit();">회원가입</button>
-   <button id="cancel" type="button" onclick="javascript: window.location.href='/member_main.jsp'">취소</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   <button id="cancel" type="button" onclick="javascript: window.location.href='page?page=login';">취소</button>
 
 
 

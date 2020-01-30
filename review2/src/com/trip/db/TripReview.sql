@@ -1,3 +1,51 @@
+--팀멤버 테이블
+--팀ID, 개인ID, 입금여부, 진행단계
+DROP TABLE TEAMMEMBER;
+CREATE TABLE TEAMMEMBER(
+TM_TID NUMBER NOT NULL,
+TM_UID VARCHAR2(200) NOT NULL,
+TM_DEPFLAG VARCHAR2(2),--입금 여부
+TM_STAGE NUMBER NOT NULL,--진행 단계
+	CONSTRAINT TEAMMEMBER_PK PRIMARY KEY(TM_TID,TM_UID),
+	CONSTRAINT TEAMMEMBER_CHK_ENABLED CHECK(TM_DEPFLAG IN ('Y', 'N'))
+);
+select * FROM TEAMMEMBER;
+delete from TEAMMEMBER where TM_UID='test1';
+--팀 테이블
+DROP SEQUENCE TEAMSEQ;
+CREATE SEQUENCE TEAMSEQ;
+DROP TABLE TEAM;
+--팀ID, 팀이름(제목), 리더ID, 일차, 여행시작, 여행종료, (목표)종료날짜(YYYYMMDD), 진행단계, 일정완료여부
+CREATE TABLE TEAM(
+T_ID NUMBER,
+T_NAME VARCHAR2(200),
+T_LEADERID VARCHAR2(200),
+T_DAYS VARCHAR2(200),
+T_STARTDATE date,
+T_ENDDATE date,
+T_STAGE number,
+T_DEADLINE VARCHAR2(200),
+T_FLAG VARCHAR2(2),
+	CONSTRAINT TEAM_PK PRIMARY KEY(T_ID),
+	CONSTRAINT TEAM_CHK_ENABLED CHECK(T_FLAG IN ('Y', 'N'))
+);
+
+SELECT * FROM TEAM;
+
+-- 경로 확정 테이블 [ seq | 팀 ID | 경로 ID | 일자 ]
+drop sequence routeselect_seq;
+create sequence routeselect_seq;
+drop table routeselect;
+create table routeselect (
+rs_no number primary key,
+rs_tno number not null,
+rs_route varchar2(1000) not null,
+rs_accdate varchar2(100) not null,
+constraint rs_tno_fk foreign key(rs_tno) references team(t_id)
+);
+
+
+
 DROP SEQUENCE TRIPREVIEW_ID;
 DROP SEQUENCE TRIPREVIEW_CONTENTS_ID;
 
@@ -55,9 +103,9 @@ create table category (
 	c_cateName varchar2(100) not null
 );
 
-insert into category values(1,'명소');
-insert into category values(2,'숙소');
-insert into category values(3,'맛집');
+insert into category values(1,'숙소');
+insert into category values(2,'맛집');
+insert into category values(3,'명소');
 
 
 
@@ -88,7 +136,6 @@ drop table tripreviewcomment;
 create sequence tripreviewcomment_id;
 
 create table tripreviewcomment (
-
 rv_no number primary key,
 rv_crno number not null,
 rv_pno number,
@@ -98,7 +145,6 @@ rv_date date not null,
 rv_delflag varchar2(5) not null,
 CONSTRAINTS rv_delflag_chk1 CHECK(rv_delflag in ('Y', 'N')),
 CONSTRAINTS rv_crno_fk1 FOREIGN KEY(rv_crno) REFERENCES TRIPREVIEW(tv_no)
-
 );
 
 
@@ -110,7 +156,6 @@ drop table categoryreviewcomment;
 create sequence categoryreviewcomment_id;
 
 create table categoryreviewcomment (
-
 rv_no number primary key,
 rv_crno number not null,
 rv_pno number,
@@ -120,7 +165,6 @@ rv_date date not null,
 rv_delflag varchar2(5) not null,
 CONSTRAINTS rv_delflag_chk CHECK(rv_delflag in ('Y', 'N')),
 CONSTRAINTS rv_crno_fk FOREIGN KEY(rv_crno) REFERENCES categoryreview(cr_no)
-
 );
 
 select rownum no, level, rv.* from categoryreviewcomment rv where rv_delflag = '' and rv_crno = #{rv_crno} start with rv_pno is null connect by prior rv_no = rv_pno
@@ -211,53 +255,6 @@ create table favorite (
 insert into favorite values (favorite_seq.nextval, 'user1', 91, 1, sysdate);
 
 
-
-
---팀멤버 테이블
---팀ID, 개인ID, 입금여부, 진행단계
-DROP TABLE TEAMMEMBER;
-CREATE TABLE TEAMMEMBER(
-TM_TID NUMBER NOT NULL,
-TM_UID VARCHAR2(200) NOT NULL,
-TM_DEPFLAG VARCHAR2(2),--입금 여부
-TM_STAGE NUMBER NOT NULL,--진행 단계
-	CONSTRAINT TEAMMEMBER_PK PRIMARY KEY(TM_TID,TM_UID),
-	CONSTRAINT TEAMMEMBER_CHK_ENABLED CHECK(TM_DEPFLAG IN ('Y', 'N'))
-);
-select * FROM TEAMMEMBER;
-delete from TEAMMEMBER where TM_UID='test1';
---팀 테이블
-DROP SEQUENCE TEAMSEQ;
-CREATE SEQUENCE TEAMSEQ;
-DROP TABLE TEAM;
---팀ID, 팀이름(제목), 리더ID, 일차, 여행시작, 여행종료, (목표)종료날짜(YYYYMMDD), 진행단계, 일정완료여부
-CREATE TABLE TEAM(
-T_ID NUMBER,
-T_NAME VARCHAR2(200),
-T_LEADERID VARCHAR2(200),
-T_DAYS VARCHAR2(200),
-T_STARTDATE date,
-T_ENDDATE date,
-T_STAGE number,
-T_DEADLINE VARCHAR2(200),
-T_FLAG VARCHAR2(2),
-	CONSTRAINT TEAM_PK PRIMARY KEY(T_ID),
-	CONSTRAINT TEAM_CHK_ENABLED CHECK(T_FLAG IN ('Y', 'N'))
-);
-
-SELECT * FROM TEAM;
-
--- 경로 확정 테이블 [ seq | 팀 ID | 경로 ID | 일자 ]
-drop sequence routeselect_seq;
-create sequence routeselect_seq;
-drop table routeselect;
-create table routeselect (
-rs_no number primary key,
-rs_tno number not null,
-rs_route varchar2(1000) not null,
-rs_accdate varchar2(100) not null,
-constraint rs_tno_fk foreign key(rs_tno) references team(t_id)
-);
 
 -- 여행 후기 메인 읽기
 

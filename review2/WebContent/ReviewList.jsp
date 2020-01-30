@@ -9,10 +9,15 @@
 </head>
 <style type="text/css">
 @import
-url("css/ReviewView.css")
+url("css/ReviewView.css");
 </style>
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/ReviewViewAjax.js"></script>
+<style type="text/css">
+@import
+url("css/bodyPosition.css");
+</style>
+<script type="text/javascript" src="js/haederLoad.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var urlArray = window.location.pathname.split('/');
@@ -63,26 +68,31 @@ url("css/ReviewView.css")
 		$('.toolTip').css("display", "none");
 	}
 </script>
-
 <body>
-	<a href="TripReviewList">0</a>
-	<a href="RestaurantReviewList">맛집</a>
-	<a href="RoomsReviewList">숙소</a>
-	<a href="TouristReviewList">명소</a>
 	<span class="toolTip"></span>
 	<section class="projectSection">
 		<article id="article_header">
 			<div class="nowLocation">
-				<a href="#"><span class="locationName"
-				onmousemove="toolTipBoxOn('메인화면으로...',event);" onmouseout="toolTipBoxOff();"> <c:choose>
-							<c:when test="${reviewLocation eq 'TripReviewView'}">여행 후기</c:when>
-							<c:when test="${reviewLocation eq 'RestaurantReviewView'}">맛집 리뷰</c:when>
-							<c:when test="${reviewLocation eq 'RoomsReviewView'}">숙소 리뷰</c:when>
-							<c:when test="${reviewLocation eq 'TouristReviewView'}">명소 리뷰</c:when>
-						</c:choose>
-				</span></a>
-			</div>
 			<c:set var="category" value="${reviewLocation}"></c:set>
+				<c:choose>
+					<c:when test="${reviewLocation eq 'TripReviewView'}">
+					<a href="TripReviewList"><span class="locationName"
+				onmousemove="toolTipBoxOn('메인화면으로...',event);" onmouseout="toolTipBoxOff();"> 여행 후기 </span></a></c:when>
+					<c:when test="${reviewLocation eq 'RestaurantReviewView'}">
+					<a href="RestaurantReviewList"><span class="locationName"
+				onmousemove="toolTipBoxOn('메인화면으로...',event);" onmouseout="toolTipBoxOff();"> 맛집 리뷰 </span></a>
+					</c:when>
+					<c:when test="${reviewLocation eq 'RoomsReviewView'}">
+					<a href="RoomsReivewList"><span class="locationName"
+				onmousemove="toolTipBoxOn('메인화면으로...',event);" onmouseout="toolTipBoxOff();"> 숙소 리뷰 </span></a>
+					</c:when>
+					<c:when test="${reviewLocation eq 'TouristReviewView'}">
+					<a href="TouristReviewList"><span class="locationName"
+				onmousemove="toolTipBoxOn('메인화면으로...',event);" onmouseout="toolTipBoxOff();"> 명소 리뷰 </span></a>
+					</c:when>
+				</c:choose>
+				
+			</div>
 			<a href="${reviewLocation ne 'TripReviewView'? 'CategoryReviewWrite?category=': 'TripReviewWrite'}${reviewLocation ne 'TripReviewView'? category : ''}" class="writeIcon"
 				onmousemove="toolTipBoxOn('글작성',event);"
 				onmouseout="toolTipBoxOff();"></a> <a href="#"

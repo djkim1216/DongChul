@@ -20,7 +20,14 @@
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/TripReviewRead.js"></script>
 <script type="text/javascript" src="js/ReviewComment.js"></script>
-	
+
+<!-- 헤드 삽입 -->
+<style type="text/css">
+@import
+url("css/bodyPosition.css");
+</style>
+<script type="text/javascript" src="js/haederLoad.js"></script>	
+
 <body>
 <!-- 
 

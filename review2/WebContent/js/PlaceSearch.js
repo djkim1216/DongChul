@@ -228,7 +228,7 @@ var wishSelect = (i) => {
 };
 
 
-var closeBox = () => {
-	$(".backgroundBlack").remove();
+var closeBox = function(){
+	$("div.backgroundBlack").remove();
 	$("article#searchBox").remove();
 }

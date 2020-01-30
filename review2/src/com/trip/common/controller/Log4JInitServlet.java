@@ -18,7 +18,7 @@ public class Log4JInitServlet extends HttpServlet {
 		
 		
 		// if the log4j-init-file context parameter is not set, then no point in trying
-		
+		/*
 		if(file != null){
 		
 		PropertyConfigurator.configure(prefix+file);
@@ -32,7 +32,7 @@ public class Log4JInitServlet extends HttpServlet {
 		System.out.println("Log4J Is not configured for your Application: " + prefix + file);
 		
 		}     
-	
+		 */
 	}
 
 

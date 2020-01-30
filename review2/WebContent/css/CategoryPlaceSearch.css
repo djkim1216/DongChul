@@ -2,9 +2,9 @@
 
 #searchBox {
     display: block;
-    position: absolute;
-    top: 90px;
-    left: 140px;
+    position: fixed;
+    top: 130px;
+    left: 420px;
     background-color: #FFFFFF;
     border: 0.4px solid #C1C6C8;
     width: 812px;
@@ -178,7 +178,7 @@ span.infoProp {
     height: 32px;
     width: 32px;
     background-color: #F2F2F2;
-    border: 0.4px solid #b7bcbe;
+    border: 1px solid #b7bcbe;
     border-radius: 5px;
     text-align: center;
 }

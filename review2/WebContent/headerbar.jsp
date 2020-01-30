@@ -1,27 +1,17 @@
-
 <%@page import="com.trip.dto.member.MemberLoginDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
 <link rel="stylesheet" type="text/css" href="css/loginheader.css">
 <link rel="stylesheet" type="text/css" href="css/loginForm.css">
-
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="js/loginForm.js"></script>	
-	
-	
 <script type="text/javascript">
 
 	function submit(){
-		$("#searchForm").attr("action", "UserSearchServlet");
+		$("#searchForm").attr("action", "SearchServlet");
 		$("#searchForm").submit();
 	}
 
@@ -37,13 +27,12 @@
 		$('#loginFormBox').remove();
 		$('#loginBak').remove();
 		$("header").after(data);
-		$('#usernotlogin').hide();
+		$('#usernotlogin').remove();
 		$('#userlogin').show();
+		$('#alarmbtn').show();
 		$('#loginIdbar').text(data.m_nick);
-		
-		
+		window.location.reload();
 		console.log(data.m_nick);
-		
 	}
 	
 	function fnalarmCount(data){
@@ -63,6 +52,11 @@
 				alert("로그아웃 되었습니다.");
 				$('#userlogin').hide();
 				$('#usernotlogin').show();
+				$('#alarmbtn').hide();
+				onClickidmenuBtn();
+				var logBtn = `<div id="usernotlogin"  style="width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;"><a href="#" onclick = "goToLoginForm();">로 그 인</a></div>`;
+				$('div.loginimg').after(logBtn);
+				window.location.reload();
 			}
 		})
 	}
@@ -85,25 +79,53 @@
 								num = 0;
 								return;
 							}
-							var eventstartdate = eventObj.response.body.items.item[i].eventstartdate;
- 							$("#eventstartdate").text(eventstartdate);
-							var eventenddate = eventObj.response.body.items.item[i].eventenddate;
-							$("#eventenddate").text(eventenddate);
-							var title = eventObj.response.body.items.item[i].title;
-							$("#title").text(title);
+							
+							
+							function parse(str) {		
+							    var y = str.substr(0, 4);
+							    var m = str.substr(4, 2);
+							    var d = str.substr(6, 2);
+							    return new Date(y,m-1,d);
+							}
+							
+							Date.prototype.format = function(f) {
+								if (!this.valueOf()) return " ";
+
+								var weekName = ["일", "월", "화", "수", "목", "금", "토"];
+								var d = this;
+								
+								return f.replace(/(yyyy|MM|dd|E|)/gi, function($1) {
+									switch ($1) {
+										case "yyyy": return d.getFullYear();
+										case "MM": return (d.getMonth() + 1).zf(2);
+										case "dd": return d.getDate().zf(2);
+										case "E": return weekName[d.getDay()];
+										default: return $1;
+									}
+								});
+							};
+
+							String.prototype.string = function(len){var s = '', i = 0; while (i++ < len) { s += this; } return s;};
+ 							String.prototype.zf = function(len){return "0".string(len - this.length) + this;};
+ 							Number.prototype.zf = function(len){return this.toString().zf(len);};
+
+							var eventstartdate = eventObj.response.body.items.item[i].eventstartdate+"";
+							//console.log(parse(eventstartdate).format("yyyy.MM.dd(E)"));
+							$("#eventstartdate").text(parse(eventstartdate).format("yyyy.MM.dd(E)"));
+							
+							var eventenddate = eventObj.response.body.items.item[i].eventenddate+"";
+							
+							$("#eventenddate").text(parse(eventenddate).format("yyyy.MM.dd(E)"));
+							
 							var addr1 = eventObj.response.body.items.item[i].addr1;
-							
-							
 							var split = addr1.split(" ");
-							
-// 							var yyyymmdd = (function(j){
-// 								j.substring(0,3)+"."+j.substring(4,5)+"."+j.substring(6,7);
-// 							})
-// 							$("#eventstartdate").text(yyyymmdd(eventstartdate));
-// 							$("#eventenddate").text(yyyymmdd(eventenddate));
-						
-							
 							$("#addr1").text(split[0]+" "+split[1]+" "+split[2]);
+							
+							
+							var title = eventObj.response.body.items.item[i].title;
+							var titleDiv = "<div class='titleCheck' style='margin-left:10px;display:inline-block;'>&#187;<div class='second' id='title'/>"+ title +"</div></div>";
+							$("div.titleCheck").remove();
+							$("#addr1").after(titleDiv);
 							
 							
 						});
@@ -153,7 +175,7 @@
 			
 		}	
 		
-		function dateFilter(date){			//날짜 포맷
+		function dateFilter(date){			//알람기능 날짜 포맷
 //	 		var today = new Date();
 //	 		var dd = today.getDate();
 //	 		var mm = today.getMonth()+1;
@@ -235,16 +257,7 @@
 		
 		
 </script>
-	
-</head>
-<body>
-
-
-
 	<header> 
-<!-- 	<form id="searchForm" method="post"> -->
-<%-- 	<input  type="hidden" name="myid" value="<%=user.getM_id()%>"/> --%>
-		
 		<div class="firstline">
 			<div class="firstparagraph1">
 				<div class="inline" id="homeimg">
@@ -257,23 +270,24 @@
 					<ul>
 						<li id="menubarimg"><a><img alt="menu" src="img/mainheader/menubar.jpg"
 								style="width: 40px; height: 40px;"></a>
-							<ul>
-								<li><a href="PageMoveServlet?command=schedule">일정관리</a>
-									<ul>
-										<li><a href="PageMoveServlet?command=scheduleCheck">일정조회</a></li>
-										<li><a href="PageMoveServlet?command=scheduleView">일정보기</a></li>
-										<li><a href="TeamMemberController?command=createTeam">일정등록</a></li>
+							<ul id="menuUl">
+								<li class="subtitle"><a href="PageMoveServlet?command=schedule">&nbsp;일정관리</a>
+									<ul class="subUl">
+										<li><a href="PageMoveServlet?command=scheduleCheck">&nbsp;&nbsp;일정조회</a></li>
+										<li><a href="PageMoveServlet?command=scheduleView">&nbsp;&nbsp;일정보기</a></li>
+										<li><a href="TeamMemberController?command=createTeam">&nbsp;&nbsp;일정등록</a></li>
 									</ul>
 								</li>
-								<li><a href="PageMoveServlet?command=review">여행후기</a>
-									<ul>
-										<li><a href="">맛집후기</a></li>
-										<li><a href="">명소후기</a></li>
-										<li><a href="">숙소후기</a></li>
+								<li class="subtitle"><a href="PageMoveServlet?command=review">&nbsp;여행후기</a>
+									<ul class="subUl">
+										<li><a href="RestaurantReviewList">&nbsp;&nbsp;맛집후기</a></li>
+										<li><a href="TouristReviewList">&nbsp;&nbsp;명소후기</a></li>
+										<li><a href="RoomsReviewList">&nbsp;&nbsp;숙소후기</a></li>
 									</ul></li>
-								<li><a href="PageMoveServlet?command=shareAlbum">앨범공유</a></li>
-								<li><a href="PageMoveServlet?command=shareSchedule">일정공유</a></li>
-							</ul></li>
+								<li class="subtitle"><a href="PageMoveServlet?command=shareAlbum">&nbsp;앨범공유</a></li>
+								<li class="subtitle"><a href="PageMoveServlet?command=shareSchedule">&nbsp;일정공유</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 				
@@ -290,17 +304,29 @@
 			</div>                             
 			<div class="firstparagraph3">
 				<div id="searchbtn">
- 					<a class="img-button" onclick="submit();" title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;">
+ 					<a class="img-button" href="#" onclick="return submit();" title="검색"><img alt="search" src="img/mainheader/search.jpg" style="width: 40px; height: 40px;">
  					</a>
 				</div>
 				<div class="login">
 					<span class="linebar"> | </span>
 						<div class="loginimg"></div>
+						<c:if test="${empty user}">
 						<div id="usernotlogin"  style="width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;"><a href="#" onclick = "goToLoginForm();">로 그 인</a></div>
+						</c:if>
+						<c:if test="${not empty user}">
+						<div id="userlogin" style="display : block; width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;">
+						</c:if>
+						<c:if test="${empty user}">
 						<div id="userlogin" style="display : none; width : 45%; height : 40px; margin-left:10px; margin-top:9px; float:left;">
+						</c:if>
 							<ul>
 								<li class="idmenu">
-									<a id = "loginIdbar" href="javascript:onClickidmenuBtn();">  </a> 
+								<c:if test="${not empty user}">
+									<a id = "loginIdbar" href="javascript:onClickidmenuBtn();">${user.m_nick}</a> 
+								</c:if>
+								<c:if test="${empty user}">
+									<a id = "loginIdbar" href="javascript:onClickidmenuBtn();"></a> 
+								</c:if>
 										<ul id="hide" style="display:none; margin-top: 19px; position: relative; z-index: 99; margin-left: -105px; background-color:white; width:150px; font-size:medium;">
 											<li><a href="#">개인 정보 수정</a></li>
 											<li><a >작성 글 조회</a></li>
@@ -313,10 +339,14 @@
 						</div>
 					<span class="linebar"> | </span>
 				</div>
-				<div id="alarmbtn" style= "position: absolute;">
-				
+				<c:if test="${empty user}">
+				<div id="alarmbtn" style= "position: absolute; display: none;">
+				</c:if>
+				<c:if test="${not empty user}">
+				<div id="alarmbtn" style= "position: absolute; display: inline-block;">
+				</c:if>
 					<a href="javascript:onClickAlarmBtn();" title="알림"><img alt="alarm" src="img/mainheader/alarm.png" style="width: 40px; height: 40px;">
-						<span id="alarmCount" style="position: absolute; margin-left: -13px; margin-top: 20px;">  </span>
+						<span id="alarmCount" style="position: absolute; margin-left: -13px; margin-top: 20px;">${alarmCount}</span>
 					</a>
 					<div id="alarmList" style="display: none; width: 300px; position: absolute; margin-top: 5px; margin-left: -200px; z-index: 80; background-color: white; font-size:smaller;">
 						<ul id="ulList">
@@ -325,22 +355,14 @@
 				</div>
 			</div>
 		</div>
-<!-- 	</form> -->
-		
 		<div class="secondline">
-			
 			 <div id = "secondcenter">
 				[<div class="second" id="date">
 					<span id= "eventstartdate"></span>~<span id="eventenddate"></span>
 				</div>]  
 				<div class="second" id="text_bar">|</div> 
-				<div class="second" id="addr1" /></div>> 
-				<div class="second" id="title" /></div> 
+				<div class="second" id="addr1" /></div>
 			</div>
 		</div>
 		
 	</header>
-
-</body>
-
-</html>

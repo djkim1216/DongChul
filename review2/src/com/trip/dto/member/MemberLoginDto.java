@@ -17,7 +17,6 @@ public class MemberLoginDto {
 	private String m_addr1;
 	private String m_addr2;
 	
-	
 	public String getM_id() {
 		return m_id;
 	}

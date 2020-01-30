@@ -150,10 +150,10 @@ public class MemberJoinServlet extends HttpServlet {
 
 				if(result < 1) { 
 					response.setContentType("text/html; charset=utf-8");
-					response.getWriter().append("<script>alert('회원가입에 실패했습니다.');" + "window.location.href='/page?page=join';</script>");
+					response.getWriter().append("<script>alert('회원가입에 실패했습니다.');" + "window.location.href='page?page=join';</script>");
 				}else {
 					response.setContentType("text/html; charset=utf-8");
-					response.getWriter().append("<script>alert('돈독의 멤버가 되신걸 환영합니다. "+ dto.getM_nick() + "님!');" + "window.location.href='/page?page=login';</script>");
+					response.getWriter().append("<script>alert('돈독의 멤버가 되신걸 환영합니다. "+ dto.getM_nick() + "님!');" + "window.location.href='page?page=login';</script>");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

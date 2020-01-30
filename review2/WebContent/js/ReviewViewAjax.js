@@ -16,6 +16,7 @@ var reviewView = function() {
 				"keyword" : arguments[2]
 			},
 			dataType : "html",
+			async : false,
 			success : function(document) {
 				if (document != "null") {
 					$("#article_contents").append($(document)[5]);

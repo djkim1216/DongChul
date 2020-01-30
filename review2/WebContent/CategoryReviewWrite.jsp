@@ -6,19 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
 <script src="./js/jquery-3.4.1.min.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-
-<link href="./api/summernote/summernote.css" rel="stylesheet">
-<script src="./api/summernote/summernote.js"></script>
-
+<script type="text/javascript" src="js/haederLoad.js"></script>	
 <script type="text/javascript" src="./js/CategoryReviewWrite.js"></script>
 <script type="text/javascript" src="./js/PlaceSearch.js"></script>
+<link href="./api/summernote/summernote-lite.min.css" rel="stylesheet">
+<script src="./api/summernote/summernote-lite.min.js"></script>
 <style type="text/css">
 @import
 url("css/CategoryReviewWrite.css");
@@ -29,11 +22,16 @@ url("css/article_header.css");
 @import
 url("css/CategoryPlaceSearch.css")
 </style>
+<!-- 헤드 삽입 -->
+<style type="text/css">
+@import
+url("css/bodyPosition.css");
+</style>
 <body>
 	<section class="projectSection">
 		<article id="article_header">
 			<div class="nowLocation">
-				<span class="locationName">${category} 리뷰 작성</span>
+				<span class="locationName" style="margin-top: 5px;">${category} 리뷰 작성</span>
 			</div>
 		</article>
 		<article id="writeSection">

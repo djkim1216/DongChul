@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class TripReviewViewDto {
 
-	String tv_title, tv_count, tvc_no, tvc_path, cr_path, default_path;
+	String tv_title, tv_count, tvc_no, tvc_path, cr_path, default_path, tv_tname;
 	Date tv_date;
 	int tv_no,tv_teamid;
 	@Override
@@ -13,6 +13,18 @@ public class TripReviewViewDto {
 				+ ", tvc_path=" + tvc_path + ", cr_path=" + cr_path + ", default_path=" + default_path + ", tv_date="
 				+ tv_date + ", tv_no=" + tv_no + ", tv_teamid=" + tv_teamid + "]";
 	}
+	
+	
+	public String getTv_tname() {
+		return tv_tname;
+	}
+
+
+	public void setTv_tname(String tv_tname) {
+		this.tv_tname = tv_tname;
+	}
+
+
 	public String getTv_title() {
 		return tv_title;
 	}

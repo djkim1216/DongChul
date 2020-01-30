@@ -32,11 +32,20 @@ url("css/article_header.css");
 @import
 url("css/CategoryPlaceSearch.css")
 </style>
+
+<!-- 헤드 삽입 -->
+<style type="text/css">
+@import
+url("css/bodyPosition.css");
+</style>
+<script type="text/javascript" src="js/haederLoad.js"></script>	
+
+
 <body>
 	<section class="projectSection">
 		<article id="article_header">
 			<div class="nowLocation">
-				<span class="locationName">${dto.cr_title}</span>
+				<span class="locationName" style="margin-top: 5px;">${dto.cr_title}</span>
 			</div>
 		</article>
 		<article id="writeSection">

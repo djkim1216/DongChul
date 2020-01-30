@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.trip.db.otherBoard.otherBoard-mapper">
+<mapper namespace="com.trip.db.otherBoard.OtherBoard-mapper">
 	<!-- AlarmSQL -->
 	<select id="alarmlist" parameterType="string" resultType="alarmDto">
 		select * from alarmlist where al_id = #{al_id} and al_aflag = 'N'
