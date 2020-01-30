@@ -29,6 +29,11 @@
 	<update id="count" parameterType="int">
 	update categoryreview set cr_count = (select cr_count from categoryreview where cr_no = #{cr_no} )+1 where cr_no = #{cr_no}
 	</update>
+	
+	
+	<select id="selectMyReview" resultType="categoryReviewDto" parameterType="hashMap">
+	select cr.*,(select count(*) from categoryreviewcomment where rv_crno = cr_no) cr_commentCount from categoryreview_read cr where cr_delflag = 'N' and cr_id =  #{cr_id} and cr_placeid = #{cr_placeid} and cr_no not in ((select tvc_reviewid from tripreview_contents where tvc_userid = #{cr_id} and tvc_delflag='N'))
+	</select>
 
 <!-- CategoryReviewCommentSQL -->
 

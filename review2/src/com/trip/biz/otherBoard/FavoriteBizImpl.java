@@ -17,9 +17,9 @@ public class FavoriteBizImpl implements FavoriteBiz{
 	}
 
 	@Override
-	public int favoriteCheck(String f_id, int f_pno) {
+	public int favoriteCheck(String f_id, int f_pno, int f_cate) {
 		// TODO Auto-generated method stub
-		return dao.favoriteCheck(f_id, f_pno);
+		return dao.favoriteCheck(f_id, f_pno, f_cate);
 	}
 
 	@Override

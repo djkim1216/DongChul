@@ -11,9 +11,9 @@ public class TripReviewContentsBizImpl implements TripReviewContentsBiz {
 	TripReviewContentsDao tripReviewContentsDao = new TripReviewContentsDaoImpl();
 	
 	@Override
-	public List<TripReviewContentsDto> selectList(int tvc_tvno, int tvc_day) {
+	public List<TripReviewContentsDto> selectList(int tvc_tvno, int tvc_day, int tvc_routeid) {
 		// TODO Auto-generated method stub
-		return tripReviewContentsDao.selectList(tvc_tvno, tvc_day);
+		return tripReviewContentsDao.selectList(tvc_tvno, tvc_day, tvc_routeid);
 	}
 
 	@Override

@@ -15,7 +15,7 @@
 			items="${ReviewView_List}">
 			<c:choose>
 				<c:when test="${empty dto.cr_path}">
-						<c:set var="path" value="./images/category_review/default.jpg"></c:set>
+						<c:set var="path">./images/default/<%=(int)(Math.random()*10)+1%>.jpg</c:set>
 				</c:when>
 				<c:otherwise>
 					<c:set var="path" value="${dto.cr_path}"></c:set>

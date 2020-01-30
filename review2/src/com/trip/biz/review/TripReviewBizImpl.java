@@ -37,7 +37,7 @@ public class TripReviewBizImpl implements TripReviewBiz{
 
 	@Override
 	public int countUpdate(int tv_no) {
-		return tripReviewDao.countUpdate(tripReviewDao.select(tv_no));
+		return tripReviewDao.countUpdate(tv_no);
 	}
 
 	@Override
@@ -45,4 +45,12 @@ public class TripReviewBizImpl implements TripReviewBiz{
 		return tripReviewDao.delete(tv_no);
 	}
 
+	@Override
+	public TripReviewDto selectTeam(int tv_teamid) {
+		// TODO Auto-generated method stub
+		return tripReviewDao.selectTeam(tv_teamid);
+	}
+
+	
+	
 }

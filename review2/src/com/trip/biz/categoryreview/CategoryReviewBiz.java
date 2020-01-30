@@ -14,4 +14,5 @@ public interface CategoryReviewBiz {
 	int delete(int cr_no);
 	int update(CategoryReviewDto dto, String cr_path, String cr_tmp_path, String serverPath);
 	int count(int cr_no);
+	List<CategoryReviewDto> selectMyReview(String cr_id, String cr_placeid);
 }

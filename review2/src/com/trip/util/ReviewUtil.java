@@ -206,7 +206,7 @@ public class ReviewUtil {
 			tmpDir.mkdirs();
 		}
 		
-		String path = serverPath + "images/tmpSearchImg/tmp_" + user + "_" + number + "." + ext;
+		String path = serverPath + "images/tmpSearchImg/tmp_" + ((user != null)? user : " ") + "_" + number + "." + ext;
 		
 		File filePath = new File(path);
 		
@@ -215,7 +215,7 @@ public class ReviewUtil {
 		ImageIO.write(bI, ext, filePath);
 		
 		
-		String urlPath = "images/tmpSearchImg/tmp_" + user + "_" + number + "." + ext;
+		String urlPath = "images/tmpSearchImg/tmp_" + ((user != null)? user : " ") + "_" + number + "." + ext;
 		
 		System.out.println("[urlPath] : " + urlPath);
 		

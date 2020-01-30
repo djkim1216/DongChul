@@ -1,5 +1,249 @@
 delete from TRIPREVIEW;
 
+-- team dummy
+
+
+insert into team values (2, '팀짜기 테스트', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (3, '팀짜기 테스트', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (4, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (5, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (6, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (7, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (8, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (9, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (10, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (11, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (12, '팀짜기 테스트', 'user1','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (13, '팀짜기 테스트', 'user2','1','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (14, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (15, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (16, '팀짜기 테스트', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (17, '팀짜기 테스트', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (18, '팀짜기 테스트', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (19, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (20, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (21, '팀짜기 테스트', 'user3','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (22, '팀짜기 테스트22', 'user1','5','2020-01-23', '2020-01-27','5','7','Y');
+
+
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트23', 'user1','3','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트24', 'user1','4','2020-01-23', '2020-01-27','5','7','Y');
+insert into team values (TEAMSEQ.nextval, '팀짜기 테스트25', 'user1','2','2020-01-23', '2020-01-27','5','7','Y');
+
+-- teamMember Dummy
+
+-- 1
+insert into TEAMMEMBER values (1,'user1','Y','5');
+insert into TEAMMEMBER values (1,'user2','Y','5');
+insert into TEAMMEMBER values (1,'user3','Y','5');
+insert into TEAMMEMBER values (1,'user4','Y','5');
+insert into TEAMMEMBER values (1,'user5','Y','5');
+
+-- 2
+
+insert into TEAMMEMBER values (2,'user1','Y','5');
+insert into TEAMMEMBER values (2,'user2','Y','5');
+insert into TEAMMEMBER values (2,'user3','Y','5');
+
+
+-- 3
+
+insert into TEAMMEMBER values (2,'user1','Y','5');
+insert into TEAMMEMBER values (2,'user2','Y','5');
+insert into TEAMMEMBER values (2,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (3,'user1','Y','5');
+insert into TEAMMEMBER values (3,'user2','Y','5');
+insert into TEAMMEMBER values (3,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (4,'user1','Y','5');
+insert into TEAMMEMBER values (4,'user2','Y','5');
+insert into TEAMMEMBER values (4,'user3','Y','5');
+
+insert into TEAMMEMBER values (5,'user1','Y','5');
+insert into TEAMMEMBER values (5,'user2','Y','5');
+insert into TEAMMEMBER values (5,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (6,'user1','Y','5');
+insert into TEAMMEMBER values (6,'user2','Y','5');
+insert into TEAMMEMBER values (6,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (7,'user1','Y','5');
+insert into TEAMMEMBER values (7,'user2','Y','5');
+insert into TEAMMEMBER values (7,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (8,'user1','Y','5');
+insert into TEAMMEMBER values (8,'user2','Y','5');
+insert into TEAMMEMBER values (8,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (9,'user1','Y','5');
+insert into TEAMMEMBER values (9,'user2','Y','5');
+insert into TEAMMEMBER values (9,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (10,'user1','Y','5');
+insert into TEAMMEMBER values (10,'user2','Y','5');
+insert into TEAMMEMBER values (10,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (11,'user1','Y','5');
+insert into TEAMMEMBER values (11,'user2','Y','5');
+insert into TEAMMEMBER values (11,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (12,'user1','Y','5');
+insert into TEAMMEMBER values (12,'user2','Y','5');
+
+
+insert into TEAMMEMBER values (13,'user2','Y','5');
+
+
+insert into TEAMMEMBER values (14,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (15,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (16,'user1','Y','5');
+insert into TEAMMEMBER values (16,'user2','Y','5');
+insert into TEAMMEMBER values (16,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (17,'user1','Y','5');
+insert into TEAMMEMBER values (17,'user2','Y','5');
+insert into TEAMMEMBER values (17,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (18,'user1','Y','5');
+insert into TEAMMEMBER values (18,'user2','Y','5');
+insert into TEAMMEMBER values (18,'user3','Y','5');
+
+insert into TEAMMEMBER values (19,'user3','Y','5');
+insert into TEAMMEMBER values (20,'user3','Y','5');
+insert into TEAMMEMBER values (21,'user3','Y','5');
+
+
+insert into TEAMMEMBER values (23,'user1','Y','5');
+insert into TEAMMEMBER values (23,'user2','Y','5');
+insert into TEAMMEMBER values (23,'user3','Y','5');
+insert into TEAMMEMBER values (23,'user4','Y','5');
+
+insert into TEAMMEMBER values (24,'user1','Y','5');
+insert into TEAMMEMBER values (24,'user2','Y','5');
+insert into TEAMMEMBER values (24,'user3','Y','5');
+
+insert into TEAMMEMBER values (25,'user1','Y','5');
+insert into TEAMMEMBER values (25,'user2','Y','5');
+
+
+select team.* from team inner join teammember on(t_id = tm_tid) where tm_uid = 'user1' and t_id in (select tm_tid from teammember inner join ROUTESELECT on(tm_tid = rs_tno) where tm_uid ='user1' ) and t_id not in (select tv_teamid from tripreview inner join teammember on(tv_teamid = tm_tid) where tm_uid='user1');
+-- routeSelect Dummy
+
+
+insert into routeselect values (routeselect_seq.nextval,23,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,23,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,23,'7952590|27478622|8008145|8016468|1211891466','3');
+
+
+
+insert into routeselect values (routeselect_seq.nextval,24,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,24,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,24,'7952590|27478622|8008145|8016468|1211891466','3');
+insert into routeselect values (routeselect_seq.nextval,24,'84882413|10928789|1295735325|24268429|27318033','4');
+
+insert into routeselect values (routeselect_seq.nextval,25,'7952590|27478622|8008145|8016468|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,25,'84882413|10928789|1295735325|24268429|27318033','2');
+
+
+-- 1
+insert into routeselect values (routeselect_seq.nextval,1,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,1,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,1,'7952590|27478622|8008145|8016468|1211891466','3');
+insert into routeselect values (routeselect_seq.nextval,1,'84882413|10928789|1295735325|24268429|27318033','4');
+insert into routeselect values (routeselect_seq.nextval,1,'2013733837|16507806|1962682808','5');
+insert into routeselect values (routeselect_seq.nextval,1,'2013733837|16507806|1962682808','6');
+
+-- update team set T_DAYS = 6 where t_id = 1;
+
+
+insert into routeselect values (routeselect_seq.nextval,2,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,2,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,2,'54766301|1510306575|1606863280|24268429|1211891466','3');
+insert into routeselect values (routeselect_seq.nextval,2,'54766301|1510306575|1606863280|24268429|1211891466','4');
+insert into routeselect values (routeselect_seq.nextval,2,'54766301|1510306575|1606863280|24268429|1211891466','5');
+
+insert into routeselect values (routeselect_seq.nextval,3,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,3,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,3,'54766301|1510306575|1606863280|24268429|1211891466','3');
+insert into routeselect values (routeselect_seq.nextval,3,'54766301|1510306575|1606863280|24268429|1211891466','4');
+insert into routeselect values (routeselect_seq.nextval,3,'54766301|1510306575|1606863280|24268429|1211891466','5');
+
+insert into routeselect values (routeselect_seq.nextval,4,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,5,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,6,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,7,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,8,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,9,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,10,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,11,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,12,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,13,'54766301|1510306575|1606863280|24268429|1211891466','1');
+
+insert into routeselect values (routeselect_seq.nextval,14,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,14,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,14,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,15,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,15,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,15,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,16,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,16,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,16,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,17,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,17,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,17,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,18,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,18,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,18,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,19,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,19,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,19,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,20,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,20,'54766301|1510306575|1606863280|24268429|1211891466','2');
+insert into routeselect values (routeselect_seq.nextval,20,'54766301|1510306575|1606863280|24268429|1211891466','3');
+
+insert into routeselect values (routeselect_seq.nextval,21,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,21,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,21,'7952590|27478622|8008145|8016468|1211891466','3');
+
+
+-- 22
+insert into routeselect values (routeselect_seq.nextval,22,'54766301|1510306575|1606863280|24268429|1211891466','1');
+insert into routeselect values (routeselect_seq.nextval,22,'1072331783|7990409|18097006|26621895','2');
+insert into routeselect values (routeselect_seq.nextval,22,'7952590|27478622|8008145|8016468|1211891466','3');
+insert into routeselect values (routeselect_seq.nextval,22,'84882413|10928789|1295735325|24268429|27318033','4');
+insert into routeselect values (routeselect_seq.nextval,22,'2013733837|16507806|1962682808','5');
+
 -- 여행 후기 뷰 정보 더미 데이터
 
 insert into tripreview values (tripreview_id.nextval,1,'여행 테스트1',sysdate,null,0,'N');
@@ -34,10 +278,11 @@ select * from tripreview order by tv_no;
 -- 여행 후기 내용 더미 데이터 [ no | 여행 후기 뷰 index | 일자  | 경로 순서 | categoryreview 참조 | 메모 | 파일 첨부  | 날짜 | 수정날짜 ]
 -- 여행 후기 1 con  
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,1,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 1','images/trip_review/1/3.jpg|images/trip_review/1/4.jpg','N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,1,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 2','images/trip_review/2/1.jpg|images/trip_review/2/2.jpg','N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,1,2,null,'여행후기 1 / 1일차 / 2번 경로  / 메모 3','images/trip_review/3/0.jpg','N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,1,3,1,'여행후기 1 / 1일차 / 3번 경로  / 메모4_리뷰1',null,'N',sysdate,null);
-insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,2,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,1,null,'여행후기 1 / 1일차 / 1번 경로  / 메모 2','images/trip_review/2/1.jpg|images/trip_review/2/2.jpg','N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,2,null,'여행후기 1 / 1일차 / 2번 경로  / 메모 3','images/trip_review/3/0.jpg','N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,3,3,1,'여행후기 1 / 1일차 / 3번 경로  / 메모4_리뷰1',null,'N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,1,4,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null);
+insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,5,1,1,null,'여행후기 1 / 2일차 / 1번 경로  / 메모 5','images/trip_review/5/5.jpg','N',sysdate,null);
 
 -- 여행 후기 2 con
 insert into TRIPREVIEW_CONTENTS values(TRIPREVIEW_CONTENTS_ID.nextval,2,1,1,null,'여행후기 2 / 1일차 / 1번 경로  / 메모 6',
