@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -23,4 +24,5 @@
     <!-- 회원 전용 sql [민지] -->
     <mapper resource="com/trip/db/member/member-mapper.xml"/>
   </mappers>
+
 </configuration>

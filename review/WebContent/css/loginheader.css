@@ -2,7 +2,6 @@
 
 
 
-	a { text-decoration:none } 
 
 	ul, li { list-style:none; margin: 0; padding:0; }
 	
@@ -165,14 +164,15 @@
 		margin-left:15px;
 	}
 	
-	.innerlogin{
+	
+	
+	#userlogin{
 		margin-left:10px;
 		text-align:left;
 		width:45%;
 		height:40px;
 		margin-top:9px;
 		float:left;
-		display:inline-block;
 	}
 	
 	.linebar{

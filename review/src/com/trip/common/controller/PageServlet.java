@@ -1,3 +1,4 @@
+
 package com.trip.common.controller;
 
 import java.io.IOException;
@@ -55,3 +56,4 @@ public class PageServlet extends HttpServlet {
 	}
 
 }
+

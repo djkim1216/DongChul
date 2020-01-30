@@ -1,3 +1,4 @@
+
 package com.trip.dao.member;
 
 import java.util.Map;
@@ -13,3 +14,4 @@ public interface MemberLoginDao {
 	Map<String, Object> dupCheck(Map<String, Object> paramMap);
 	
 }
+

@@ -1,3 +1,4 @@
+
 package com.trip.dto.member;
 
 import com.trip.util.Sha256Util;
@@ -98,3 +99,4 @@ public class MemberLoginDto {
 	}
 	
 }
+
