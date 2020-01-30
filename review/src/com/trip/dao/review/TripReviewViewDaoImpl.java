@@ -6,12 +6,12 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.trip.db.review.TripReviewSqlMapConfig;
+import com.trip.db.SqlMapConfig;
 import com.trip.dto.review.TripReviewViewDto;
 
-public class TripReviewViewDaoImpl extends TripReviewSqlMapConfig implements TripReviewViewDao{
+public class TripReviewViewDaoImpl extends SqlMapConfig implements TripReviewViewDao{
 
-	private String namespace = "com.trip.db.review.TripReview-mapper.";
+	private String namespace = "com.trip.db.mybatis-mapper.";
 	private int num;
 	
 	@Override

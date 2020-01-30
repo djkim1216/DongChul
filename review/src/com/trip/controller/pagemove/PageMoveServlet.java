@@ -1,7 +1,6 @@
 package com.trip.controller.pagemove;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Writer;
 
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 
 
 @WebServlet({"/PageMoveServlet"})
@@ -23,7 +21,6 @@ public class PageMoveServlet extends HttpServlet {
 	}
 
 	private static final long serialVersionUID = 1L;
-	HttpSession session;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
@@ -38,17 +35,9 @@ public class PageMoveServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		
 		System.out.println("<"+command+">");
+		System.out.println("진한스 : "+request.getRequestURI());
 		
-		if(command.equals("login")) {
-			session = request.getSession();
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
-			
-					response.sendRedirect("loginheader.jsp");
-				jsResponse("존재하지 않는 아이디입니다", "index.jsp", response);
-			
-		} else if(command.equals("loginform")) {
-			response.sendRedirect("views/member/member_login.jsp");
+		if(command.equals("search")) {
 			
 		} else if(command.equals("schedule")) {
 			
@@ -106,16 +95,8 @@ public class PageMoveServlet extends HttpServlet {
 				response.sendRedirect("share_schedule.jsp");
 			}
 		}
-		
-	}
-	
-	public void jsResponse(String msg, String url, HttpServletResponse response) throws IOException {
-		String s = "<script type='text/javascript'>"
-				 + "alert('"+ msg + "');"
-				 + "location.href='"+url+"';"
-				 + "</script>";
-		PrintWriter out = response.getWriter();
-		out.println(s);
+		System.out.println("dddd");
+		System.out.println(getServletContext().getRealPath("/"));
 	}
 
 }
