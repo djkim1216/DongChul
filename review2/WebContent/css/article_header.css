@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#article_header {
+    height: 65px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 85.333px;
+    border-bottom: 1px solid #C1C6C8;
+    width: 887.458px;
+}
+
+.nowLocation{
+	float:left;
+	height: inherit;
+	margin-left: 2%;
+}
+
+.locationName {
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 2.2em;
+    color: #363838;
+    display: inline-block;
+    margin-top: 12%;
+}
