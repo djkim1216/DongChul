@@ -57,9 +57,9 @@ public class TripReivewDaoImpl extends TripReviewSqlMapConfig implements TripRev
 	}
 
 	@Override
-	public int countUpdate(int tv_no) {
+	public int countUpdate(TripReviewDto tripReviewDto) {
 		SqlSession session = getSqlSessionFactory().openSession();
-		num = session.update(namespace+"tripReview_countUpdate", tv_no);
+		num = session.update(namespace+"tripReview_Modify", tripReviewDto);
 		if(num >0) {
 			session.commit();
 		}
@@ -76,18 +76,6 @@ public class TripReivewDaoImpl extends TripReviewSqlMapConfig implements TripRev
 		}
 		session.close();
 		return num;
-	}
-
-	@Override
-	public TripReviewDto selectTeam(int tv_teamid) {
-		// TODO Auto-generated method stub
-		
-		SqlSession session = getSqlSessionFactory().openSession();
-		
-		TripReviewDto tripReviewDto = session.selectOne(namespace+"tripReivew_SelectTeam", tv_teamid);
-		session.close();
-		
-		return tripReviewDto;
 	}
 
 	

@@ -11,13 +11,13 @@ import com.trip.dto.otherBoard.FavoriteDto;
 
 public class FavoriteDaoImpl extends OtherBoardSqlMapConfig implements FavoriteDao {
 
-	String namespace = "com.trip.db.otherBoard.OtherBoard-mapper.";
+	String namespace = "com.trip.db.otherBoard.otherBoard-mapper.";
 	
 	
 	
 	
 	@Override
-	public int favoriteCheck(String f_id, int f_pno, int f_cate) {
+	public int favoriteCheck(String f_id, int f_pno) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("[sessionId]" + f_id);
@@ -29,7 +29,6 @@ public class FavoriteDaoImpl extends OtherBoardSqlMapConfig implements FavoriteD
 		
 		params.put("f_id", f_id);
 		params.put("f_pno", f_pno);
-		params.put("f_cate", f_cate);
 		
 			
 		int res = session.selectOne(namespace+"favoriteCheck",params);
@@ -89,4 +88,8 @@ public class FavoriteDaoImpl extends OtherBoardSqlMapConfig implements FavoriteD
 		return list;
 	}
 	
+	public static void main(String[] args) {
+		FavoriteDao dao = new FavoriteDaoImpl();
+		System.out.println(dao.favoriteCheck("user1", 91));
+	}
 }

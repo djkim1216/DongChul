@@ -20,6 +20,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="com/trip/db/otherBoard/OtherBoard-mapper.xml"/>
+    <mapper resource="com/trip/db/otherBoard/otherBoard-mapper.xml"/> 
   </mappers>
 </configuration>

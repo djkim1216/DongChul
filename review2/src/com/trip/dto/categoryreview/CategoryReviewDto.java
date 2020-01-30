@@ -5,28 +5,32 @@ import java.util.Date;
 public class CategoryReviewDto {
 
 	String  cr_id, cr_title, cr_contents, cr_delflag, cr_category, cr_path, cr_placeid;
-	int cr_no,  cr_count, cr_commentCount;
+	int cr_no,  cr_count;
 	Date cr_date;
-	
-	
-	
-	
-	@Override
-	public String toString() {
-		return "CategoryReviewDto [cr_id=" + cr_id + ", cr_title=" + cr_title + ", cr_contents=" + cr_contents
-				+ ", cr_delflag=" + cr_delflag + ", cr_category=" + cr_category + ", cr_path=" + cr_path
-				+ ", cr_placeid=" + cr_placeid + ", cr_no=" + cr_no + ", cr_count=" + cr_count + ", cr_commentCount="
-				+ cr_commentCount + ", cr_date=" + cr_date + "]";
-	}
-	public int getCr_commentCount() {
-		return cr_commentCount;
-	}
-	public void setCr_commentCount(int cr_commentCount) {
-		this.cr_commentCount = cr_commentCount;
+	public CategoryReviewDto(String cr_id, String cr_title, String cr_contents, String cr_delflag, String cr_category,
+			String cr_path, String cr_placeid, int cr_no, int cr_count, Date cr_date) {
+		super();
+		this.cr_id = cr_id;
+		this.cr_title = cr_title;
+		this.cr_contents = cr_contents;
+		this.cr_delflag = cr_delflag;
+		this.cr_category = cr_category;
+		this.cr_path = cr_path;
+		this.cr_placeid = cr_placeid;
+		this.cr_no = cr_no;
+		this.cr_count = cr_count;
+		this.cr_date = cr_date;
 	}
 	public CategoryReviewDto() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "CategoryReviewDto [cr_id=" + cr_id + ", cr_title=" + cr_title + ", cr_contents=" + cr_contents
+				+ ", cr_delflag=" + cr_delflag + ", cr_category=" + cr_category + ", cr_path=" + cr_path
+				+ ", cr_placeid=" + cr_placeid + ", cr_no=" + cr_no + ", cr_count=" + cr_count + ", cr_date=" + cr_date
+				+ "]";
 	}
 	public String getCr_id() {
 		return cr_id;

@@ -8,10 +8,9 @@ public interface TripReviewDao {
 
 	List<TripReviewDto> selectAll();
 	TripReviewDto select(int tv_no);
-	TripReviewDto selectTeam(int tv_teamid);
 	int insert(TripReviewDto tripReviewDto);
 	int modify(TripReviewDto tripReviewDto);
-	int countUpdate(int tv_no);
+	int countUpdate(TripReviewDto tripReviewDto);
 	int delete(int tv_no);
 	
 }

@@ -38,7 +38,6 @@
 		 </if>
 	</select>
 	
-
 	
 	<insert id="memberInsert" parameterType="memberLoginDto">
 		INSERT INTO
@@ -96,6 +95,7 @@
 	</select>
 	
 </mapper>
+
 
 
 

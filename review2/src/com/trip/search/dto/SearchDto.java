@@ -1,24 +1,15 @@
-package com.trip.dto.search;
+package com.trip.search.dto;
 
 public class SearchDto {
-	private int myno;
 	private String myid;
 	private String search;
 	
 	public SearchDto() {}
 	
-	public SearchDto(int myno, String myid, String search) {
-		this.myno=myno;
-		this.myid=myid;
-		this.search=search;
-	}
-	
 	public SearchDto(String myid, String search) {
 		this.myid=myid;
 		this.search=search;
 	}
-	
-	
 
 	public String getMyid() {
 		return myid;
@@ -37,5 +28,4 @@ public class SearchDto {
 	}
 	
 	
-
 }

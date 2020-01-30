@@ -15,13 +15,11 @@ public class TripReviewContentsDaoImpl extends TripReviewSqlMapConfig implements
 	private int num;
 	
 	@Override
-	public List<TripReviewContentsDto> selectList(int tvc_tvno, int tvc_day, int tvc_routeid) {
+	public List<TripReviewContentsDto> selectList(int tvc_tvno, int tvc_day) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		Map<String, Integer> params = new HashMap<String, Integer>();
 		params.put("tvc_tvno", tvc_tvno);
 		params.put("tvc_day", tvc_day);
-		params.put("tvc_routeid", tvc_routeid);
-		
 		List<TripReviewContentsDto> selectList = session.selectList(namespace+"tripReviewContents_List",params);
 		session.close();
 		return selectList;
@@ -39,7 +37,6 @@ public class TripReviewContentsDaoImpl extends TripReviewSqlMapConfig implements
 	public int insert(TripReviewContentsDto tripReviewContentsDto) {
 		SqlSession session = getSqlSessionFactory().openSession();
 		num = session.insert(namespace + "tripReviewContents_Insert", tripReviewContentsDto);
-		System.out.println(num);
 		if(num >0) {
 			session.commit();
 		}
@@ -61,7 +58,7 @@ public class TripReviewContentsDaoImpl extends TripReviewSqlMapConfig implements
 	@Override
 	public int delete(int tvc_no) {
 		SqlSession session = getSqlSessionFactory().openSession();
-		num = session.update(namespace + "tripReviewContents_Delete", tvc_no);
+		num = session.delete(namespace + "tripReviewContents_Delete", tvc_no);
 		if(num >0) {
 			session.commit();
 		}

@@ -8,6 +8,6 @@
 		INSERT INTO KEYSEARCH VALUES(#{myid}, #{search})
 	</insert>
 	<select id="searchList" parameterType="string" resultType="searchDto" >
-		SELECT * FROM KEYSEARCH
+		SELECT * from 
 	</select>
 </mapper>

@@ -1,4 +1,4 @@
-package com.trip.dao.search;
+package com.trip.search.dao;
 
 public interface SearchDao {
 	

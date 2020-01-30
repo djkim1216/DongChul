@@ -1,4 +1,4 @@
-package com.trip.controller.search;
+package com.trip.search.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.trip.dao.search.SearchDao;
-import com.trip.dao.search.SearchDaoImpl;
-import com.trip.dto.search.SearchDto;
+import com.trip.search.dao.SearchDao;
+import com.trip.search.dao.SearchDaoImpl;
+import com.trip.search.dto.SearchDto;
 
 @WebServlet("/UserSearchServlet")
 public class UserSearchServlet extends HttpServlet {

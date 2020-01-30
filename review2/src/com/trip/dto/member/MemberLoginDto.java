@@ -1,7 +1,9 @@
+
 package com.trip.dto.member;
 
+import com.trip.util.Sha256Util;
+
 public class MemberLoginDto {
-	private int m_no;
 	private String m_id;
 	private String m_nick;
 	private String m_pass;
@@ -10,21 +12,12 @@ public class MemberLoginDto {
 	private String m_phone;
 	private String m_flag;
 	private String m_grade;
-	private String platform;
+	private String m_platform;
+	private String m_filepath;
+	private String m_addr1;
+	private String m_addr2;
 	
-	public String getPlatform() {
-		return platform;
-	}
-	public void setPlatform(String platform) {
-		this.platform = platform;
-	}
 	
-	public int getM_no() {
-		return m_no;
-	}
-	public void setM_no(int m_no) {
-		this.m_no = m_no;
-	}
 	public String getM_id() {
 		return m_id;
 	}
@@ -41,7 +34,8 @@ public class MemberLoginDto {
 		return m_pass;
 	}
 	public void setM_pass(String m_pass) {
-		this.m_pass = m_pass;
+		//sha256으로 hash 암호화 후 저장
+		this.m_pass = Sha256Util.encSha256(m_pass);
 	}
 	public String getM_name() {
 		return m_name;
@@ -73,11 +67,37 @@ public class MemberLoginDto {
 	public void setM_grade(String m_grade) {
 		this.m_grade = m_grade;
 	}
+	public String getM_platform() {
+		return m_platform;
+	}
+	public void setM_platform(String m_platform) {
+		this.m_platform = m_platform;
+	}
+	public String getM_filepath() {
+		return m_filepath;
+	}
+	public void setM_filepath(String m_filepath) {
+		this.m_filepath = m_filepath;
+	}
+	public String getM_addr1() {
+		return m_addr1;
+	}
+	public void setM_addr1(String m_addr1) {
+		this.m_addr1 = m_addr1;
+	}
+	public String getM_addr2() {
+		return m_addr2;
+	}
+	public void setM_addr2(String m_addr2) {
+		this.m_addr2 = m_addr2;
+	}
 	@Override
 	public String toString() {
-		return "MemberLoginDto [m_no=" + m_no + ", m_id=" + m_id + ", m_nick=" + m_nick + ", m_pass=" + m_pass + ", m_name=" + m_name
-				+ ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_flag=" + m_flag + ", m_grade=" + m_grade + "]";
+		return "MemberLoginDto [m_id=" + m_id + ", m_nick=" + m_nick + ", m_pass=" + m_pass + ", m_name=" + m_name
+				+ ", m_email=" + m_email + ", m_phone=" + m_phone + ", m_flag=" + m_flag + ", m_grade=" + m_grade
+				+ ", m_platform=" + m_platform + ", m_filepath=" + m_filepath + ", m_addr1=" + m_addr1 + ", m_addr2="
+				+ m_addr2 + "]";
 	}
-
 	
 }
+

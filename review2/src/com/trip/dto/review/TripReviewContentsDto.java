@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class TripReviewContentsDto {
 
-	String tvc_contents, tvc_path, tvc_delflag, tvc_userid, tvc_title;
+	String tvc_contents, tvc_path, tvc_delflag;
 	int tvc_no, tvc_day, tvc_tvno, tvc_reviewid, tvc_routeid ;
 	Date tvc_date, tvc_modifydate;
 	
@@ -15,52 +15,12 @@ public class TripReviewContentsDto {
 
 
 	
-	
-
-
 	@Override
 	public String toString() {
 		return "TripReviewContentsDto [tvc_contents=" + tvc_contents + ", tvc_path=" + tvc_path + ", tvc_delflag="
-				+ tvc_delflag + ", tvc_userid=" + tvc_userid + ", tvc_title=" + tvc_title + ", tvc_no=" + tvc_no
-				+ ", tvc_day=" + tvc_day + ", tvc_tvno=" + tvc_tvno + ", tvc_reviewid=" + tvc_reviewid
-				+ ", tvc_routeid=" + tvc_routeid + ", tvc_date=" + tvc_date + ", tvc_modifydate=" + tvc_modifydate
-				+ "]";
-	}
-
-
-
-
-
-
-	public String getTvc_title() {
-		return tvc_title;
-	}
-
-
-
-
-
-
-	public void setTvc_title(String tvc_title) {
-		this.tvc_title = tvc_title;
-	}
-
-
-
-
-
-
-	public String getTvc_userid() {
-		return tvc_userid;
-	}
-
-
-
-
-
-
-	public void setTvc_userid(String tvc_userid) {
-		this.tvc_userid = tvc_userid;
+				+ tvc_delflag + ", tvc_no=" + tvc_no + ", tvc_day=" + tvc_day + ", tvc_tvno=" + tvc_tvno
+				+ ", tvc_reviewid=" + tvc_reviewid + ", tvc_routeid=" + tvc_routeid + ", tvc_date=" + tvc_date
+				+ ", tvc_modifydate=" + tvc_modifydate + "]";
 	}
 
 

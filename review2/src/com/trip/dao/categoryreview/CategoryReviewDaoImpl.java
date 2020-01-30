@@ -106,22 +106,6 @@ public class CategoryReviewDaoImpl extends CategoryReveiwSqlMapConfig implements
 		
 		return num;
 	}
-
-	@Override
-	public List<CategoryReviewDto> selectMyReview(String cr_id, String cr_placeid) {
-		
-		SqlSession session = getSqlSessionFactory().openSession();
-		
-		Map<String, String> params = new HashMap<String, String>();
-		
-		params.put("cr_id", cr_id);
-		params.put("cr_placeid", cr_placeid);
-		
-		List<CategoryReviewDto> selectList = session.selectList(namespace + "selectMyReview", params);
-		session.close();
-		return selectList;
-		
-	}
 	
 	
 	

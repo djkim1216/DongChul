@@ -69,10 +69,10 @@
 				<a href="#" onclick="return false;"><div class="commentBtn">
 						<p>
 							<img src="./images/board_icon/comment_icon.png" /> <span>댓글</span>
-							<span>0</span> <span></span>
+							<span></span> <span></span>
 						</p>
 					</div></a>
-				<c:if test="${user.m_id eq dto.cr_id}">
+				<c:if test="${user eq dto.cr_id}">
 					<a href="CategoryReviewModify?cr_no=${dto.cr_no}" class="modify">수정</a>
 					<a href="CategoryReviewDelete?cr_no=${dto.cr_no}" class="delete">삭제</a>
 				</c:if>

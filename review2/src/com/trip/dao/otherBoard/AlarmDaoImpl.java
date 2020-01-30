@@ -9,7 +9,7 @@ import com.trip.dto.otherBoard.AlarmDto;
 
 public class AlarmDaoImpl extends OtherBoardSqlMapConfig implements AlarmDao{
 
-	String namespace = "com.trip.db.otherBoard.OtherBoard-mapper.";
+	String namespace = "com.trip.db.otherBoard.otherBoard-mapper.";
 	
 	@Override
 	public List<AlarmDto> selectList(String al_id) {
@@ -25,8 +25,7 @@ public class AlarmDaoImpl extends OtherBoardSqlMapConfig implements AlarmDao{
 	}
 
 	@Override
-	public int viewChange(int al_no) {
-		// TODO Auto-generated method stub
+	public int viewChange(int al_no) {		
 		
 		SqlSession session = getSqlSessionFactory().openSession();
 		
@@ -72,6 +71,22 @@ public class AlarmDaoImpl extends OtherBoardSqlMapConfig implements AlarmDao{
 		return res;
 	}
 
-	
+	@Override
+	public int alarmCount(String al_id) {
+		// TODO Auto-generated method stub
+		SqlSession session = getSqlSessionFactory().openSession();
+		
+		int count = 0;
+		try {
+			count = session.selectOne(namespace+"alarmcount", al_id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+		
+		session.close();
+		
+		return count;
+	}
 	
 }
