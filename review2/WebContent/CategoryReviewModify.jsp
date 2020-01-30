@@ -7,16 +7,9 @@
 <title>Insert title here</title>
 </head>
 
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
-	rel="stylesheet">
 <script src="./js/jquery-3.4.1.min.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-
-<link href="./api/summernote/summernote.css" rel="stylesheet">
-<script src="./api/summernote/summernote.js"></script>
-
+<link href="./api/summernote/summernote-lite.min.css" rel="stylesheet">
+<script src="./api/summernote/summernote-lite.min.js"></script>
 <script type="text/javascript" src="./js/CategoryReviewModify.js"></script>
 <script type="text/javascript" src="./js/PlaceSearch.js"></script>
 <script type="text/javascript">

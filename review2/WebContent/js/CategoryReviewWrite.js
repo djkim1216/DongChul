@@ -142,6 +142,12 @@
 					}
 				});
 				
+				$('form').submit(function(){
+					if ($('#summernote').summernote('isEmpty')) {
+						  alert('editor content is empty');
+						}
+				});
+				
 			});
 
 	
